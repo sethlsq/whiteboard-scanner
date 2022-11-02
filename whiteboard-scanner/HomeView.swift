@@ -10,12 +10,19 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         NavigationView {
-            HStack() {
+            ScrollView(.vertical) {
                 Button {
-                    print("button")
+                    print("ScanView")
                 } label: {
-                    Label("Scan", systemImage: "doc.viewfinder")
+                    HStack() {
+                        Image(systemName: "doc.viewfinder")
+                        Text("New Scan")
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                    }
                 }
+                .buttonStyle(.borderedProminent)
+                .padding()
             }
             .navigationTitle("Home")
         }

@@ -13,6 +13,7 @@
 		CD15311829038860005D37DD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD15311729038860005D37DD /* Preview Assets.xcassets */; };
 		CD15311F290393A1005D37DD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD15311E290393A1005D37DD /* HomeView.swift */; };
 		CD153121290393B6005D37DD /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD153120290393B6005D37DD /* LibraryView.swift */; };
+		CD74F24E29127ED900827DE7 /* data.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD74F24D29127ED900827DE7 /* data.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		CD15311729038860005D37DD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CD15311E290393A1005D37DD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CD153120290393B6005D37DD /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		CD74F24D29127ED900827DE7 /* data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			children = (
 				CD1531102903885E005D37DD /* whiteboard_scannerApp.swift */,
 				CD1531122903885E005D37DD /* ContentView.swift */,
+				CD74F24D29127ED900827DE7 /* data.swift */,
 				CD15311E290393A1005D37DD /* HomeView.swift */,
 				CD153120290393B6005D37DD /* LibraryView.swift */,
 				CD15311429038860005D37DD /* Assets.xcassets */,
@@ -146,6 +149,7 @@
 				CD153121290393B6005D37DD /* LibraryView.swift in Sources */,
 				CD15311F290393A1005D37DD /* HomeView.swift in Sources */,
 				CD1531132903885E005D37DD /* ContentView.swift in Sources */,
+				CD74F24E29127ED900827DE7 /* data.swift in Sources */,
 				CD1531112903885E005D37DD /* whiteboard_scannerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
