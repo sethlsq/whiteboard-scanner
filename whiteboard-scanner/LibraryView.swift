@@ -11,7 +11,7 @@ struct LibraryView: View {
     var body: some View {
         NavigationView {
             ScrollView(.vertical) {
-               Text("test")
+               Text("test test")
             }
             .navigationTitle("Library")
         }
