@@ -11,13 +11,13 @@ struct HomeView: View {
     
     // new scan functions
     func importByCamera() {
-        
+        // scan view here
     }
     func importByPhotos() {
-        
+        // photo picker here
     }
     func importByFiles() {
-        
+        // files picker here
     }
     
     var body: some View {
