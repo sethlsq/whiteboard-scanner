@@ -9,12 +9,18 @@ import SwiftUI
 
 @main
 struct whiteboard_scannerApp: App {
-    @StateObject private var dataController = DataController()
+    
+    let persistenceController = PersistenceController.shared
+    
+    @Environment(\.scenePhase) var scenePhase
     
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext, dataController.container.viewContext)
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+        }
+        .onChange(of: scenePhase) { _ in
+            persistenceController.save()
         }
     }
 }
