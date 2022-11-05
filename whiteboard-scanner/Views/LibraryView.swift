@@ -10,10 +10,10 @@ import SwiftUI
 struct LibraryView: View {
     var body: some View {
         NavigationView {
-            ScrollView(.vertical) {
-               Text("test test test test")
+            ScrollView {
+                Text("hello")
             }
-            .navigationTitle("Library")
+            .navigationTitle("Whiteboards")
         }
     }
 }
