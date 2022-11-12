@@ -17,6 +17,7 @@
 		CDAB18872912986A0018829D /* TimeFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAB18862912986A0018829D /* TimeFormatting.swift */; };
 		CDC29E8229153A41008E2203 /* Import.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC29E8129153A41008E2203 /* Import.swift */; };
 		CDF13EB52914E2FB00331308 /* WhiteboardDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CDF13EB32914E2FB00331308 /* WhiteboardDataModel.xcdatamodeld */; };
+		D9AD1E55291F30BF00E91519 /* Custom Colours.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AD1E54291F30BF00E91519 /* Custom Colours.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		CDAB18862912986A0018829D /* TimeFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatting.swift; sourceTree = "<group>"; };
 		CDC29E8129153A41008E2203 /* Import.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Import.swift; sourceTree = "<group>"; };
 		CDF13EB42914E2FB00331308 /* WhiteboardDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WhiteboardDataModel.xcdatamodel; sourceTree = "<group>"; };
+		D9AD1E54291F30BF00E91519 /* Custom Colours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom Colours.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				CDAB1884291298130018829D /* DataModel */,
 				CDAB1883291297E00018829D /* Views */,
 				CD15311429038860005D37DD /* Assets.xcassets */,
+				D9AD1E54291F30BF00E91519 /* Custom Colours.swift */,
 				CD15311629038860005D37DD /* Preview Content */,
 			);
 			path = "whiteboard-scanner";
@@ -187,6 +190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9AD1E55291F30BF00E91519 /* Custom Colours.swift in Sources */,
 				CDF13EB52914E2FB00331308 /* WhiteboardDataModel.xcdatamodeld in Sources */,
 				CDAB187C291293FF0018829D /* PersistenceController.swift in Sources */,
 				CDC29E8229153A41008E2203 /* Import.swift in Sources */,

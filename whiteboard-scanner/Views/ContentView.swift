@@ -20,7 +20,7 @@ struct ContentView: View {
 
             LibraryView()
                 .tabItem {
-                    Label("Whiteboards", systemImage: "rectangle.fill.on.rectangle.fill")
+                    Label("Library", systemImage: "rectangle.fill.on.rectangle.fill")
                 }
         }
     }
