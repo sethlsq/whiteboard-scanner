@@ -46,6 +46,7 @@ struct HomeView: View {
                         Image(systemName: "doc.viewfinder")
                         Text("New Scan")
                     }
+                    .bold()
                     .padding()
                     .frame(maxWidth: .infinity)
                 }
