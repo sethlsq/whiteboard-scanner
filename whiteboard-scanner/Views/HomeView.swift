@@ -47,6 +47,7 @@ struct HomeView: View {
                         Text("New Scan")
                     }
                     .bold()
+                    .font(.system(size:20))
                     .padding()
                     .frame(maxWidth: .infinity)
                 }
