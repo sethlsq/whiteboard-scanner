@@ -10,11 +10,17 @@ import VisionKit
 
 // new scan functions
 func importByCamera() {
-    Scanner()
+    // scan
 }
 func importByPhotos() {
     // photo picker here
 }
 func importByFiles() {
     // files picker here
+}
+func saveToPhotos() {
+    // photo saver here
+}
+func saveToFiles() {
+    // file saver here
 }
