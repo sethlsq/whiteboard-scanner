@@ -194,6 +194,7 @@
 				CDAB18872912986A0018829D /* TimeFormatting.swift in Sources */,
 				D9CB089A2921E46100E30DBD /* SamplePinnedView.swift in Sources */,
 				D9CB089E2921FD4F00E30DBD /* ImageSaver.swift in Sources */,
+				D9D044F42922039F00C08BC4 /* File.swift in Sources */,
 				D9CB089C2921F81000E30DBD /* LibraryView.swift in Sources */,
 				CD15311F290393A1005D37DD /* HomeView.swift in Sources */,
 				D9CB08A02922022E00E30DBD /* ImagePicker.swift in Sources */,
