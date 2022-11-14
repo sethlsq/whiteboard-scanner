@@ -9,6 +9,11 @@ import SwiftUI
 
 struct HomeView: View {    
     
+    @State private var image: Image?
+    @State private var inputImage: UIImage?
+    @State private var showingImagePicker = false
+    @State private var showingImageView = false
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -32,7 +37,9 @@ struct HomeView: View {
                                 
                                 // photos
                                 Button {
-                                    importByPhotos()
+                                    
+                                    showingImagePicker = true
+                                    
                                 } label: {
                                     Image(systemName: "photo")
                                     Text("Photos")
@@ -64,11 +71,33 @@ struct HomeView: View {
                         .buttonStyle(.borderedProminent)
                         .padding()
                     }
-
+                    
                 }.navigationTitle("Home")
+                
+                    .sheet(isPresented: $showingImagePicker) {
+                        
+                        ImagePicker(image: $inputImage)
+                        
+                    }.onChange(of: inputImage){ _ in
+                        loadImage()
+                        showingImageView = true 
+                    }
+                
+                    .sheet(isPresented: $showingImageView) {
+                        SamplePinnedView(image: image)
+                    }
             }
         }
     }
+    
+    func loadImage() {
+        
+        guard let inputImage = inputImage else { return }
+        
+        image = Image(uiImage: inputImage)
+        
+    }
+    
 }
 
 struct HomeView_Previews: PreviewProvider {

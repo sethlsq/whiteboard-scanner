@@ -19,6 +19,7 @@
 		D9CB089A2921E46100E30DBD /* SamplePinnedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB08992921E46100E30DBD /* SamplePinnedView.swift */; };
 		D9CB089C2921F81000E30DBD /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB089B2921F81000E30DBD /* LibraryView.swift */; };
 		D9CB089E2921FD4F00E30DBD /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB089D2921FD4F00E30DBD /* ImageSaver.swift */; };
+		D9CB08A02922022E00E30DBD /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB089F2922022E00E30DBD /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		D9CB08992921E46100E30DBD /* SamplePinnedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplePinnedView.swift; sourceTree = "<group>"; };
 		D9CB089B2921F81000E30DBD /* LibraryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		D9CB089D2921FD4F00E30DBD /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
+		D9CB089F2922022E00E30DBD /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				CDC29E8129153A41008E2203 /* Import.swift */,
+				D9CB089F2922022E00E30DBD /* ImagePicker.swift */,
 				D9CB089D2921FD4F00E30DBD /* ImageSaver.swift */,
 			);
 			path = Functions;
@@ -193,6 +196,7 @@
 				D9CB089E2921FD4F00E30DBD /* ImageSaver.swift in Sources */,
 				D9CB089C2921F81000E30DBD /* LibraryView.swift in Sources */,
 				CD15311F290393A1005D37DD /* HomeView.swift in Sources */,
+				D9CB08A02922022E00E30DBD /* ImagePicker.swift in Sources */,
 				CD1531132903885E005D37DD /* ContentView.swift in Sources */,
 				CD1531112903885E005D37DD /* whiteboard_scannerApp.swift in Sources */,
 			);

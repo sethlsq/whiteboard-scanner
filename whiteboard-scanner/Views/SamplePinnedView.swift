@@ -10,9 +10,8 @@ import SwiftUI
 struct SamplePinnedView: View {
     
     @AppStorage ("note") var note = ""
-    @State private var image: Image?
+    var image: Image?
     @State private var inputImage: UIImage?
-    @State private var showingImagePicker = false
     
     var body: some View {
         
@@ -27,29 +26,30 @@ struct SamplePinnedView: View {
                     //Potato
                     ZStack {
                         
+                        
                         image?
                             .resizable()
                             .padding()
                             .scaledToFit()
                         
-                        Button {
-                            
-                            
-                            
-                        } label: {
-                            
-                            Image(systemName: "pencil")
-                                .foregroundColor(.white)
-                                .padding()
-                                .background(.blue)
-                                .frame(maxWidth: 40, maxHeight: 40)
-                                .cornerRadius(70)
-                                .font(.system(size:30))
-                                .offset(x:145, y:97)
-                            
-                            
-                            
-                        }
+//                        Button {
+//
+//                            loadImage()
+//
+//                        } label: {
+//
+//                            Image(systemName: "pencil")
+//                                .foregroundColor(.white)
+//                                .padding()
+//                                .background(.blue)
+//                                .frame(maxWidth: 40, maxHeight: 40)
+//                                .cornerRadius(70)
+//                                .font(.system(size:30))
+//                                .offset(x:145, y:97)
+//
+//
+//
+//                        }
                         
                     }
                         
@@ -106,10 +106,19 @@ struct SamplePinnedView: View {
         
         
     }
+    
+//    func loadImage() {
+//
+//        guard let inputImage = inputImage else { return }
+//
+//        image = Image(uiImage: inputImage)
+//
+//    }
+    
 }
 
 struct SamplePinnedView_Previews: PreviewProvider {
     static var previews: some View {
-        SamplePinnedView()
+        SamplePinnedView(image: Image("potatoes"))
     }
 }
