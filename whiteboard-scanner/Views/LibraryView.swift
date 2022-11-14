@@ -1,3 +1,4 @@
+
 //
 //  LibraryView.swift
 //  whiteboard-scanner
@@ -16,62 +17,31 @@ struct LibraryView: View {
                 
                 Color.BackgroundColor.edgesIgnoringSafeArea(.all)
                 
-                VStack{
+                Form {
                     
-                    HStack {
+                    // Pinned
+                    Section (header: Text("PINNED")) {
                         
-                        Text("PINNED")
-                            .foregroundColor(.SubheadingColor)
-                            .font(.system(size:12))
-                            .frame(width:80)
+                        NavigationLink("Trigonometry Graphs", destination: SamplePinnedView())
+                        NavigationLink("English", destination: SamplePinnedView())
+                            
+                        }
                         
-                        Spacer()
+                    
+                    
+                    // All
+                    Section (header: Text("ALL")) {
+                        
+                        NavigationLink("Physics", destination: SamplePinnedView())
                         
                     }
-                
-                    // Pinned VStack
-                    
-                    
-                        
-                        VStack {
-                            
-                            HStack {
-                                
-                                Spacer()
-                                Spacer()
-                                
-                                GeometryReader { context in
-                                    
-                                    Button {
-                                        
-                                        
-                                        
-                                    } label: {
-                                        
-                                        
-                                        
-                                    }.frame(maxWidth: context.size.width)
-                                        .padding(40)
-                                        .background(.black)
-                                        .cornerRadius(13)
-                                    
-                                    
-                                }
-                                
-                                Spacer()
-                                Spacer()
-                            }
-                        }
-                    
                     
                 }
                 
-            }
-            .navigationTitle("Library")
-            
+            }.navigationTitle("Library")
+
             
         }
-        
     }
 }
 
