@@ -12,9 +12,9 @@
 		CD15311529038860005D37DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD15311429038860005D37DD /* Assets.xcassets */; };
 		CD15311829038860005D37DD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD15311729038860005D37DD /* Preview Assets.xcassets */; };
 		CD15311F290393A1005D37DD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD15311E290393A1005D37DD /* HomeView.swift */; };
+		CD5069D72922104E005897C5 /* DocumentCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5069D62922104E005897C5 /* DocumentCameraView.swift */; };
 		CDAB18872912986A0018829D /* TimeFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAB18862912986A0018829D /* TimeFormatting.swift */; };
 		CDC29E8229153A41008E2203 /* Import.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC29E8129153A41008E2203 /* Import.swift */; };
-		CDC6B09F2921DDA700E5D447 /* DocumentScannerView in Resources */ = {isa = PBXBuildFile; fileRef = CDC6B09E2921DDA700E5D447 /* DocumentScannerView */; };
 		D9AD1E55291F30BF00E91519 /* Custom Colours.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AD1E54291F30BF00E91519 /* Custom Colours.swift */; };
 		D9CB089A2921E46100E30DBD /* SamplePinnedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB08992921E46100E30DBD /* SamplePinnedView.swift */; };
 		D9CB089C2921F81000E30DBD /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB089B2921F81000E30DBD /* LibraryView.swift */; };
@@ -29,9 +29,9 @@
 		CD15311429038860005D37DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD15311729038860005D37DD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CD15311E290393A1005D37DD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		CD5069D62922104E005897C5 /* DocumentCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCameraView.swift; sourceTree = "<group>"; };
 		CDAB18862912986A0018829D /* TimeFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatting.swift; sourceTree = "<group>"; };
 		CDC29E8129153A41008E2203 /* Import.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Import.swift; sourceTree = "<group>"; };
-		CDC6B09E2921DDA700E5D447 /* DocumentScannerView */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DocumentScannerView; sourceTree = "<group>"; };
 		D9AD1E54291F30BF00E91519 /* Custom Colours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom Colours.swift"; sourceTree = "<group>"; };
 		D9CB08992921E46100E30DBD /* SamplePinnedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplePinnedView.swift; sourceTree = "<group>"; };
 		D9CB089B2921F81000E30DBD /* LibraryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
@@ -91,9 +91,9 @@
 		CDAB1883291297E00018829D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CDC6B09E2921DDA700E5D447 /* DocumentScannerView */,
 				CD1531122903885E005D37DD /* ContentView.swift */,
 				CD15311E290393A1005D37DD /* HomeView.swift */,
+				CD5069D62922104E005897C5 /* DocumentCameraView.swift */,
 				D9CB089B2921F81000E30DBD /* LibraryView.swift */,
 				D9CB08992921E46100E30DBD /* SamplePinnedView.swift */,
 			);
@@ -178,7 +178,6 @@
 			files = (
 				CD15311829038860005D37DD /* Preview Assets.xcassets in Resources */,
 				CD15311529038860005D37DD /* Assets.xcassets in Resources */,
-				CDC6B09F2921DDA700E5D447 /* DocumentScannerView in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,6 +190,7 @@
 			files = (
 				D9AD1E55291F30BF00E91519 /* Custom Colours.swift in Sources */,
 				CDC29E8229153A41008E2203 /* Import.swift in Sources */,
+				CD5069D72922104E005897C5 /* DocumentCameraView.swift in Sources */,
 				CDAB18872912986A0018829D /* TimeFormatting.swift in Sources */,
 				D9CB089A2921E46100E30DBD /* SamplePinnedView.swift in Sources */,
 				D9CB089E2921FD4F00E30DBD /* ImageSaver.swift in Sources */,
@@ -330,6 +330,7 @@
 				DEVELOPMENT_TEAM = 6C43UBPU7J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "To scan whiteboards";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We want to import your whiteboard picture";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -360,6 +361,7 @@
 				DEVELOPMENT_TEAM = 6C43UBPU7J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "To scan whiteboards";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We want to import your whiteboard picture";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

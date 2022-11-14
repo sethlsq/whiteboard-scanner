@@ -9,6 +9,8 @@ import SwiftUI
 
 struct HomeView: View {    
     
+    @State var isDocumentScannerPresented = false
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -20,7 +22,7 @@ struct HomeView: View {
                         Menu {
                             // by camera
                             Button {
-                                importByCamera()
+                                isDocumentScannerPresented = true
                             } label: {
                                 Image(systemName: "camera")
                                 Text("Camera")
@@ -75,6 +77,9 @@ struct HomeView: View {
                     }
                 }.navigationTitle("Home")
             }
+        }
+        .sheet(isPresented: $isDocumentScannerPresented) {
+            DocumentCameraView()
         }
     }
 }
