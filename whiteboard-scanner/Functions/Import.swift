@@ -18,9 +18,7 @@ func importByPhotos() {
 func importByFiles() {
     // files picker here
 }
-func saveToPhotos() {
-    // photo saver here
-}
+
 func saveToFiles() {
     // file saver here
 }

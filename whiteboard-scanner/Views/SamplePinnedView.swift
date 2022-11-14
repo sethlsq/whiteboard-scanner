@@ -10,6 +10,9 @@ import SwiftUI
 struct SamplePinnedView: View {
     
     @AppStorage ("note") var note = ""
+    @State private var image: Image?
+    @State private var inputImage: UIImage?
+    @State private var showingImagePicker = false
     
     var body: some View {
         
@@ -24,7 +27,7 @@ struct SamplePinnedView: View {
                     //Potato
                     ZStack {
                         
-                        Image("potatoes")
+                        image?
                             .resizable()
                             .padding()
                             .scaledToFit()
@@ -68,7 +71,11 @@ struct SamplePinnedView: View {
                     Menu {
                         // photos
                         Button {
-                            saveToPhotos()
+                            
+                            guard let inputImage = inputImage else {return}
+                            let imageSaver = ImageSaver()
+                            imageSaver.writeToPhotoAlbum(image: inputImage)
+                            
                         } label: {
                             Image(systemName: "photo")
                             Text("Save to Photos")
