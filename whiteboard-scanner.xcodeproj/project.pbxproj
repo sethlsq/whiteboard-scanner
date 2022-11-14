@@ -13,10 +13,9 @@
 		CD15311829038860005D37DD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD15311729038860005D37DD /* Preview Assets.xcassets */; };
 		CD15311F290393A1005D37DD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD15311E290393A1005D37DD /* HomeView.swift */; };
 		CD153121290393B6005D37DD /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD153120290393B6005D37DD /* LibraryView.swift */; };
-		CDAB187C291293FF0018829D /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAB187B291293FF0018829D /* PersistenceController.swift */; };
 		CDAB18872912986A0018829D /* TimeFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAB18862912986A0018829D /* TimeFormatting.swift */; };
 		CDC29E8229153A41008E2203 /* Import.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC29E8129153A41008E2203 /* Import.swift */; };
-		CDF13EB52914E2FB00331308 /* WhiteboardDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CDF13EB32914E2FB00331308 /* WhiteboardDataModel.xcdatamodeld */; };
+		CDC6B09F2921DDA700E5D447 /* DocumentScannerView in Resources */ = {isa = PBXBuildFile; fileRef = CDC6B09E2921DDA700E5D447 /* DocumentScannerView */; };
 		D9AD1E55291F30BF00E91519 /* Custom Colours.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AD1E54291F30BF00E91519 /* Custom Colours.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,10 +27,9 @@
 		CD15311729038860005D37DD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CD15311E290393A1005D37DD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CD153120290393B6005D37DD /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
-		CDAB187B291293FF0018829D /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		CDAB18862912986A0018829D /* TimeFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatting.swift; sourceTree = "<group>"; };
 		CDC29E8129153A41008E2203 /* Import.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Import.swift; sourceTree = "<group>"; };
-		CDF13EB42914E2FB00331308 /* WhiteboardDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WhiteboardDataModel.xcdatamodel; sourceTree = "<group>"; };
+		CDC6B09E2921DDA700E5D447 /* DocumentScannerView */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DocumentScannerView; sourceTree = "<group>"; };
 		D9AD1E54291F30BF00E91519 /* Custom Colours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom Colours.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,7 +66,6 @@
 				CD1531102903885E005D37DD /* whiteboard_scannerApp.swift */,
 				CDC29E8029153A0F008E2203 /* Functions */,
 				CDAB1885291298540018829D /* Helpers */,
-				CDAB1884291298130018829D /* DataModel */,
 				CDAB1883291297E00018829D /* Views */,
 				CD15311429038860005D37DD /* Assets.xcassets */,
 				D9AD1E54291F30BF00E91519 /* Custom Colours.swift */,
@@ -88,20 +85,12 @@
 		CDAB1883291297E00018829D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CDC6B09E2921DDA700E5D447 /* DocumentScannerView */,
 				CD1531122903885E005D37DD /* ContentView.swift */,
 				CD15311E290393A1005D37DD /* HomeView.swift */,
 				CD153120290393B6005D37DD /* LibraryView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		CDAB1884291298130018829D /* DataModel */ = {
-			isa = PBXGroup;
-			children = (
-				CDAB187B291293FF0018829D /* PersistenceController.swift */,
-				CDF13EB32914E2FB00331308 /* WhiteboardDataModel.xcdatamodeld */,
-			);
-			path = DataModel;
 			sourceTree = "<group>";
 		};
 		CDAB1885291298540018829D /* Helpers */ = {
@@ -180,6 +169,7 @@
 			files = (
 				CD15311829038860005D37DD /* Preview Assets.xcassets in Resources */,
 				CD15311529038860005D37DD /* Assets.xcassets in Resources */,
+				CDC6B09F2921DDA700E5D447 /* DocumentScannerView in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,8 +181,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9AD1E55291F30BF00E91519 /* Custom Colours.swift in Sources */,
-				CDF13EB52914E2FB00331308 /* WhiteboardDataModel.xcdatamodeld in Sources */,
-				CDAB187C291293FF0018829D /* PersistenceController.swift in Sources */,
 				CDC29E8229153A41008E2203 /* Import.swift in Sources */,
 				CDAB18872912986A0018829D /* TimeFormatting.swift in Sources */,
 				CD153121290393B6005D37DD /* LibraryView.swift in Sources */,
@@ -399,19 +387,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		CDF13EB32914E2FB00331308 /* WhiteboardDataModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				CDF13EB42914E2FB00331308 /* WhiteboardDataModel.xcdatamodel */,
-			);
-			currentVersion = CDF13EB42914E2FB00331308 /* WhiteboardDataModel.xcdatamodel */;
-			path = WhiteboardDataModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = CD1531052903885E005D37DD /* Project object */;
 }

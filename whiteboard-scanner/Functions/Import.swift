@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import VisionKit
 
 // new scan functions
 func importByCamera() {
-    // scan view here
+    Scanner()
 }
 func importByPhotos() {
     // photo picker here
