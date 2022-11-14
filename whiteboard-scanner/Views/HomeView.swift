@@ -7,53 +7,66 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct HomeView: View {    
     
     var body: some View {
         NavigationView {
-            ScrollView(.vertical) {
-                Menu {
-                    // by camera
-                    Button {
-                        importByCamera()
-                    } label: {
-                        Image(systemName: "camera")
-                        Text("Camera")
-                    }
-                    // by importing
-                    Menu {
-                        // photos
-                        Button {
-                            importByPhotos()
+            ZStack {
+                
+                Color.BackgroundColor.edgesIgnoringSafeArea(.all)
+                
+                VStack {
+                    ScrollView(.vertical) {
+                        Menu {
+                            // by camera
+                            Button {
+                                importByCamera()
+                            } label: {
+                                Image(systemName: "camera")
+                                Text("Camera")
+                            }
+                            // by importing
+                            Menu {
+                                
+                                
+                                
+                                // photos
+                                Button {
+                                    importByPhotos()
+                                } label: {
+                                    Image(systemName: "photo")
+                                    Text("Photos")
+                                }
+                                
+                                
+                                
+                                //files
+                                Button {
+                                    importByFiles()
+                                } label: {
+                                    Image(systemName: "folder")
+                                    Text("Files")
+                                }
+                            } label: {
+                                Image(systemName: "square.and.arrow.down")
+                                Text("Import")
+                            }
+                            
                         } label: {
-                            Image(systemName: "photo")
-                            Text("Photos")
+                            HStack() {
+                                Image(systemName: "doc.viewfinder")
+                                Text("New Scan")
+                            }
+                            .bold()
+                            .padding()
+                            .frame(maxWidth: .infinity)
                         }
-                        //files
-                        Button {
-                            importByFiles()
-                        } label: {
-                            Image(systemName: "folder")
-                            Text("Files")
-                        }
-                    } label: {
-                        Image(systemName: "square.and.arrow.down")
-                        Text("Import")
+                        .buttonStyle(.borderedProminent)
+                        .padding()
                     }
-                    
-                } label: {
-                    HStack() {
-                        Image(systemName: "doc.viewfinder")
-                        Text("New Scan")
-                    }
-                    .bold()
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                }
-                .buttonStyle(.borderedProminent)
-                .padding()
+
+                }.navigationTitle("Home")
             }
-            .navigationTitle("Home")
         }
     }
 }
