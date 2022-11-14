@@ -65,6 +65,32 @@ struct SamplePinnedView: View {
                         
                     }
                     .padding()
+                    Menu {
+                        // photos
+                        Button {
+                            saveToPhotos()
+                        } label: {
+                            Image(systemName: "photo")
+                            Text("Save to Photos")
+                        }
+                        //files
+                        Button {
+                            saveToFiles()
+                        } label: {
+                            Image(systemName: "folder")
+                            Text("Save to Files")
+                        }
+                    } label: {
+                        HStack() {
+                            Image(systemName: "square.and.arrow.up")
+                            Text("Export")
+                        }
+                        .bold()
+                        .padding(10)
+                        .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .padding()
                 }
                 
             }.navigationTitle("Potato")
