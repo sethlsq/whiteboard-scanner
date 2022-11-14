@@ -64,7 +64,15 @@ struct HomeView: View {
                         .buttonStyle(.borderedProminent)
                         .padding()
                     }
-
+                    Form {
+                        Section (header: Text("Recents")) {
+                            NavigationLink("Trigonometry Graphs", destination: SamplePinnedView())
+                        }
+                        Section (header: Text("PINNED")) {
+                            NavigationLink("Trigonometry Graphs", destination: SamplePinnedView())
+                            NavigationLink("English", destination: SamplePinnedView())
+                        }
+                    }
                 }.navigationTitle("Home")
             }
         }
