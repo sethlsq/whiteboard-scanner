@@ -45,9 +45,10 @@ struct HomeView: View {
                     HStack() {
                         Image(systemName: "doc.viewfinder")
                         Text("New Scan")
-                            .frame(maxWidth: .infinity)
-                            .padding()
                     }
+                    .font(.system( size: 24))
+                    .padding()
+                    .frame(maxWidth: .infinity)
                 }
                 .buttonStyle(.borderedProminent)
                 .padding()
