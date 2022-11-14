@@ -8,10 +8,6 @@
 import Foundation
 import VisionKit
 
-// new scan functions
-func importByCamera() {
-    // scan
-}
 func importByPhotos() {
     // photo picker here
 }

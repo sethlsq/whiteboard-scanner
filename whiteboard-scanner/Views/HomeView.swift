@@ -13,6 +13,7 @@ struct HomeView: View {
     @State private var inputImage: UIImage?
     @State private var showingImagePicker = false
     @State private var showingImageView = false
+    @State var isDocumentScannerPresented = false
     
     var body: some View {
         NavigationView {
@@ -25,7 +26,7 @@ struct HomeView: View {
                         Menu {
                             // by camera
                             Button {
-                                importByCamera()
+                                isDocumentScannerPresented = true
                             } label: {
                                 Image(systemName: "camera")
                                 Text("Camera")
@@ -87,6 +88,9 @@ struct HomeView: View {
                         SamplePinnedView(image: image)
                     }
             }
+        }
+        .sheet(isPresented: $isDocumentScannerPresented) {
+            DocumentCameraView()
         }
     }
     
