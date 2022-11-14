@@ -24,7 +24,7 @@ struct SamplePinnedView: View {
                     //Potato
                     ZStack {
                         
-                        Image("potat0")
+                        Image("potatoes")
                             .resizable()
                             .padding()
                             .scaledToFit()
