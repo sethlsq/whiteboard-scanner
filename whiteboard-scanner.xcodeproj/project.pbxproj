@@ -50,6 +50,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C725915829232EAB0000D5DE /* Features */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Features;
+			path = Helpers/Features;
+			sourceTree = "<group>";
+		};
 		CD1531042903885E005D37DD = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				CD1531102903885E005D37DD /* whiteboard_scannerApp.swift */,
+				C725915829232EAB0000D5DE /* Features */,
 				CDC29E8029153A0F008E2203 /* Functions */,
 				CDAB1885291298540018829D /* Helpers */,
 				CDAB1883291297E00018829D /* Views */,
@@ -194,7 +203,6 @@
 				CDAB18872912986A0018829D /* TimeFormatting.swift in Sources */,
 				D9CB089A2921E46100E30DBD /* SamplePinnedView.swift in Sources */,
 				D9CB089E2921FD4F00E30DBD /* ImageSaver.swift in Sources */,
-				D9D044F42922039F00C08BC4 /* File.swift in Sources */,
 				D9CB089C2921F81000E30DBD /* LibraryView.swift in Sources */,
 				CD15311F290393A1005D37DD /* HomeView.swift in Sources */,
 				D9CB08A02922022E00E30DBD /* ImagePicker.swift in Sources */,
