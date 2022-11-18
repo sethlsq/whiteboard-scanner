@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C72CEDC129236245000A2B2C /* LibraryView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72CEDC029236245000A2B2C /* LibraryView2.swift */; };
+		C72CEDCA29238C5E000A2B2C /* LibraryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72CEDC929238C5E000A2B2C /* LibraryDetail.swift */; };
+		C78FE49429272ACB003653AF /* NewFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FE49329272ACB003653AF /* NewFolder.swift */; };
+		C78FE497292736FA003653AF /* WhiteboardFolders.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FE496292736FA003653AF /* WhiteboardFolders.swift */; };
+		C78FE49929273714003653AF /* NewWhiteboardFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FE49829273714003653AF /* NewWhiteboardFolder.swift */; };
+		C78FE49B2927371E003653AF /* WhireboardFolderDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FE49A2927371E003653AF /* WhireboardFolderDetail.swift */; };
 		CD1531112903885E005D37DD /* whiteboard_scannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1531102903885E005D37DD /* whiteboard_scannerApp.swift */; };
 		CD1531132903885E005D37DD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1531122903885E005D37DD /* ContentView.swift */; };
 		CD15311529038860005D37DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD15311429038860005D37DD /* Assets.xcassets */; };
@@ -23,6 +29,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C72CEDC029236245000A2B2C /* LibraryView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView2.swift; sourceTree = "<group>"; };
+		C72CEDC929238C5E000A2B2C /* LibraryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDetail.swift; sourceTree = "<group>"; };
+		C78FE49329272ACB003653AF /* NewFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFolder.swift; sourceTree = "<group>"; };
+		C78FE496292736FA003653AF /* WhiteboardFolders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteboardFolders.swift; sourceTree = "<group>"; };
+		C78FE49829273714003653AF /* NewWhiteboardFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWhiteboardFolder.swift; sourceTree = "<group>"; };
+		C78FE49A2927371E003653AF /* WhireboardFolderDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhireboardFolderDetail.swift; sourceTree = "<group>"; };
 		CD15310D2903885E005D37DD /* whiteboard-scanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "whiteboard-scanner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD1531102903885E005D37DD /* whiteboard_scannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = whiteboard_scannerApp.swift; sourceTree = "<group>"; };
 		CD1531122903885E005D37DD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -50,12 +62,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C725915829232EAB0000D5DE /* Features */ = {
+		C72CEDC229238456000A2B2C /* LibraryView2&Afeature */ = {
 			isa = PBXGroup;
 			children = (
+				C72CEDC029236245000A2B2C /* LibraryView2.swift */,
+				C78FE49329272ACB003653AF /* NewFolder.swift */,
+				C72CEDC929238C5E000A2B2C /* LibraryDetail.swift */,
 			);
-			name = Features;
-			path = Helpers/Features;
+			path = "LibraryView2&Afeature";
+			sourceTree = "<group>";
+		};
+		C78FE495292736A3003653AF /* WhiteboardFolders */ = {
+			isa = PBXGroup;
+			children = (
+				C78FE496292736FA003653AF /* WhiteboardFolders.swift */,
+				C78FE49829273714003653AF /* NewWhiteboardFolder.swift */,
+				C78FE49A2927371E003653AF /* WhireboardFolderDetail.swift */,
+			);
+			path = WhiteboardFolders;
 			sourceTree = "<group>";
 		};
 		CD1531042903885E005D37DD = {
@@ -78,7 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				CD1531102903885E005D37DD /* whiteboard_scannerApp.swift */,
-				C725915829232EAB0000D5DE /* Features */,
+				C72CEDC229238456000A2B2C /* LibraryView2&Afeature */,
+				C78FE495292736A3003653AF /* WhiteboardFolders */,
 				CDC29E8029153A0F008E2203 /* Functions */,
 				CDAB1885291298540018829D /* Helpers */,
 				CDAB1883291297E00018829D /* Views */,
@@ -197,16 +222,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C72CEDC129236245000A2B2C /* LibraryView2.swift in Sources */,
 				D9AD1E55291F30BF00E91519 /* Custom Colours.swift in Sources */,
 				CDC29E8229153A41008E2203 /* Import.swift in Sources */,
+				C78FE49929273714003653AF /* NewWhiteboardFolder.swift in Sources */,
 				CD5069D72922104E005897C5 /* DocumentCameraView.swift in Sources */,
 				CDAB18872912986A0018829D /* TimeFormatting.swift in Sources */,
+				C78FE49B2927371E003653AF /* WhireboardFolderDetail.swift in Sources */,
 				D9CB089A2921E46100E30DBD /* SamplePinnedView.swift in Sources */,
+				C78FE497292736FA003653AF /* WhiteboardFolders.swift in Sources */,
+				C72CEDCA29238C5E000A2B2C /* LibraryDetail.swift in Sources */,
 				D9CB089E2921FD4F00E30DBD /* ImageSaver.swift in Sources */,
 				D9CB089C2921F81000E30DBD /* LibraryView.swift in Sources */,
 				CD15311F290393A1005D37DD /* HomeView.swift in Sources */,
 				D9CB08A02922022E00E30DBD /* ImagePicker.swift in Sources */,
 				CD1531132903885E005D37DD /* ContentView.swift in Sources */,
+				C78FE49429272ACB003653AF /* NewFolder.swift in Sources */,
 				CD1531112903885E005D37DD /* whiteboard_scannerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
