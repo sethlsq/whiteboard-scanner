@@ -85,8 +85,15 @@
 		CD1531042903885E005D37DD = {
 			isa = PBXGroup;
 			children = (
-				D9B695AD29274FF700D10EEB /* WhiteboardFolders */,
 				CD15310F2903885E005D37DD /* whiteboard-scanner */,
+				D9B695AD29274FF700D10EEB /* WhiteboardFolders */,
+				C72CEDC229238456000A2B2C /* LibraryView2&Afeature */,
+				CDC29E8029153A0F008E2203 /* Functions */,
+				CDAB1885291298540018829D /* Helpers */,
+				CDAB1883291297E00018829D /* Views */,
+				D9AD1E54291F30BF00E91519 /* Custom Colours.swift */,
+				CD15311429038860005D37DD /* Assets.xcassets */,
+				CD15311629038860005D37DD /* Preview Content */,
 				CD15310E2903885E005D37DD /* Products */,
 				D9B695AC29274FC900D10EEB /* Recovered References */,
 			);
@@ -104,13 +111,6 @@
 			isa = PBXGroup;
 			children = (
 				CD1531102903885E005D37DD /* whiteboard_scannerApp.swift */,
-				C72CEDC229238456000A2B2C /* LibraryView2&Afeature */,
-				CDC29E8029153A0F008E2203 /* Functions */,
-				CDAB1885291298540018829D /* Helpers */,
-				CDAB1883291297E00018829D /* Views */,
-				CD15311429038860005D37DD /* Assets.xcassets */,
-				D9AD1E54291F30BF00E91519 /* Custom Colours.swift */,
-				CD15311629038860005D37DD /* Preview Content */,
 			);
 			path = "whiteboard-scanner";
 			sourceTree = "<group>";
