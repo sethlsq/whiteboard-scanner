@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct HomeView: View {    
+struct HomeView: View {
+    
     
     @State private var image: Image?
     @State private var inputImage: UIImage?
