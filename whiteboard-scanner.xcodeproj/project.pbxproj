@@ -22,6 +22,8 @@
 		CDAB18872912986A0018829D /* TimeFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAB18862912986A0018829D /* TimeFormatting.swift */; };
 		CDC29E8229153A41008E2203 /* Import.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC29E8129153A41008E2203 /* Import.swift */; };
 		D9AD1E55291F30BF00E91519 /* Custom Colours.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AD1E54291F30BF00E91519 /* Custom Colours.swift */; };
+		D9B695992927236C00D10EEB /* Whiteboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B695982927236C00D10EEB /* Whiteboard.swift */; };
+		D9B6959C29272EB600D10EEB /* NewWhiteboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B6959B29272EB600D10EEB /* NewWhiteboardView.swift */; };
 		D9CB089A2921E46100E30DBD /* SamplePinnedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB08992921E46100E30DBD /* SamplePinnedView.swift */; };
 		D9CB089C2921F81000E30DBD /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB089B2921F81000E30DBD /* LibraryView.swift */; };
 		D9CB089E2921FD4F00E30DBD /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB089D2921FD4F00E30DBD /* ImageSaver.swift */; };
@@ -45,6 +47,8 @@
 		CDAB18862912986A0018829D /* TimeFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatting.swift; sourceTree = "<group>"; };
 		CDC29E8129153A41008E2203 /* Import.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Import.swift; sourceTree = "<group>"; };
 		D9AD1E54291F30BF00E91519 /* Custom Colours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom Colours.swift"; sourceTree = "<group>"; };
+		D9B695982927236C00D10EEB /* Whiteboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Whiteboard.swift; sourceTree = "<group>"; };
+		D9B6959B29272EB600D10EEB /* NewWhiteboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWhiteboardView.swift; sourceTree = "<group>"; };
 		D9CB08992921E46100E30DBD /* SamplePinnedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplePinnedView.swift; sourceTree = "<group>"; };
 		D9CB089B2921F81000E30DBD /* LibraryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		D9CB089D2921FD4F00E30DBD /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 				CD5069D62922104E005897C5 /* DocumentCameraView.swift */,
 				D9CB089B2921F81000E30DBD /* LibraryView.swift */,
 				D9CB08992921E46100E30DBD /* SamplePinnedView.swift */,
+				D9B6959B29272EB600D10EEB /* NewWhiteboardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -145,6 +150,7 @@
 		CDC29E8029153A0F008E2203 /* Functions */ = {
 			isa = PBXGroup;
 			children = (
+				D9B695982927236C00D10EEB /* Whiteboard.swift */,
 				CDC29E8129153A41008E2203 /* Import.swift */,
 				D9CB089F2922022E00E30DBD /* ImagePicker.swift */,
 				D9CB089D2921FD4F00E30DBD /* ImageSaver.swift */,
@@ -224,7 +230,9 @@
 			files = (
 				C72CEDC129236245000A2B2C /* LibraryView2.swift in Sources */,
 				D9AD1E55291F30BF00E91519 /* Custom Colours.swift in Sources */,
+				D9B695992927236C00D10EEB /* Whiteboard.swift in Sources */,
 				CDC29E8229153A41008E2203 /* Import.swift in Sources */,
+				D9B6959C29272EB600D10EEB /* NewWhiteboardView.swift in Sources */,
 				C78FE49929273714003653AF /* NewWhiteboardFolder.swift in Sources */,
 				CD5069D72922104E005897C5 /* DocumentCameraView.swift in Sources */,
 				CDAB18872912986A0018829D /* TimeFormatting.swift in Sources */,
