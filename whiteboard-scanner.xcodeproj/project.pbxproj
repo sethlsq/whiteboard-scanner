@@ -76,16 +76,6 @@
 			path = "LibraryView2&Afeature";
 			sourceTree = "<group>";
 		};
-		C78FE495292736A3003653AF /* WhiteboardFolders */ = {
-			isa = PBXGroup;
-			children = (
-				C78FE496292736FA003653AF /* WhiteboardFolders.swift */,
-				C78FE49829273714003653AF /* NewWhiteboardFolder.swift */,
-				C78FE49A2927371E003653AF /* WhireboardFolderDetail.swift */,
-			);
-			path = WhiteboardFolders;
-			sourceTree = "<group>";
-		};
 		CD1531042903885E005D37DD = {
 			isa = PBXGroup;
 			children = (
