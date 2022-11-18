@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Whiteboard.swift
 //  whiteboard-scanner
 //
 //  Created by T Krobot on 18/11/22.
