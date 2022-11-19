@@ -31,7 +31,6 @@ struct SamplePinnedView: View {
                             .resizable()
                             .padding()
                             .scaledToFit()
-                        
 //                        Button {
 //
 //                            loadImage()
