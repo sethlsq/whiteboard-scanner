@@ -124,22 +124,25 @@ struct LibraryView2: View {
                     
                 }
                 
-            }}
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                
-                Button {
-                    isSheetPresented = true
-                } label : {
-                    Image(systemName: "plus")
-                }
-                .sheet(isPresented: $isSheetPresented) {
-                    NewFolder(folders: $folders)
-                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    
+                    Button {
+                        isSheetPresented = true
+                    } label : {
+                        Image(systemName: "plus")
+                    }
+                    .sheet(isPresented: $isSheetPresented) {
+                        NewFolder(folders: $folders)
+                    }
+        }
+       
                 
             }
         }
     }
+}
     
     
     
@@ -150,4 +153,3 @@ struct LibraryView2: View {
             LibraryView2()
         }
     }
-}

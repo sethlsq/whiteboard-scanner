@@ -19,7 +19,7 @@ struct ContentView: View {
                     Label("Home", systemImage: "house.fill")
                 }
 
-            LibraryView()
+            LibraryView2()
                 .tabItem {
                     Label("Library", systemImage: "rectangle.fill.on.rectangle.fill")
                 }
