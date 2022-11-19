@@ -77,13 +77,11 @@ struct NewWhiteboardView: View {
                 }
                 .padding()
                 Button {
-                    guard let inputImage = inputImage else {return}
-                    let imageSaver = ImageSaver()
-                    imageSaver.writeToPhotoAlbum(image: inputImage)
+                    // insert save photos to app storage
                 } label: {
                     HStack() {
-                        Image(systemName: "square.and.arrow.up")
-                        Text("Export")
+                        Image(systemName: "square.and.arrow.down")
+                        Text("Save")
                     }
                     .bold()
                     .padding(10)
