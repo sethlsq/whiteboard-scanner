@@ -14,7 +14,9 @@ struct HomeView: View {
     @State private var inputImage: UIImage?
     @State private var showingImagePicker = false
     @State private var showingImageView = false
+    @State private var showingNewWhiteboardView = false
     @State var isDocumentScannerPresented = false
+    @ObservedObject var whiteboardManager: WhiteboardManager
     
     var body: some View {
         NavigationView {
@@ -80,18 +82,21 @@ struct HomeView: View {
                         
                         ImagePicker(image: $inputImage)
                         
-                    }.onChange(of: inputImage){ _ in
+                    }
+                    .onChange(of: inputImage) { _ in
                         loadImage()
-                        showingImageView = true 
+                        showingNewWhiteboardView = true
                     }
-                
-                    .sheet(isPresented: $showingImageView) {
-                        SamplePinnedView(image: image)
-                    }
+                }
+            
+            .sheet(isPresented: $isDocumentScannerPresented) {
+                DocumentCameraView()
+            } .onDisappear {
+                showingNewWhiteboardView = true
             }
-        }
-        .sheet(isPresented: $isDocumentScannerPresented) {
-            DocumentCameraView()
+            .sheet(isPresented: $showingNewWhiteboardView) {
+                NewWhiteboardView(whiteboards: $whiteboardManager.whiteboards)
+            }
         }
     }
     
@@ -100,13 +105,12 @@ struct HomeView: View {
         guard let inputImage = inputImage else { return }
         
         image = Image(uiImage: inputImage)
-        
     }
     
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(whiteboardManager: WhiteboardManager())
     }
 }

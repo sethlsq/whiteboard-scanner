@@ -10,9 +10,9 @@ import SwiftUI
 struct NewWhiteboardView: View {
     
     @State var whiteboardTitle = ""
-    @State var whiteboardDescription
-    @Binding var whiteboard: [Whiteboard]
-    
+    @State var whiteboardDescription = ""
+    @Binding var whiteboards: [Whiteboard]
+    @Environment(\.dismiss) var dismiss
     
 //    @AppStorage ("note") var note = ""
 //    var image: Image?
@@ -80,8 +80,9 @@ struct NewWhiteboardView: View {
                 }
                 .padding()
                 Button {
-                    // insert save photos to app storage
-                } label: {
+                   whiteboards.append(Whiteboard(title: whiteboardTitle, description: whiteboardDescription))
+                    dismiss()
+                        } label: {
                     HStack() {
                         Image(systemName: "square.and.arrow.down")
                         Text("Save")
@@ -94,9 +95,6 @@ struct NewWhiteboardView: View {
                 .padding()
             }
         }
-            
-        
-        
     }
     
 //    func loadImage() {
@@ -111,6 +109,6 @@ struct NewWhiteboardView: View {
 
 struct NewWhiteboardView_Previews: PreviewProvider {
     static var previews: some View {
-        NewWhiteboardView(whiteboards: .constant(Whiteboard([]))
+        NewWhiteboardView(whiteboards: .constant([]))
     }
 }

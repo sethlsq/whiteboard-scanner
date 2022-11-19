@@ -10,10 +10,11 @@ import SwiftUI
 struct ContentView: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
+    @StateObject var whiteboardManager = WhiteboardManager()
     
     var body: some View {
         TabView {
-            HomeView()
+            HomeView(whiteboardManager: whiteboardManager)
                 .tabItem {
                     Label("Home", systemImage: "house.fill")
                 }
