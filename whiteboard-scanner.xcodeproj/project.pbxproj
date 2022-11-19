@@ -16,6 +16,7 @@
 		CD15311829038860005D37DD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD15311729038860005D37DD /* Preview Assets.xcassets */; };
 		CD15311F290393A1005D37DD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD15311E290393A1005D37DD /* HomeView.swift */; };
 		CD5069D72922104E005897C5 /* DocumentCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5069D62922104E005897C5 /* DocumentCameraView.swift */; };
+		CD5069DD292869F0005897C5 /* WhiteboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5069DC292869F0005897C5 /* WhiteboardManager.swift */; };
 		CDAB18872912986A0018829D /* TimeFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAB18862912986A0018829D /* TimeFormatting.swift */; };
 		CDC29E8229153A41008E2203 /* Import.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC29E8129153A41008E2203 /* Import.swift */; };
 		D9AD1E55291F30BF00E91519 /* Custom Colours.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AD1E54291F30BF00E91519 /* Custom Colours.swift */; };
@@ -41,6 +42,7 @@
 		CD15311729038860005D37DD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CD15311E290393A1005D37DD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CD5069D62922104E005897C5 /* DocumentCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCameraView.swift; sourceTree = "<group>"; };
+		CD5069DC292869F0005897C5 /* WhiteboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteboardManager.swift; sourceTree = "<group>"; };
 		CDAB18862912986A0018829D /* TimeFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatting.swift; sourceTree = "<group>"; };
 		CDC29E8129153A41008E2203 /* Import.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Import.swift; sourceTree = "<group>"; };
 		D9AD1E54291F30BF00E91519 /* Custom Colours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom Colours.swift"; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			children = (
 				CD15311629038860005D37DD /* Preview Content */,
 				CD1531102903885E005D37DD /* whiteboard_scannerApp.swift */,
+				CD5069DC292869F0005897C5 /* WhiteboardManager.swift */,
 			);
 			path = "whiteboard-scanner";
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				CDC29E8229153A41008E2203 /* Import.swift in Sources */,
 				D9B6959C29272EB600D10EEB /* NewWhiteboardView.swift in Sources */,
 				CD5069D72922104E005897C5 /* DocumentCameraView.swift in Sources */,
+				CD5069DD292869F0005897C5 /* WhiteboardManager.swift in Sources */,
 				CDAB18872912986A0018829D /* TimeFormatting.swift in Sources */,
 				D9CB089A2921E46100E30DBD /* SamplePinnedView.swift in Sources */,
 				D9B695B82927519200D10EEB /* Whiteboard.swift in Sources */,
