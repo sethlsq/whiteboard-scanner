@@ -6,7 +6,6 @@
 
 import SwiftUI
 
-
 struct Folder: Identifiable {
     let id = UUID()
     
@@ -33,11 +32,11 @@ struct LibraryView2: View {
     @State var folders2 = [Folder2(name2: "Physics"),
                            Folder2(name2: "Biology"),
                            Folder2(name2:
-                                "Chemistry"),
+                                    "Chemistry"),
     ]
     
     @State var folders3 = [Folder3(name3: "Math"),
-               Folder3(name3: "English")]
+                           Folder3(name3: "English")]
     
     
     @State var isSheetPresented = false
@@ -62,19 +61,19 @@ struct LibraryView2: View {
                                     
                                 } label: {
                                     Text(folder.name)
-                                
+                                    
                                 }
                                 .navigationTitle("Library")
                             }
-
+                            
                             .onDelete { indexSet in
                                 folders.remove(atOffsets: indexSet)
                             }
                             .onMove { indices, newOffset in
-                                     folders.move(fromOffsets: indices, toOffset: newOffset)
-                                     }
+                                folders.move(fromOffsets: indices, toOffset: newOffset)
+                            }
                             
-            
+                            
                         }
                         
                         
@@ -88,14 +87,14 @@ struct LibraryView2: View {
                                 } label: {
                                     Text(folder2.name2)
                                 }
-                                                        }
+                            }
                             .onDelete { indexSet in
                                 folders2.remove(atOffsets: indexSet)
                             }
                             .onMove { indices, newOffset in
-                                     folders.move(fromOffsets: indices, toOffset: newOffset)
-                                     }
-                        
+                                folders.move(fromOffsets: indices, toOffset: newOffset)
+                            }
+                            
                             
                         }
                     }
@@ -112,43 +111,43 @@ struct LibraryView2: View {
                             }
                             .onDelete { indexSet in
                                 folders3.remove(atOffsets: indexSet)
-                            
+                                
                             }
                             .onMove { indices, newOffset in
-                                     folders.move(fromOffsets: indices, toOffset: newOffset)
-                                     }
-                    
+                                folders.move(fromOffsets: indices, toOffset: newOffset)
+                            }
+                            
                         }
                     }
-
+                    
                     
                     
                 }
                 
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                        
-                    Button {
-                        isSheetPresented = true
-                    } label : {
-                        Image(systemName: "plus")
-                    }
-                    .sheet(isPresented: $isSheetPresented) {
-                        NewFolder(folders: $folders)
-                    }
-                    
+            }}
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                
+                Button {
+                    isSheetPresented = true
+                } label : {
+                    Image(systemName: "plus")
                 }
+                .sheet(isPresented: $isSheetPresented) {
+                    NewFolder(folders: $folders)
+                }
+                
             }
         }
     }
-}
-
-
-
-
-struct LibraryView2_Previews: PreviewProvider {
-    static var previews: some View {
-        LibraryView2()
+    
+    
+    
+    
+    
+    struct LibraryView2_Previews: PreviewProvider {
+        static var previews: some View {
+            LibraryView2()
+        }
     }
 }
