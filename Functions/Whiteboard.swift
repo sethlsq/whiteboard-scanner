@@ -9,7 +9,7 @@ import Foundation
 
 struct Whiteboard: Identifiable, Codable {
     var id = UUID()
-    var title: String! = "Title"
-    var description: String! = ""
+    var title: String
+    var description: String
     var datecreated: Int?
 }

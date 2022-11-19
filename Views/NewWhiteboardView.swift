@@ -9,12 +9,15 @@ import SwiftUI
 
 struct NewWhiteboardView: View {
     
-    @Binding var whiteboard: Whiteboard
+    @State var whiteboardTitle = ""
+    @State var whiteboardDescription
+    @Binding var whiteboard: [Whiteboard]
     
-    @AppStorage ("note") var note = ""
-    var image: Image?
-    @State private var inputImage: UIImage?
     
+//    @AppStorage ("note") var note = ""
+//    var image: Image?
+//    @State private var inputImage: UIImage?
+//
     var body: some View {
         
    
@@ -59,13 +62,13 @@ struct NewWhiteboardView: View {
                 
                 // Description TextField
                 VStack {
-                    TextField("Title", text: $whiteboard.title, axis: .vertical)
+                    TextField("Title", text: $whiteboardTitle, axis: .vertical)
                         .lineLimit(1...5)
                         .padding()
                         .background(.white)
                         .cornerRadius(10)
                     
-                    TextField("Description", text: $whiteboard.description, axis: .vertical)
+                    TextField("Description", text: $whiteboardDescription, axis: .vertical)
                         .lineLimit(2...5)
                         .padding()
                         .background(.white)
@@ -108,6 +111,6 @@ struct NewWhiteboardView: View {
 
 struct NewWhiteboardView_Previews: PreviewProvider {
     static var previews: some View {
-        NewWhiteboardView(whiteboard: .constant(Whiteboard()))
+        NewWhiteboardView(whiteboards: .constant(Whiteboard([]))
     }
 }
