@@ -87,13 +87,11 @@ struct HomeView: View {
                     outputImages = images.compactMap { UIImage.pngData($0)() }
                 }
                 .background(.black)
-//                .onDisappear {
-//                    isNewWhiteboardViewPresented = true
-//                }
+                
             }
-            .onDisappear {
-                isNewWhiteboardViewPresented = true
-            }
+//            .onDisappear {
+//                isNewWhiteboardViewPresented = true
+//            }
         }
     }
     
