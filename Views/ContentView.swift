@@ -15,7 +15,7 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            HomeView(whiteboardManager: whiteboardManager, outputImages: [])
+            HomeView(whiteboardManager: whiteboardManager)
                 .tabItem {
                     Label("Home", systemImage: "house.fill")
                 }
@@ -28,8 +28,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}

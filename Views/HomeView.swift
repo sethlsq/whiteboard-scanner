@@ -12,7 +12,8 @@ struct HomeView: View {
     @State private var image: Image?
     @State private var inputImage: UIImage?
     @ObservedObject var whiteboardManager: WhiteboardManager
-    @State var outputImages: [Data]
+    
+    @State var outputImage = OutputImage()
     
     //sheet presented
     @State private var isImagePickerPresented = false
@@ -79,19 +80,18 @@ struct HomeView: View {
             }
             
             .sheet(isPresented: $isNewWhiteboardViewPresented) {
-                NewWhiteboardView(whiteboards: .constant([]), outputImages: outputImages)
+                NewWhiteboardView(whiteboards: .constant([]))
             }
             
             .sheet(isPresented: $isDocumentScannerPresented) {
                 DocumentCameraView() { images in
-                    outputImages = images.compactMap { UIImage.pngData($0)() }
+                    outputImage.imgData = images.compactMap { $0.pngData() }
+                    isNewWhiteboardViewPresented = true
+                    isDocumentScannerPresented = false
                 }
                 .background(.black)
                 
             }
-//            .onDisappear {
-//                isNewWhiteboardViewPresented = true
-//            }
         }
     }
     

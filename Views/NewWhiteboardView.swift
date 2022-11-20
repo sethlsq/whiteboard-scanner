@@ -12,30 +12,25 @@ struct NewWhiteboardView: View {
     @State var whiteboard = ""
     @Binding var whiteboards: [Whiteboard]
     @Environment(\.presentationMode) var presentationMode
-    
-    @State var outputImages: [Data]
+    var outputImage = OutputImage()
     
     var body: some View {
         NavigationView {
             List {
                 Section {
                     ScrollView(.horizontal) {
-                        HStack {
-                            ForEach(whiteboards) { whiteboard in
-                                Image("Test")
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 128, height: 128)
-                                    .cornerRadius(12)
-                                    .padding()
-                            }
-                        }
+                        Image(uiImage: UIImage(data: outputImage.imgData[0])!)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 128, height: 128)
+                                .cornerRadius(12)
+                                .padding()
                     }
                 }
                 Section(header: Text("options")) {
                     TextField("Title", text: $whiteboard)
                     Button("Save") {
-                        whiteboards.append(Whiteboard(title: whiteboard, imageData: outputImages))
+                        whiteboards.append(Whiteboard(title: whiteboard, imageData: outputImage.imgData))
                         presentationMode.wrappedValue.dismiss()
                     }
                 }
@@ -43,7 +38,6 @@ struct NewWhiteboardView: View {
             .navigationTitle("New Whiteboard")
         }
     }
-    
 }
 
 //struct NewWhiteboardView_Previews: PreviewProvider {
