@@ -15,14 +15,14 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            HomeView(whiteboardManager: whiteboardManager)
+            HomeView(whiteboardManager: whiteboardManager, outputImages: [])
                 .tabItem {
                     Label("Home", systemImage: "house.fill")
                 }
 
-            LibraryView2()
+            LibraryView()
                 .tabItem {
-                    Label("Library", systemImage: "rectangle.fill.on.rectangle.fill")
+                    Label("Whiteboards", systemImage: "rectangle.fill.on.rectangle.fill")
                 }
         }
     }
