@@ -9,7 +9,8 @@ import SwiftUI
 
 struct NewWhiteboardView: View {
     
-    @State var whiteboard = ""
+    @State var whiteboardTitle = ""
+    @State var whiteboardDesc = ""
     @Binding var whiteboards: [Whiteboard]
     @Environment(\.presentationMode) var presentationMode
     @Binding var outputImage: OutputImage
@@ -19,7 +20,7 @@ struct NewWhiteboardView: View {
             List {
                 Section {
                     ScrollView(.horizontal) {
-                        Image(uiImage: UIImage(data: outputImage.imgData[0])!)
+                        Image(uiImage: UIImage(data: outputImage.imgData[outputImage.imgData.count - 1])!)
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 128, height: 128)
@@ -28,9 +29,10 @@ struct NewWhiteboardView: View {
                     }
                 }
                 Section(header: Text("options")) {
-                    TextField("Title", text: $whiteboard)
+                    TextField("Title", text: $whiteboardTitle)
+                    TextField("Description", text: $whiteboardDesc)
                     Button("Save") {
-                        whiteboards.append(Whiteboard(title: whiteboard, imageData: outputImage.imgData))
+                        whiteboards.append(Whiteboard(title: whiteboardTitle, description: whiteboardDesc, imageData: outputImage.imgData))
                         presentationMode.wrappedValue.dismiss()
                     }
                 }

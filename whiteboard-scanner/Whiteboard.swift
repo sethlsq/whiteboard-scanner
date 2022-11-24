@@ -12,8 +12,6 @@ struct Whiteboard: Identifiable, Codable {
     var title: String = ""
     var description: String = ""
     var dateCreated = Date()
-    var imageName: String {return title}
-    var thumbnailName: String {return title}
     var imageData: [Data] = []
     
 //    var whiteboardImage = images

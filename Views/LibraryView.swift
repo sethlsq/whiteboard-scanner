@@ -17,10 +17,11 @@ struct LibraryView: View {
                 ForEach($whiteboardManager.whiteboards) { $whiteboard in
                     NavigationLink(destination: WhiteboardDetailView(whiteboard: $whiteboard)) {
                         HStack {
-                            Image(whiteboard.thumbnailName)
+                            Image(uiImage: UIImage(data: whiteboard.imageData[0])!)
                                 .resizable()
                                 .frame(width: 64.0, height: 48.0)
                                 .cornerRadius(4)
+
                             VStack(alignment: .leading) {
                                 Text(whiteboard.title)
                                 Text("\(whiteboard.dateCreated)")

@@ -14,7 +14,7 @@ struct WhiteboardDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                Image(whiteboard.thumbnailName)
+                Image(uiImage: UIImage(data: whiteboard.imageData[whiteboard.imageData.count - 1])!)
                     .resizable()
                     .scaledToFit()
                     .cornerRadius(12)
