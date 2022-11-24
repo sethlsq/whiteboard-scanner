@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LibraryView: View {
     
-    @StateObject var whiteboardManager = WhiteboardManager()
+    @ObservedObject var whiteboardManager: WhiteboardManager
     
     var body: some View {
         NavigationView() {
@@ -50,6 +50,6 @@ struct LibraryView: View {
 
 struct LibraryView_Previews: PreviewProvider {
     static var previews: some View {
-        LibraryView()
+        LibraryView(whiteboardManager: WhiteboardManager())
     }
 }

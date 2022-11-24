@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentView: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
-    @StateObject var whiteboardManager = WhiteboardManager()
+    @ObservedObject var whiteboardManager = WhiteboardManager()
     
     var body: some View {
         TabView {
@@ -20,7 +20,7 @@ struct ContentView: View {
                     Label("Home", systemImage: "house.fill")
                 }
 
-            LibraryView()
+            LibraryView(whiteboardManager: whiteboardManager)
                 .tabItem {
                     Label("Whiteboards", systemImage: "rectangle.fill.on.rectangle.fill")
                 }
