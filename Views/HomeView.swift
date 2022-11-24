@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct HomeView: View {
     
-    @State private var image: Image?
-    @State private var inputImage: UIImage?
+    @State private var selectedImages: [PhotosPickerItem] = []
+    @State private var selectedImageData: [Data] = []
     @ObservedObject var whiteboardManager: WhiteboardManager
     
     @State var outputImage = OutputImage()
@@ -19,6 +20,7 @@ struct HomeView: View {
     @State private var isImagePickerPresented = false
     @State private var isNewWhiteboardViewPresented = false
     @State var isDocumentScannerPresented = false
+    @State private var isPhotosPickerPresented = false
     //
     
     var body: some View {
@@ -36,12 +38,16 @@ struct HomeView: View {
                         // by importing
                         Menu {
                             // photos
+                            
                             Button {
-                                isImagePickerPresented = true
+                                print("Photo Picker")
+                                isPhotosPickerPresented = true
+                                
                             } label: {
                                 Image(systemName: "photo")
-                                Text("Photos")
+                                Text("Photo")
                             }
+                            
                             //files
                             Button {
                                 print("import by files")
@@ -70,15 +76,21 @@ struct HomeView: View {
             }
             .navigationTitle("Home")
             
-            .sheet(isPresented: $isImagePickerPresented) {
-                ImagePicker(image: $inputImage)
-            }
-            
-            .onChange(of: inputImage) { _ in
-                loadImage()
-                isNewWhiteboardViewPresented = true
-            }
-            
+            .photosPicker(isPresented: $isPhotosPickerPresented, selection: $selectedImages, matching: .images)
+                .onChange(of: selectedImages) { newItems in
+                    Task {
+                        // Retrieve selected asset in the form of Data
+                        for newItem in newItems {
+                            if let data = try? await newItem.loadTransferable(type: Data.self) {
+                                selectedImageData = [data]
+                                var numberOfPages = data.count
+                                outputImage.imgData = selectedImageData
+                                isNewWhiteboardViewPresented = true
+                                
+                            }
+                        }
+                    }
+                }
             .sheet(isPresented: $isNewWhiteboardViewPresented) {
                 NewWhiteboardView(whiteboards: .constant([]), outputImage: $outputImage)
             }
@@ -91,16 +103,9 @@ struct HomeView: View {
                 }
                 .background(.black)
                 
+                
             }
         }
-    }
-    
-    
-    func loadImage() {
-        
-        guard let inputImage = inputImage else { return }
-        
-        image = Image(uiImage: inputImage)
     }
     
     

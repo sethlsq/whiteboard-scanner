@@ -21,7 +21,6 @@
 		D9AD1E55291F30BF00E91519 /* Custom Colours.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AD1E54291F30BF00E91519 /* Custom Colours.swift */; };
 		D9B695B82927519200D10EEB /* Whiteboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B695B72927519200D10EEB /* Whiteboard.swift */; };
 		D9CB089E2921FD4F00E30DBD /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB089D2921FD4F00E30DBD /* ImageSaver.swift */; };
-		D9CB08A02922022E00E30DBD /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB089F2922022E00E30DBD /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +39,6 @@
 		D9AD1E54291F30BF00E91519 /* Custom Colours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom Colours.swift"; sourceTree = "<group>"; };
 		D9B695B72927519200D10EEB /* Whiteboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Whiteboard.swift; sourceTree = "<group>"; };
 		D9CB089D2921FD4F00E30DBD /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
-		D9CB089F2922022E00E30DBD /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +101,6 @@
 				CD5069E02928AF0E005897C5 /* LibraryView.swift */,
 				CD5069E22928BF18005897C5 /* WhiteboardDetailView.swift */,
 				CD15311E290393A1005D37DD /* HomeView.swift */,
-				D9CB089F2922022E00E30DBD /* ImagePicker.swift */,
 				CD5069D62922104E005897C5 /* DocumentCameraView.swift */,
 				CD5069E42928C9C4005897C5 /* NewWhiteboardView.swift */,
 			);
@@ -210,7 +207,6 @@
 				D9B695B82927519200D10EEB /* Whiteboard.swift in Sources */,
 				D9CB089E2921FD4F00E30DBD /* ImageSaver.swift in Sources */,
 				CD15311F290393A1005D37DD /* HomeView.swift in Sources */,
-				D9CB08A02922022E00E30DBD /* ImagePicker.swift in Sources */,
 				CD1531132903885E005D37DD /* ContentView.swift in Sources */,
 				CDDBCD7C292A1F0300AC8CF2 /* OutputImage.swift in Sources */,
 				CD1531112903885E005D37DD /* whiteboard_scannerApp.swift in Sources */,
@@ -343,7 +339,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"whiteboard-scanner/Preview Content\"";
-				DEVELOPMENT_TEAM = 6C43UBPU7J;
+				DEVELOPMENT_TEAM = 838T7KFF77;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "To scan whiteboards";
@@ -374,7 +370,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"whiteboard-scanner/Preview Content\"";
-				DEVELOPMENT_TEAM = 6C43UBPU7J;
+				DEVELOPMENT_TEAM = 838T7KFF77;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "To scan whiteboards";
