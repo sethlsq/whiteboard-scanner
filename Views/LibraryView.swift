@@ -37,13 +37,13 @@ struct LibraryView: View {
                 .onMove { indices, newOffset in
                     whiteboardManager.whiteboards.move(fromOffsets: indices, toOffset: newOffset)
                 }
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        EditButton()
-                    }
-                }
             }
             .navigationTitle("Whiteboards")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    EditButton()
+                }
+            }
         }
     }
 }
