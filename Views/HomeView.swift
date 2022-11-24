@@ -80,7 +80,7 @@ struct HomeView: View {
             }
             
             .sheet(isPresented: $isNewWhiteboardViewPresented) {
-                NewWhiteboardView(whiteboards: .constant([]))
+                NewWhiteboardView(whiteboards: .constant([]), outputImage: $outputImage)
             }
             
             .sheet(isPresented: $isDocumentScannerPresented) {

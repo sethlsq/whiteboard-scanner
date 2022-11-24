@@ -19,3 +19,4 @@ struct Whiteboard: Identifiable, Codable {
 //    var whiteboardImage = images
 //    var whiteboardImageCount: Int = numberOfPages
 }
+

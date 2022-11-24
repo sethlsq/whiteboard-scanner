@@ -12,7 +12,7 @@ struct NewWhiteboardView: View {
     @State var whiteboard = ""
     @Binding var whiteboards: [Whiteboard]
     @Environment(\.presentationMode) var presentationMode
-    var outputImage = OutputImage()
+    @Binding var outputImage: OutputImage
     
     var body: some View {
         NavigationView {
