@@ -34,7 +34,7 @@ struct NewWhiteboardView: View {
                     TextField("Description", text: $whiteboardDesc)
                     Button("Save") {
 //                        whiteboards.append(Whiteboard(title: whiteboardTitle, description: whiteboardDesc, imageData: outputImage.imgData))
-                        whiteboardManager.whiteboards.append(Whiteboard(title: whiteboardTitle, description: whiteboardDesc, imageData: outputImage.imgData))
+                        whiteboardManager.whiteboards.append(Whiteboard(title: whiteboardTitle, description: whiteboardDesc, dateCreated: Date.now.formatted(date: .long, time: .shortened), imageData: outputImage.imgData))
                         presentationMode.wrappedValue.dismiss()
                     }
                 }

@@ -11,7 +11,7 @@ struct Whiteboard: Identifiable, Codable {
     var id = UUID()
     var title: String = ""
     var description: String = ""
-    var dateCreated = Date()
+    var dateCreated: String = ""
     var imageData: [Data] = []
     
 //    var whiteboardImage = images
