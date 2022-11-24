@@ -11,7 +11,8 @@ struct NewWhiteboardView: View {
     
     @State var whiteboardTitle = ""
     @State var whiteboardDesc = ""
-    @Binding var whiteboards: [Whiteboard]
+//    @Binding var whiteboards: [Whiteboard]
+    @ObservedObject var whiteboardManager: WhiteboardManager
     @Environment(\.presentationMode) var presentationMode
     @Binding var outputImage: OutputImage
     
@@ -32,7 +33,8 @@ struct NewWhiteboardView: View {
                     TextField("Title", text: $whiteboardTitle)
                     TextField("Description", text: $whiteboardDesc)
                     Button("Save") {
-                        whiteboards.append(Whiteboard(title: whiteboardTitle, description: whiteboardDesc, imageData: outputImage.imgData))
+//                        whiteboards.append(Whiteboard(title: whiteboardTitle, description: whiteboardDesc, imageData: outputImage.imgData))
+                        whiteboardManager.whiteboards.append(Whiteboard(title: whiteboardTitle, description: whiteboardDesc, imageData: outputImage.imgData))
                         presentationMode.wrappedValue.dismiss()
                     }
                 }

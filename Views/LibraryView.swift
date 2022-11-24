@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LibraryView: View {
     
-    @StateObject var whiteboardManager = WhiteboardManager()
+    @ObservedObject var whiteboardManager: WhiteboardManager
     
     var body: some View {
         NavigationView() {
@@ -37,19 +37,19 @@ struct LibraryView: View {
                 .onMove { indices, newOffset in
                     whiteboardManager.whiteboards.move(fromOffsets: indices, toOffset: newOffset)
                 }
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        EditButton()
-                    }
-                }
             }
             .navigationTitle("Whiteboards")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    EditButton()
+                }
+            }
         }
     }
 }
 
 struct LibraryView_Previews: PreviewProvider {
     static var previews: some View {
-        LibraryView()
+        LibraryView(whiteboardManager: WhiteboardManager())
     }
 }

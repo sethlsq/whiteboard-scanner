@@ -92,7 +92,8 @@ struct HomeView: View {
                     }
                 }
             .sheet(isPresented: $isNewWhiteboardViewPresented) {
-                NewWhiteboardView(whiteboards: .constant([]), outputImage: $outputImage)
+//                NewWhiteboardView(whiteboards: .constant([]), outputImage: $outputImage)
+                NewWhiteboardView(whiteboardManager: whiteboardManager, outputImage: $outputImage)
             }
             
             .sheet(isPresented: $isDocumentScannerPresented) {
@@ -105,6 +106,9 @@ struct HomeView: View {
                 
                 
             }
+        }
+        .onAppear() {
+            print(whiteboardManager.whiteboards)
         }
     }
     
