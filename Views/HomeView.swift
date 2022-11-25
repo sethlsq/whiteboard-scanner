@@ -35,29 +35,14 @@ struct HomeView: View {
                             Image(systemName: "camera")
                             Text("Camera")
                         }
-                        // by importing
-                        Menu {
-                            // photos
+                        //by photos
+                        Button {
+                            print("Photo Picker")
+                            isPhotosPickerPresented = true
                             
-                            Button {
-                                print("Photo Picker")
-                                isPhotosPickerPresented = true
-                                
-                            } label: {
-                                Image(systemName: "photo")
-                                Text("Photo")
-                            }
-                            
-                            //files
-                            Button {
-                                print("import by files")
-                            } label: {
-                                Image(systemName: "folder")
-                                Text("Files")
-                            }
                         } label: {
-                            Image(systemName: "square.and.arrow.down")
-                            Text("Import")
+                            Image(systemName: "photo")
+                            Text("Photo")
                         }
                         
                     } label: {
