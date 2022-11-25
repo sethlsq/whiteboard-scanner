@@ -27,7 +27,7 @@ struct LibraryView: View {
                             
                             VStack(alignment: .leading) {
                                 Text(whiteboard.title)
-                                Text("\(whiteboard.dateCreated)")
+                                Text("\(whiteboard.dateCreatedString)")
                                     .font(.subheadline)
                                     .foregroundColor(.secondary)
                             }
