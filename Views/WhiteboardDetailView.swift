@@ -45,6 +45,8 @@ struct WhiteboardDetailView: View {
         .navigationBarTitleDisplayMode(isEdit ? .large: .inline)
         .navigationTitle($whiteboard.title)
         .onAppear() {
+            whiteboard.dateCreatedString = Date.now.formatted(date: .long, time: .shortened)
+            whiteboard.dateCreated = Date.now
             whiteboardDescription = whiteboard.description
         }
     }

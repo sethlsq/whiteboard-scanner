@@ -47,30 +47,30 @@ class WhiteboardManager: ObservableObject {
                 whiteboards[whiteboardIndex] = whiteboard
             }
         }
-
+        
     }
-
+    
     var searchResults: [Whiteboard] {
-
+        
         whiteboards.filter { whiteboard in
             whiteboard.title.lowercased().contains(searchTerm.lowercased())
-    }
-
-}
-
-func load() {
-    let archiveURL = getArchiveURL()
-    let propertyListDecoder = PropertyListDecoder()
-    
-    var finalWhiteboards: [Whiteboard]!
-    
-    if let retrievedWhiteboardData = try? Data(contentsOf: archiveURL),
-       let decodedWhiteboards = try? propertyListDecoder.decode([Whiteboard].self, from: retrievedWhiteboardData) {
-        finalWhiteboards = decodedWhiteboards
-    } else {
-        finalWhiteboards = sampleWhiteboards
+        }
+        
     }
     
-    whiteboards = finalWhiteboards
-}
+    func load() {
+        let archiveURL = getArchiveURL()
+        let propertyListDecoder = PropertyListDecoder()
+        
+        var finalWhiteboards: [Whiteboard]!
+        
+        if let retrievedWhiteboardData = try? Data(contentsOf: archiveURL),
+           let decodedWhiteboards = try? propertyListDecoder.decode([Whiteboard].self, from: retrievedWhiteboardData) {
+            finalWhiteboards = decodedWhiteboards
+        } else {
+            finalWhiteboards = sampleWhiteboards
+        }
+        
+        whiteboards = finalWhiteboards.sorted(by: { $0.dateCreated > $1.dateCreated })
+    }
 }
