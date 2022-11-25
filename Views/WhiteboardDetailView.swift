@@ -11,7 +11,9 @@ struct WhiteboardDetailView: View {
     
     @Binding var whiteboard: Whiteboard
     @State var isEdit = true
+    @State var boardDesc = ""
     @State var whiteboardDescription: String = ""
+    @FocusState private var isFocused: Bool
     
     var body: some View {
         ScrollView {
@@ -21,12 +23,11 @@ struct WhiteboardDetailView: View {
                     .scaledToFit()
                     .cornerRadius(12)
                     .padding()
-                TextField("Description" ,text: $whiteboardDescription, axis: .vertical
-                )
-                .onSubmit {
-                    whiteboard.description = whiteboardDescription
-                }
-                    .lineLimit(1...10)
+                TextField("Description", text: $whiteboardDescription, axis:.vertical)
+                    .focused($isFocused)
+                    .onChange(of: isFocused) { isFocused in
+                        whiteboard.description = whiteboardDescription
+                    }
                     .padding(.trailing)
                     .padding(.leading)
                     .textFieldStyle(.roundedBorder)
