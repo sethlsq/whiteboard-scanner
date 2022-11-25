@@ -21,6 +21,8 @@ struct WhiteboardDetailView: View {
                     .padding()
                 TextField(whiteboard.description, text: $whiteboard.description)
                     .padding()
+                    .textFieldStyle(.roundedBorder)
+                    
             }
         }
         .navigationTitle(Text("\(whiteboard.title)"))
@@ -29,6 +31,6 @@ struct WhiteboardDetailView: View {
 
 //struct WhiteboardDetailView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        WhiteboardDetailView(whiteboard: .constant(Whiteboard(title: "Test", description: "desc test", dateCreated: Date(), imageData: )))
+//        WhiteboardDetailView(whiteboard: .constant(Whiteboard(title: "Test", description: "desc test", dateCreated: Date(), imageData: ["potatoes","funny"])))
 //    }
 //}

@@ -21,12 +21,12 @@ struct NewWhiteboardView: View {
             List {
                 Section {
                     ScrollView(.horizontal) {
-                        Image(uiImage: UIImage(data: outputImage.imgData[outputImage.imgData.count - 1])!)
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 128, height: 128)
-                                .cornerRadius(12)
-                                .padding()
+                            Image(uiImage: UIImage(data: outputImage.imgData[outputImage.imgData.count - 1])!)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 128, height: 128)
+                                    .cornerRadius(12)
+                                    .padding()
                     }
                 }
                 Section(header: Text("options")) {

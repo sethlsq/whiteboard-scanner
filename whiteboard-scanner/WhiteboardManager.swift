@@ -15,6 +15,8 @@ class WhiteboardManager: ObservableObject {
         }
     }
     
+    @Published var searchTerm = ""
+    
     let sampleWhiteboards: [Whiteboard] = []
     
     init() {
@@ -35,19 +37,40 @@ class WhiteboardManager: ObservableObject {
         try? encodedwhiteboards?.write(to: archiveURL, options: .noFileProtection)
     }
     
-    func load() {
-        let archiveURL = getArchiveURL()
-        let propertyListDecoder = PropertyListDecoder()
-        
-        var finalWhiteboards: [Whiteboard]!
-        
-        if let retrievedWhiteboardData = try? Data(contentsOf: archiveURL),
-            let decodedWhiteboards = try? propertyListDecoder.decode([Whiteboard].self, from: retrievedWhiteboardData) {
-            finalWhiteboards = decodedWhiteboards
-        } else {
-            finalWhiteboards = sampleWhiteboards
+    var sortedWhiteboards: [Whiteboard] {
+        get {
+            let shownWhiteboards = searchResults.isEmpty ? whiteboards : searchResults
+            return shownWhiteboards
+        } set {
+            for whiteboard in newValue {
+                let whiteboardIndex = whiteboards.firstIndex(where: { $0.id == whiteboard.id })!
+                whiteboards[whiteboardIndex] = whiteboard
+            }
         }
-        
-        whiteboards = finalWhiteboards
+
     }
+
+    var searchResults: [Whiteboard] {
+
+        whiteboards.filter { whiteboard in
+            whiteboard.title.lowercased().contains(searchTerm.lowercased())
+    }
+
+}
+
+func load() {
+    let archiveURL = getArchiveURL()
+    let propertyListDecoder = PropertyListDecoder()
+    
+    var finalWhiteboards: [Whiteboard]!
+    
+    if let retrievedWhiteboardData = try? Data(contentsOf: archiveURL),
+       let decodedWhiteboards = try? propertyListDecoder.decode([Whiteboard].self, from: retrievedWhiteboardData) {
+        finalWhiteboards = decodedWhiteboards
+    } else {
+        finalWhiteboards = sampleWhiteboards
+    }
+    
+    whiteboards = finalWhiteboards
+}
 }
