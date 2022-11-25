@@ -36,7 +36,7 @@ struct NewWhiteboardView: View {
                 Section() {
                     Button("Save") {
 
-                        whiteboardManager.whiteboards.append(Whiteboard(title: whiteboardTitle, description: whiteboardDesc, dateCreated: Date.now.formatted(date: .long, time: .shortened), imageData: outputImage.imgData))
+                        whiteboardManager.whiteboards.append(Whiteboard(title: whiteboardTitle, description: whiteboardDesc, dateCreatedString: Date.now.formatted(date: .long, time: .shortened), imageData: outputImage.imgData))
                         presentationMode.wrappedValue.dismiss()
                     }
                 }
