@@ -42,7 +42,7 @@ struct HomeView: View {
                             
                         } label: {
                             Image(systemName: "photo")
-                            Text("Photo")
+                            Text("Photos")
                         }
                         
                     } label: {
