@@ -11,7 +11,6 @@ struct WhiteboardDetailView: View {
     
     @Binding var whiteboard: Whiteboard
     @State var isEdit = true
-    @State var boardDesc = ""
     @State var whiteboardDescription: String = ""
     @FocusState private var isFocused: Bool
     
