@@ -77,7 +77,6 @@ struct HomeView: View {
                     }
                 }
             .sheet(isPresented: $isNewWhiteboardViewPresented) {
-//                NewWhiteboardView(whiteboards: .constant([]), outputImage: $outputImage)
                 NewWhiteboardView(whiteboardManager: whiteboardManager, outputImage: $outputImage)
             }
             

@@ -12,9 +12,20 @@ struct Whiteboard: Identifiable, Codable {
     var title: String = ""
     var description: String = ""
     var dateCreated: String = ""
+    var catagory: String = ""
     var imageData: [Data] = []
     
-//    var whiteboardImage = images
-//    var whiteboardImageCount: Int = numberOfPages
 }
 
+enum catagory {
+    case one
+    case two
+    case three
+    case four
+    case five
+    case six
+    case seven
+    case eight
+    case nine
+    
+}
