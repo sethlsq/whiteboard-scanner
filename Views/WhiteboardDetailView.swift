@@ -10,6 +10,7 @@ import SwiftUI
 struct WhiteboardDetailView: View {
     
     @Binding var whiteboard: Whiteboard
+    @State var isNavlarge = true
     
     var body: some View {
         ScrollView {
@@ -20,12 +21,23 @@ struct WhiteboardDetailView: View {
                     .cornerRadius(12)
                     .padding()
                 TextField(whiteboard.description, text: $whiteboard.description)
-                    .padding()
+                    .padding(.trailing)
+                    .padding(.leading)
                     .textFieldStyle(.roundedBorder)
-                    
             }
         }
-        .navigationTitle(Text("\(whiteboard.title)"))
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    isNavlarge = !isNavlarge
+                } label: {
+                    Text(isNavlarge ? "Edit" : "Done")
+                }
+            }
+        }
+        .navigationBarTitleDisplayMode(isNavlarge ? .large: .inline)
+        .navigationTitle($whiteboard.title)
+        
     }
 }
 
