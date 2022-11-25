@@ -11,16 +11,22 @@ struct WhiteboardDetailView: View {
     
     @Binding var whiteboard: Whiteboard
     @State var isEdit = true
+    @State var whiteboardDescription: String = ""
     
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading) {
+            LazyVStack(alignment: .leading) {
                 Image(uiImage: UIImage(data: whiteboard.imageData[whiteboard.imageData.count - 1])!)
                     .resizable()
                     .scaledToFit()
                     .cornerRadius(12)
                     .padding()
-                TextField(whiteboard.description, text: $whiteboard.description, axis: .vertical)
+                TextField("Description" ,text: $whiteboardDescription, axis: .vertical
+                )
+                .onSubmit {
+                    whiteboard.description = whiteboardDescription
+                }
+                    .lineLimit(1...10)
                     .padding(.trailing)
                     .padding(.leading)
                     .textFieldStyle(.roundedBorder)
@@ -31,8 +37,6 @@ struct WhiteboardDetailView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
                     isEdit = !isEdit
-                    whiteboard.description = whiteboard.description
-                    whiteboard.title = whiteboard.title
                 } label: {
                     Text(isEdit ? "Edit" : "Done")
                 }
@@ -40,7 +44,9 @@ struct WhiteboardDetailView: View {
         }
         .navigationBarTitleDisplayMode(isEdit ? .large: .inline)
         .navigationTitle($whiteboard.title)
-        
+        .onAppear() {
+            whiteboardDescription = whiteboard.description
+        }
     }
 }
 
