@@ -31,7 +31,7 @@ struct NewWhiteboardView: View {
                 }
                 Section(header: Text("options")) {
                     TextField("Title", text: $whiteboardTitle)
-                    TextField("Description", text: $whiteboardDesc)
+                    TextField("Description", text: $whiteboardDesc, axis: .vertical)
                     Button("Save") {
 //                        whiteboards.append(Whiteboard(title: whiteboardTitle, description: whiteboardDesc, imageData: outputImage.imgData))
                         whiteboardManager.whiteboards.append(Whiteboard(title: whiteboardTitle, description: whiteboardDesc, dateCreated: Date.now.formatted(date: .long, time: .shortened), imageData: outputImage.imgData))
