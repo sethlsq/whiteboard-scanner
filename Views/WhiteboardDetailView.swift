@@ -26,16 +26,16 @@ struct WhiteboardDetailView: View {
                     .textFieldStyle(.roundedBorder)
             }
         }
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    isNavlarge = !isNavlarge
-                } label: {
-                    Text(isNavlarge ? "Edit" : "Done")
-                }
-            }
-        }
-        .navigationBarTitleDisplayMode(isNavlarge ? .large: .inline)
+//        .toolbar {
+//            ToolbarItem(placement: .navigationBarTrailing) {
+//                Button {
+//                    isNavlarge = !isNavlarge
+//                } label: {
+//                    Text(isNavlarge ? "Edit" : "Done")
+//                }
+//            }
+//        }
+//        .navigationBarTitleDisplayMode(isNavlarge ? .large: .inline)
         .navigationTitle($whiteboard.title)
         
     }
