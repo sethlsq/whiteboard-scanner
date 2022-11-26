@@ -50,30 +50,52 @@ class WhiteboardManager: ObservableObject {
                 whiteboards[whiteboardIndex] = whiteboard
             }
         }
-
     }
-
-    var searchResults: [Whiteboard] {
-
+    
+    private var searchResults: [Whiteboard] {
         whiteboards.filter { whiteboard in
             whiteboard.title.lowercased().contains(searchTerm.lowercased())
+        }
     }
-
-}
-
-func load() {
-    let archiveURL = getArchiveURL()
-    let propertyListDecoder = PropertyListDecoder()
-    
-    var finalWhiteboards: [Whiteboard]!
-    
-    if let retrievedWhiteboardData = try? Data(contentsOf: archiveURL),
-       let decodedWhiteboards = try? propertyListDecoder.decode([Whiteboard].self, from: retrievedWhiteboardData) {
-        finalWhiteboards = decodedWhiteboards
-    } else {
-        finalWhiteboards = sampleWhiteboards
+    var whiteboardsSortedDate: [Whiteboard] {
+        get {
+            whiteboards.sorted {
+                $0.dateCreated.compare($1.dateCreated) == .orderedDescending
+            }
+        } set {
+            for whiteboard in newValue {
+                let whiteboardIndex = whiteboards.firstIndex(where: { $0.id == whiteboard.id })!
+                whiteboards[whiteboardIndex] = whiteboard
+            }
+        }
+    }
+    var whiteboardsSortedName: [Whiteboard] {
+        get {
+            whiteboards.sorted {
+                $0.title.compare($1.title) == .orderedAscending
+            }
+        } set {
+            for whiteboard in newValue {
+                let whiteboardIndex = whiteboards.firstIndex(where: { $0.id == whiteboard.id })!
+                whiteboards[whiteboardIndex] = whiteboard
+            }
+        }
     }
     
-    whiteboards = finalWhiteboards
+    func load() {
+        let archiveURL = getArchiveURL()
+        let propertyListDecoder = PropertyListDecoder()
+        
+        var finalWhiteboards: [Whiteboard]!
+        
+        if let retrievedWhiteboardData = try? Data(contentsOf: archiveURL),
+           let decodedWhiteboards = try? propertyListDecoder.decode([Whiteboard].self, from: retrievedWhiteboardData) {
+            finalWhiteboards = decodedWhiteboards
+        } else {
+            finalWhiteboards = sampleWhiteboards
+        }
+        
+        whiteboards = finalWhiteboards
+    }
 }
-}
+

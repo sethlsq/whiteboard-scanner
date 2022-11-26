@@ -26,42 +26,61 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             VStack {
-                ScrollView(.vertical) {
-                    Menu {
-                        // by camera
-                        Button {
-                            isDocumentScannerPresented = true
-                        } label: {
-                            Image(systemName: "camera")
-                            Text("Camera")
-                        }
-                        //by photos
-                        Button {
-                            print("Photo Picker")
-                            isPhotosPickerPresented = true
-                            
-                        } label: {
-                            Image(systemName: "photo")
-                            Text("Photos")
-                        }
+                Menu {
+                    // by camera
+                    Button {
+                        isDocumentScannerPresented = true
+                    } label: {
+                        Image(systemName: "camera")
+                        Text("Camera")
+                    }
+                    //by photos
+                    Button {
+                        print("Photo Picker")
+                        isPhotosPickerPresented = true
                         
                     } label: {
-                        HStack() {
-                            Image(systemName: "doc.viewfinder")
-                            Text("New Scan")
-                        }
-                        .bold()
-                        .padding()
-                        .frame(maxWidth: .infinity)
+                        Image(systemName: "photo")
+                        Text("Photos")
                     }
-                    .buttonStyle(.borderedProminent)
+                } label: {
+                    HStack() {
+                        Image(systemName: "doc.viewfinder")
+                        Text("New Scan")
+                    }
+                    .bold()
                     .padding()
+                    .frame(maxWidth: .infinity)
                 }
+                .buttonStyle(.borderedProminent)
+                .padding()
                 
-            }
-            .navigationTitle("Home")
-            
-            .photosPicker(isPresented: $isPhotosPickerPresented, selection: $selectedImages, matching: .images)
+                List() {
+                    Section(header: Text("Pinned")) {
+                        Text("pinned for each goes here")
+                    }
+                    Section(header: Text("Recent")) {
+                        ForEach(1..<4) { index in
+                            NavigationLink(destination: WhiteboardDetailView(whiteboard: $whiteboardManager.whiteboardsSortedDate[index])) {
+                                VStack(alignment: .leading) {
+                                    Image(uiImage: UIImage(data: whiteboardManager.whiteboardsSortedDate[index].imageData[0])!)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(maxWidth: .infinity)
+                                        .frame(height: 128)
+                                        .cornerRadius(12)
+                                    
+                                    Text(whiteboardManager.whiteboardsSortedDate[index].title)
+                                    Text("\(whiteboardManager.whiteboardsSortedDate[index].dateCreatedString)")
+                                        .font(.subheadline)
+                                        .foregroundColor(.secondary)
+                                }
+                            }
+                        }
+                    }
+                }
+                .navigationTitle("Home")
+                .photosPicker(isPresented: $isPhotosPickerPresented, selection: $selectedImages, matching: .images)
                 .onChange(of: selectedImages) { newItems in
                     Task {
                         // Retrieve selected asset in the form of Data
@@ -71,34 +90,28 @@ struct HomeView: View {
                                 var numberOfPages = data.count
                                 outputImage.imgData = selectedImageData
                                 isNewWhiteboardViewPresented = true
-                                
                             }
                         }
                     }
                 }
-            .sheet(isPresented: $isNewWhiteboardViewPresented) {
-                NewWhiteboardView(whiteboardManager: whiteboardManager, outputImage: $outputImage)
-            }
-            
-            .sheet(isPresented: $isDocumentScannerPresented) {
-                DocumentCameraView() { images in
-                    outputImage.imgData = images.compactMap { $0.pngData() }
-                    isNewWhiteboardViewPresented = true
-                    isDocumentScannerPresented = false
+                .sheet(isPresented: $isNewWhiteboardViewPresented) {
+                    NewWhiteboardView(whiteboardManager: whiteboardManager, outputImage: $outputImage)
                 }
-                .background(.black)
-                
-                
+                .sheet(isPresented: $isDocumentScannerPresented) {
+                    DocumentCameraView() { images in
+                        outputImage.imgData = images.compactMap { $0.pngData() }
+                        isNewWhiteboardViewPresented = true
+                        isDocumentScannerPresented = false
+                    }
+                    .background(.black)
+                }
             }
-        }
-        .onAppear() {
-            print(whiteboardManager.whiteboards)
+            .onAppear() {
+                print(whiteboardManager.whiteboards)
+            }
         }
     }
-    
-    
 }
-
 //struct HomeView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        HomeView(whiteboardManager: WhiteboardManager())

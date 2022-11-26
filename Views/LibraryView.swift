@@ -14,6 +14,8 @@ struct LibraryView: View {
     @State var isCurrentlyPinned: Bool = true
     
     
+    @State var whiteboardsort: [Whiteboard] = []
+    @State var hasSorted: Int = 0
     
     var body: some View {
         NavigationView() {
@@ -119,17 +121,40 @@ struct LibraryView: View {
             }
             .navigationTitle("Whiteboards")
             .searchable(text: $whiteboardManager.searchTerm)
+            .onSubmit(of: .search, {
+                hasSorted = 0
+            })
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     EditButton()
                 }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Menu {
+                        Button {
+                            hasSorted = 1
+                        } label: {
+                            Text("Sort by Date")
+                        }
+                        Button {
+                            hasSorted = 2
+                        } label: {
+                            Text("Sort by Name")
+                        }
+                    } label: {
+                        Image(systemName: "ellipsis.circle")
+                    }
+                }
             }
         }
-        
+    }
+    func whatarray() -> Binding<[Whiteboard]>  {
+        switch hasSorted {
+        case 1: return $whiteboardManager.whiteboardsSortedDate
+        case 2: return $whiteboardManager.whiteboardsSortedName
+        default : return $whiteboardManager.sortedWhiteboards
+        }
     }
 }
-
-
 
 struct LibraryView_Previews: PreviewProvider {
     static var previews: some View {

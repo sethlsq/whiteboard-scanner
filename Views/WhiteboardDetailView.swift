@@ -12,16 +12,22 @@ struct WhiteboardDetailView: View {
     @Binding var whiteboard: Whiteboard
     @State var isCurrentlyPinned: Bool = true
     @State var isEdit = true
+    @State var whiteboardDescription: String = ""
+    @FocusState private var isFocused: Bool
     
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading) {
+            LazyVStack(alignment: .leading) {
                 Image(uiImage: UIImage(data: whiteboard.imageData[whiteboard.imageData.count - 1])!)
                     .resizable()
                     .scaledToFit()
                     .cornerRadius(12)
                     .padding()
-                TextField(whiteboard.description, text: $whiteboard.description, axis: .vertical)
+                TextField("Description", text: $whiteboardDescription, axis:.vertical)
+                    .focused($isFocused)
+                    .onChange(of: isFocused) { isFocused in
+                        whiteboard.description = whiteboardDescription
+                    }
                     .padding(.trailing)
                     .padding(.leading)
                     .textFieldStyle(.roundedBorder)
@@ -40,8 +46,6 @@ struct WhiteboardDetailView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
                     isEdit = !isEdit
-                    whiteboard.description = whiteboard.description
-                    whiteboard.title = whiteboard.title
                 } label: {
                     Text(isEdit ? "Edit" : "Done")
                 }
@@ -53,6 +57,9 @@ struct WhiteboardDetailView: View {
             
             isCurrentlyPinned = whiteboard.isPinned
             
+            whiteboard.dateCreatedString = Date.now.formatted(date: .long, time: .shortened)
+            whiteboard.dateCreated = Date.now
+            whiteboardDescription = whiteboard.description
         }
     }
 }
