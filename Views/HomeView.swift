@@ -13,6 +13,7 @@ struct HomeView: View {
     @State private var selectedImages: [PhotosPickerItem] = []
     @State private var selectedImageData: [Data] = []
     @ObservedObject var whiteboardManager: WhiteboardManager
+    @State private var arraySize: Int = 0
     
     @State var outputImage = OutputImage()
     
@@ -60,7 +61,7 @@ struct HomeView: View {
                         Text("pinned for each goes here")
                     }
                     Section(header: Text("Recent")) {
-                        ForEach(1..<4) { index in
+                        ForEach((arraySize <= 3 ? 0..<arraySize : 0..<4)) { index in
                             NavigationLink(destination: WhiteboardDetailView(whiteboard: $whiteboardManager.whiteboardsSortedDate[index])) {
                                 VStack(alignment: .leading) {
                                     Image(uiImage: UIImage(data: whiteboardManager.whiteboardsSortedDate[index].imageData[0])!)
@@ -69,6 +70,7 @@ struct HomeView: View {
                                         .frame(maxWidth: .infinity)
                                         .frame(height: 128)
                                         .cornerRadius(12)
+                                    
                                     
                                     Text(whiteboardManager.whiteboardsSortedDate[index].title)
                                     Text("\(whiteboardManager.whiteboardsSortedDate[index].dateCreatedString)")
@@ -108,6 +110,10 @@ struct HomeView: View {
             }
             .onAppear() {
                 print(whiteboardManager.whiteboards)
+                arraySize = whiteboardManager.whiteboardsSortedDate.count
+            }
+            .onChange(of: whiteboardManager.whiteboardsSortedDate.count) { count in
+                arraySize = count
             }
         }
     }
