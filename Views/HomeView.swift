@@ -61,12 +61,14 @@ struct HomeView: View {
                             NavigationLink {
                                 WhiteboardDetailView(whiteboard: $whiteboardManager.whiteboards[whiteboardManager.whiteboards.count - 1])
                             } label: {
-                                Image(uiImage: UIImage(data: whiteboardManager.whiteboards[whiteboardManager.whiteboards.count - 1].imageData[0])!)
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 192, height: 128)
-                                    .cornerRadius(12)
                                 VStack(alignment: .leading) {
+                                    Image(uiImage: UIImage(data: whiteboardManager.whiteboards[whiteboardManager.whiteboards.count - 1].imageData[0])!)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(maxWidth: .infinity)
+                                        .frame(height: 128)
+                                        .cornerRadius(12)
+
                                     Text(whiteboardManager.whiteboards[whiteboardManager.whiteboards.count - 1].title)
                                     Text("\(whiteboardManager.whiteboards[whiteboardManager.whiteboards.count - 1].dateCreatedString)")
                                         .font(.subheadline)
