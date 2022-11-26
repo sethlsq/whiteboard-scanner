@@ -56,6 +56,9 @@ struct HomeView: View {
                 .padding()
                 
                 List() {
+                    Section(header: Text("Pinned")) {
+                        Text("pinned for each goes here")
+                    }
                     Section(header: Text("Recent")) {
                         ForEach(1..<4) { index in
                             NavigationLink(destination: WhiteboardDetailView(whiteboard: $whiteboardManager.whiteboardsSortedDate[index])) {
@@ -67,37 +70,13 @@ struct HomeView: View {
                                         .frame(height: 128)
                                         .cornerRadius(12)
                                     
-                                        Text(whiteboardManager.whiteboardsSortedDate[index].title)
-                                        Text("\(whiteboardManager.whiteboardsSortedDate[index].dateCreatedString)")
+                                    Text(whiteboardManager.whiteboardsSortedDate[index].title)
+                                    Text("\(whiteboardManager.whiteboardsSortedDate[index].dateCreatedString)")
                                         .font(.subheadline)
                                         .foregroundColor(.secondary)
-                                    }
                                 }
                             }
                         }
-//                        if whiteboardManager.whiteboards.count - 1 >= 0 {
-//                            NavigationLink {
-//                                WhiteboardDetailView(whiteboard: $whiteboardManager.whiteboards[whiteboardManager.whiteboards.count - 1])
-//                            } label: {
-//                                Image(uiImage: UIImage(data: whiteboardManager.whiteboards[whiteboardManager.whiteboards.count - 1].imageData[0])!)
-//                                    .resizable()
-//                                    .scaledToFill()
-//                                    .frame(width: 192, height: 128)
-//                                    .cornerRadius(12)
-//                                VStack(alignment: .leading) {
-//                                    Text(whiteboardManager.whiteboards[whiteboardManager.whiteboards.count - 1].title)
-//                                    Text("\(whiteboardManager.whiteboards[whiteboardManager.whiteboards.count - 1].dateCreatedString)")
-//                                        .font(.subheadline)
-//                                        .foregroundColor(.secondary)
-//                                }
-//                            }
-//                        } else {
-//                            Text("No Recent Scans")
-//                        }
-                    }
-                    
-                    Section(header: Text("Pinned")) {
-                        Text("pinned for each goes here")
                     }
                 }
                 .navigationTitle("Home")
@@ -133,7 +112,6 @@ struct HomeView: View {
         }
     }
 }
-
 //struct HomeView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        HomeView(whiteboardManager: WhiteboardManager())
