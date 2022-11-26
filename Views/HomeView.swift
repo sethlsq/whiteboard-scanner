@@ -56,9 +56,6 @@ struct HomeView: View {
                 .padding()
                 
                 List() {
-                    Section(header: Text("Pinned")) {
-                        Text("pinned for each goes here")
-                    }
                     Section(header: Text("Recent")) {
                         if whiteboardManager.whiteboards.count - 1 >= 0 {
                             NavigationLink {
@@ -79,6 +76,10 @@ struct HomeView: View {
                         } else {
                             Text("No Recent Scans")
                         }
+                    }
+                    
+                    Section(header: Text("Pinned")) {
+                        Text("pinned for each goes here")
                     }
                 }
                 .navigationTitle("Home")
