@@ -16,7 +16,7 @@ struct Whiteboard: Identifiable, Codable {
     var catagory: String = ""
     var isPinned: Bool = false
     var imageData: [Data] = []
-    var isPinned: Bool = false
+    
     
 }
 
