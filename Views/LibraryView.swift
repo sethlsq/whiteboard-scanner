@@ -15,7 +15,6 @@ struct LibraryView: View {
     
     
     @State var whiteboardsort: [Whiteboard] = []
-    @State var hasSorted: Int = 0
     
     var body: some View {
         NavigationView() {
@@ -122,7 +121,7 @@ struct LibraryView: View {
             .navigationTitle("Whiteboards")
             .searchable(text: $whiteboardManager.searchTerm)
             .onSubmit(of: .search, {
-                hasSorted = 0
+                whiteboardManager.hasSorted = 0
             })
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -131,12 +130,12 @@ struct LibraryView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Menu {
                         Button {
-                            hasSorted = 1
+                            whiteboardManager.hasSorted = 1
                         } label: {
                             Text("Sort by Date")
                         }
                         Button {
-                            hasSorted = 2
+                            whiteboardManager.hasSorted = 2
                         } label: {
                             Text("Sort by Name")
                         }
@@ -148,7 +147,7 @@ struct LibraryView: View {
         }
     }
     func whatarray() -> Binding<[Whiteboard]>  {
-        switch hasSorted {
+        switch whiteboardManager.hasSorted {
         case 1: return $whiteboardManager.whiteboardsSortedDate
         case 2: return $whiteboardManager.whiteboardsSortedName
         default : return $whiteboardManager.sortedWhiteboards

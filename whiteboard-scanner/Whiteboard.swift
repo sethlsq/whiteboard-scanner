@@ -20,7 +20,7 @@ struct Whiteboard: Identifiable, Codable {
     
 }
 
-enum catagory {
+enum catagory: Codable {
     case one
     case two
     case three

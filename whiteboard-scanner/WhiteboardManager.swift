@@ -14,7 +14,7 @@ class WhiteboardManager: ObservableObject {
             save()
         }
     }
-    
+    @Published var hasSorted = 0
     @Published var searchTerm = ""
     var isPinnedNow = false
     let sampleWhiteboards: [Whiteboard] = []
@@ -38,11 +38,17 @@ class WhiteboardManager: ObservableObject {
         try? encodedwhiteboards?.write(to: archiveURL, options: .noFileProtection)
     }
     
-
-    
     var sortedWhiteboards: [Whiteboard] {
         get {
-            let shownWhiteboards = searchResults.isEmpty ? whiteboards : searchResults
+            
+            var sortedWhiteboards: [Whiteboard] = []
+            switch hasSorted {
+            case 1: sortedWhiteboards = whiteboardsSortedDate
+            case 2: sortedWhiteboards = whiteboardsSortedName
+            default : sortedWhiteboards = whiteboards
+            }
+            
+            let shownWhiteboards = searchResults.isEmpty ? sortedWhiteboards : searchResults
             return shownWhiteboards
         } set {
             for whiteboard in newValue {
