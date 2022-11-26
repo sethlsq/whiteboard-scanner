@@ -11,6 +11,8 @@ struct NewWhiteboardView: View {
     
     @State var whiteboardTitle = ""
     @State var whiteboardDesc = ""
+    
+  
 //    @Binding var whiteboards: [Whiteboard]
     @ObservedObject var whiteboardManager: WhiteboardManager
     @Environment(\.presentationMode) var presentationMode
@@ -38,12 +40,13 @@ struct NewWhiteboardView: View {
                         presentationMode.wrappedValue.dismiss()
                     }
                 }
+                
             }
             .navigationTitle("New Whiteboard")
         }
     }
 }
-
+//
 //struct NewWhiteboardView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        NewWhiteboardView(whiteboards: .constant([]))

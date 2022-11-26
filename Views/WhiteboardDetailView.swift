@@ -10,6 +10,7 @@ import SwiftUI
 struct WhiteboardDetailView: View {
     
     @Binding var whiteboard: Whiteboard
+    @State var isCurrentlyPinned: Bool = true
     @State var isEdit = true
     
     var body: some View {
@@ -26,6 +27,14 @@ struct WhiteboardDetailView: View {
                     .textFieldStyle(.roundedBorder)
                     .disabled(isEdit)
             }
+            
+            Toggle("Pin?", isOn: $isCurrentlyPinned)
+                .onChange(of: isCurrentlyPinned) { isCurrentlyPinned in
+                    
+                    whiteboard.isPinned = isCurrentlyPinned
+                    
+                }
+            
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -40,7 +49,11 @@ struct WhiteboardDetailView: View {
         }
         .navigationBarTitleDisplayMode(isEdit ? .large: .inline)
         .navigationTitle($whiteboard.title)
-        
+        .onAppear() {
+            
+            isCurrentlyPinned = whiteboard.isPinned
+            
+        }
     }
 }
 

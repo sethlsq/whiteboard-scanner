@@ -16,12 +16,13 @@ class WhiteboardManager: ObservableObject {
     }
     
     @Published var searchTerm = ""
-    
+    var isPinnedNow = false
     let sampleWhiteboards: [Whiteboard] = []
     
     init() {
         load()
     }
+    
     
     func getArchiveURL() -> URL {
         let plistName = "whiteboards.plist"
@@ -36,6 +37,8 @@ class WhiteboardManager: ObservableObject {
         let encodedwhiteboards = try? propertyListEncoder.encode(whiteboards)
         try? encodedwhiteboards?.write(to: archiveURL, options: .noFileProtection)
     }
+    
+
     
     var sortedWhiteboards: [Whiteboard] {
         get {
