@@ -80,7 +80,7 @@ struct HomeView: View {
                         }
                     }
                     Section(header: Text("Recents")) {
-                        ForEach((arraySize <= 3 ? 0..<arraySize : 0..<4)) { index in
+                        ForEach(arraySize < 3 ? 0..<arraySize : 0..<3) { index in
                             NavigationLink(destination: WhiteboardDetailView(whiteboard: $whiteboardManager.whiteboardsSortedDate[index])) {
                                 VStack(alignment: .leading) {
                                     Image(uiImage: UIImage(data: whiteboardManager.whiteboardsSortedDate[index].imageData[0])!)
@@ -90,9 +90,7 @@ struct HomeView: View {
                                         .cornerRadius(12)
                                     
                                     Text(whiteboardManager.whiteboardsSortedDate[index].title)
-                                    Text("\(whiteboardManager.whiteboardsSortedDate[index].dateCreatedString)")
-                                        .font(.subheadline)
-                                        .foregroundColor(.secondary)
+                                        .bold()
                                 }
                             }
                         }
