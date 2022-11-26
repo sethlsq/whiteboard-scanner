@@ -11,11 +11,12 @@ struct LibraryView: View {
     
     @ObservedObject var whiteboardManager: WhiteboardManager
     @State var whiteboardsort: [Whiteboard] = []
+    @State var hasSorted: Int = 1
     
     var body: some View {
         NavigationView() {
             List {
-                ForEach($whiteboardManager.sortedWhiteboards) { $whiteboard in
+                ForEach(whatarray()) { $whiteboard in
                     NavigationLink(destination: WhiteboardDetailView(whiteboard: $whiteboard)) {
                         HStack {
                             Image(uiImage: UIImage(data: whiteboard.imageData[0])!)
@@ -41,29 +42,37 @@ struct LibraryView: View {
             }
             .navigationTitle("Whiteboards")
             .searchable(text: $whiteboardManager.searchTerm)
+            .onSubmit(of: .search, {
+                hasSorted = 0
+            })
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     EditButton()
                 }
-                //                ToolbarItem(placement: .navigationBarTrailing) {
-                //                    Menu {
-                //                        Button {
-                //                            whiteboardsort = whiteboardsSortedDate
-                //                            hasSorted = true
-                //                        } label: {
-                //                            Text("Sort by Date")
-                //                        }
-                //                        Button {
-                //                            whiteboardsort = whiteboardsSortedName
-                //                            hasSorted = true
-                //                        } label: {
-                //                            Text("Sort by Name")
-                //                        }
-                //                    } label: {
-                //                        Image(systemName: "ellipsis.circle")
-                //                    }
-                //                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Menu {
+                        Button {
+                            hasSorted = 1
+                        } label: {
+                            Text("Sort by Date")
+                        }
+                        Button {
+                            hasSorted = 2
+                        } label: {
+                            Text("Sort by Name")
+                        }
+                    } label: {
+                        Image(systemName: "ellipsis.circle")
+                    }
+                }
             }
+        }
+    }
+    func whatarray() -> Binding<[Whiteboard]>  {
+        switch hasSorted {
+        case 1: return $whiteboardManager.whiteboardsSortedDate
+        case 2: return $whiteboardManager.whiteboardsSortedName
+        default : return $whiteboardManager.sortedWhiteboards
         }
     }
 }

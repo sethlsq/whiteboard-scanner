@@ -55,13 +55,27 @@ class WhiteboardManager: ObservableObject {
         }
     }
     var whiteboardsSortedDate: [Whiteboard] {
-        whiteboards.sorted {
-            $0.dateCreated.compare($1.dateCreated) == .orderedDescending
+        get {
+            whiteboards.sorted {
+                $0.dateCreated.compare($1.dateCreated) == .orderedDescending
+            }
+        } set {
+            for whiteboard in newValue {
+                let whiteboardIndex = whiteboards.firstIndex(where: { $0.id == whiteboard.id })!
+                whiteboards[whiteboardIndex] = whiteboard
+            }
         }
     }
     var whiteboardsSortedName: [Whiteboard] {
-        whiteboards.sorted {
-            $0.title.compare($1.title) == .orderedAscending
+        get {
+            whiteboards.sorted {
+                $0.title.compare($1.title) == .orderedAscending
+            }
+        } set {
+            for whiteboard in newValue {
+                let whiteboardIndex = whiteboards.firstIndex(where: { $0.id == whiteboard.id })!
+                whiteboards[whiteboardIndex] = whiteboard
+            }
         }
     }
     
