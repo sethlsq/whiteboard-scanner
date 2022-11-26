@@ -57,25 +57,42 @@ struct HomeView: View {
                 
                 List() {
                     Section(header: Text("Recent")) {
-                        if whiteboardManager.whiteboards.count - 1 >= 0 {
-                            NavigationLink {
-                                WhiteboardDetailView(whiteboard: $whiteboardManager.whiteboards[whiteboardManager.whiteboards.count - 1])
-                            } label: {
-                                Image(uiImage: UIImage(data: whiteboardManager.whiteboards[whiteboardManager.whiteboards.count - 1].imageData[0])!)
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 192, height: 128)
-                                    .cornerRadius(12)
-                                VStack(alignment: .leading) {
-                                    Text(whiteboardManager.whiteboards[whiteboardManager.whiteboards.count - 1].title)
-                                    Text("\(whiteboardManager.whiteboards[whiteboardManager.whiteboards.count - 1].dateCreatedString)")
-                                        .font(.subheadline)
-                                        .foregroundColor(.secondary)
+                        ForEach(1..<4) { index in
+                            NavigationLink(destination: WhiteboardDetailView(whiteboard: $whiteboardManager.whiteboardsSortedDate[index])) {
+                                HStack {
+                                    Image(uiImage: UIImage(data: whiteboardManager.whiteboardsSortedDate[index].imageData[0])!)
+                                        .resizable()
+                                        .frame(width: 64.0, height: 48.0)
+                                        .cornerRadius(4)
+                                    
+                                    VStack(alignment: .leading) {
+                                        Text(whiteboardManager.whiteboardsSortedDate[index].title)
+                                        Text("\(whiteboardManager.whiteboardsSortedDate[index].dateCreatedString)")
+                                            .font(.subheadline)
+                                            .foregroundColor(.secondary)
+                                    }
                                 }
                             }
-                        } else {
-                            Text("No Recent Scans")
                         }
+//                        if whiteboardManager.whiteboards.count - 1 >= 0 {
+//                            NavigationLink {
+//                                WhiteboardDetailView(whiteboard: $whiteboardManager.whiteboards[whiteboardManager.whiteboards.count - 1])
+//                            } label: {
+//                                Image(uiImage: UIImage(data: whiteboardManager.whiteboards[whiteboardManager.whiteboards.count - 1].imageData[0])!)
+//                                    .resizable()
+//                                    .scaledToFill()
+//                                    .frame(width: 192, height: 128)
+//                                    .cornerRadius(12)
+//                                VStack(alignment: .leading) {
+//                                    Text(whiteboardManager.whiteboards[whiteboardManager.whiteboards.count - 1].title)
+//                                    Text("\(whiteboardManager.whiteboards[whiteboardManager.whiteboards.count - 1].dateCreatedString)")
+//                                        .font(.subheadline)
+//                                        .foregroundColor(.secondary)
+//                                }
+//                            }
+//                        } else {
+//                            Text("No Recent Scans")
+//                        }
                     }
                     
                     Section(header: Text("Pinned")) {

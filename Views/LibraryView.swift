@@ -11,7 +11,7 @@ struct LibraryView: View {
     
     @ObservedObject var whiteboardManager: WhiteboardManager
     @State var whiteboardsort: [Whiteboard] = []
-    @State var hasSorted: Int = 1
+    @State var hasSorted: Int = 0
     
     var body: some View {
         NavigationView() {
