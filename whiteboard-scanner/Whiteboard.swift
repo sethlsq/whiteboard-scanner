@@ -14,8 +14,8 @@ struct Whiteboard: Identifiable, Codable {
     var dateCreatedString: String = ""
     var dateCreated = Date() 
     var catagory: String = ""
+    var isPinned: Bool = false
     var imageData: [Data] = []
-    
 }
 
 enum catagory {
