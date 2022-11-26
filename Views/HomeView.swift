@@ -59,17 +59,18 @@ struct HomeView: View {
                     Section(header: Text("Recent")) {
                         ForEach(1..<4) { index in
                             NavigationLink(destination: WhiteboardDetailView(whiteboard: $whiteboardManager.whiteboardsSortedDate[index])) {
-                                HStack {
+                                VStack(alignment: .leading) {
                                     Image(uiImage: UIImage(data: whiteboardManager.whiteboardsSortedDate[index].imageData[0])!)
                                         .resizable()
-                                        .frame(width: 64.0, height: 48.0)
-                                        .cornerRadius(4)
+                                        .scaledToFill()
+                                        .frame(maxWidth: .infinity)
+                                        .frame(height: 128)
+                                        .cornerRadius(12)
                                     
-                                    VStack(alignment: .leading) {
                                         Text(whiteboardManager.whiteboardsSortedDate[index].title)
                                         Text("\(whiteboardManager.whiteboardsSortedDate[index].dateCreatedString)")
-                                            .font(.subheadline)
-                                            .foregroundColor(.secondary)
+                                        .font(.subheadline)
+                                        .foregroundColor(.secondary)
                                     }
                                 }
                             }
