@@ -10,7 +10,7 @@ import SwiftUI
 struct LibraryView: View {
     
     @ObservedObject var whiteboardManager: WhiteboardManager
-    @State private var searchText = ""
+    @State var whiteboardsort: [Whiteboard] = []
     
     var body: some View {
         NavigationView() {
@@ -45,14 +45,32 @@ struct LibraryView: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     EditButton()
                 }
+                //                ToolbarItem(placement: .navigationBarTrailing) {
+                //                    Menu {
+                //                        Button {
+                //                            whiteboardsort = whiteboardsSortedDate
+                //                            hasSorted = true
+                //                        } label: {
+                //                            Text("Sort by Date")
+                //                        }
+                //                        Button {
+                //                            whiteboardsort = whiteboardsSortedName
+                //                            hasSorted = true
+                //                        } label: {
+                //                            Text("Sort by Name")
+                //                        }
+                //                    } label: {
+                //                        Image(systemName: "ellipsis.circle")
+                //                    }
+                //                }
             }
         }
     }
 }
-    
-    struct LibraryView_Previews: PreviewProvider {
-        static var previews: some View {
-            LibraryView(whiteboardManager: WhiteboardManager())
-        }
+
+struct LibraryView_Previews: PreviewProvider {
+    static var previews: some View {
+        LibraryView(whiteboardManager: WhiteboardManager())
     }
-    
+}
+

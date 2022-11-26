@@ -11,7 +11,6 @@ struct NewWhiteboardView: View {
     
     @State var whiteboardTitle = ""
     @State var whiteboardDesc = ""
-//    @Binding var whiteboards: [Whiteboard]
     @ObservedObject var whiteboardManager: WhiteboardManager
     @Environment(\.presentationMode) var presentationMode
     @Binding var outputImage: OutputImage
@@ -21,12 +20,12 @@ struct NewWhiteboardView: View {
             List {
                 Section {
                     ScrollView(.horizontal) {
-                            Image(uiImage: UIImage(data: outputImage.imgData[outputImage.imgData.count - 1])!)
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 128, height: 128)
-                                    .cornerRadius(12)
-                                    .padding()
+                        Image(uiImage: UIImage(data: outputImage.imgData[outputImage.imgData.count - 1])!)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 128, height: 128)
+                            .cornerRadius(12)
+                            .padding()
                     }
                 }
                 Section(header: Text("options")) {
@@ -35,7 +34,6 @@ struct NewWhiteboardView: View {
                 }
                 Section() {
                     Button("Save") {
-
                         whiteboardManager.whiteboards.append(Whiteboard(title: whiteboardTitle, description: whiteboardDesc, dateCreatedString: Date.now.formatted(date: .long, time: .shortened), dateCreated: Date(), imageData: outputImage.imgData))
                         presentationMode.wrappedValue.dismiss()
                     }

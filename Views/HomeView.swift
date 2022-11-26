@@ -22,14 +22,8 @@ struct HomeView: View {
     @State var isDocumentScannerPresented = false
     @State private var isPhotosPickerPresented = false
     //
-    private var whiteboardsSorted:[Whiteboard] {
-        whiteboardManager.whiteboards.sorted {
-            $0.dateCreated.compare($1.dateCreated) == .orderedDescending
-        }
-    }
     
     var body: some View {
-        
         NavigationView {
             VStack {
                 Menu {
@@ -49,7 +43,6 @@ struct HomeView: View {
                         Image(systemName: "photo")
                         Text("Photos")
                     }
-                    
                 } label: {
                     HStack() {
                         Image(systemName: "doc.viewfinder")
@@ -74,16 +67,21 @@ struct HomeView: View {
                                 Image(uiImage: UIImage(data: whiteboardManager.whiteboards[whiteboardManager.whiteboards.count - 1].imageData[0])!)
                                     .resizable()
                                     .scaledToFill()
-                                    .frame(width: 256, height: 128)
+                                    .frame(width: 192, height: 128)
                                     .cornerRadius(12)
+                                VStack(alignment: .leading) {
+                                    Text(whiteboardManager.whiteboards[whiteboardManager.whiteboards.count - 1].title)
+                                    Text("\(whiteboardManager.whiteboards[whiteboardManager.whiteboards.count - 1].dateCreatedString)")
+                                        .font(.subheadline)
+                                        .foregroundColor(.secondary)
+                                }
                             }
                         } else {
-                            Text("No Recent Scan")
+                            Text("No Recent Scans")
                         }
                     }
                 }
                 .navigationTitle("Home")
-                
                 .photosPicker(isPresented: $isPhotosPickerPresented, selection: $selectedImages, matching: .images)
                 .onChange(of: selectedImages) { newItems in
                     Task {
@@ -94,7 +92,6 @@ struct HomeView: View {
                                 var numberOfPages = data.count
                                 outputImage.imgData = selectedImageData
                                 isNewWhiteboardViewPresented = true
-                                
                             }
                         }
                     }
@@ -102,7 +99,6 @@ struct HomeView: View {
                 .sheet(isPresented: $isNewWhiteboardViewPresented) {
                     NewWhiteboardView(whiteboardManager: whiteboardManager, outputImage: $outputImage)
                 }
-                
                 .sheet(isPresented: $isDocumentScannerPresented) {
                     DocumentCameraView() { images in
                         outputImage.imgData = images.compactMap { $0.pngData() }
@@ -110,8 +106,6 @@ struct HomeView: View {
                         isDocumentScannerPresented = false
                     }
                     .background(.black)
-                    
-                    
                 }
             }
             .onAppear() {
@@ -120,9 +114,9 @@ struct HomeView: View {
         }
     }
 }
-    
-    //struct HomeView_Previews: PreviewProvider {
-    //    static var previews: some View {
-    //        HomeView(whiteboardManager: WhiteboardManager())
-    //    }
-    //}
+
+//struct HomeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeView(whiteboardManager: WhiteboardManager())
+//    }
+//}

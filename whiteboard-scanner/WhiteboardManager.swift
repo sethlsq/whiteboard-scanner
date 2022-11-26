@@ -47,15 +47,22 @@ class WhiteboardManager: ObservableObject {
                 whiteboards[whiteboardIndex] = whiteboard
             }
         }
-        
     }
     
-    var searchResults: [Whiteboard] {
-        
+    private var searchResults: [Whiteboard] {
         whiteboards.filter { whiteboard in
             whiteboard.title.lowercased().contains(searchTerm.lowercased())
         }
-        
+    }
+    var whiteboardsSortedDate: [Whiteboard] {
+        whiteboards.sorted {
+            $0.dateCreated.compare($1.dateCreated) == .orderedDescending
+        }
+    }
+    var whiteboardsSortedName: [Whiteboard] {
+        whiteboards.sorted {
+            $0.title.compare($1.title) == .orderedAscending
+        }
     }
     
     func load() {
