@@ -58,19 +58,36 @@ struct HomeView: View {
                 
                 List() {
                     Section(header: Text("Pinned")) {
-                        Text("pinned for each goes here")
+                        ForEach($whiteboardManager.sortedWhiteboards.filter { $0.wrappedValue.isPinned }) { $whiteboard in
+                            
+                            NavigationLink(destination: WhiteboardDetailView(whiteboard: $whiteboard)) {
+                                
+                                HStack {
+                                    Image(uiImage: UIImage(data: whiteboard.imageData[0])!)
+                                        .resizable()
+                                        .frame(width: 64.0, height: 48.0)
+                                        .cornerRadius(4)
+                                    
+                                    VStack(alignment: .leading) {
+                                        Text(whiteboard.title)
+                                        Text("\(whiteboard.dateCreatedString)")
+                                            .font(.subheadline)
+                                            .foregroundColor(.secondary)
+                                        
+                                    }
+                                }
+                            }
+                        }
                     }
-                    Section(header: Text("Recent")) {
+                    Section(header: Text("Recents")) {
                         ForEach((arraySize <= 3 ? 0..<arraySize : 0..<4)) { index in
                             NavigationLink(destination: WhiteboardDetailView(whiteboard: $whiteboardManager.whiteboardsSortedDate[index])) {
                                 VStack(alignment: .leading) {
                                     Image(uiImage: UIImage(data: whiteboardManager.whiteboardsSortedDate[index].imageData[0])!)
                                         .resizable()
                                         .scaledToFill()
-                                        .frame(maxWidth: .infinity)
-                                        .frame(height: 128)
+                                        .frame(width: 256,height: 128)
                                         .cornerRadius(12)
-                                    
                                     
                                     Text(whiteboardManager.whiteboardsSortedDate[index].title)
                                     Text("\(whiteboardManager.whiteboardsSortedDate[index].dateCreatedString)")

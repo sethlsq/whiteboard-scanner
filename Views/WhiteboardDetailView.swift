@@ -10,7 +10,6 @@ import SwiftUI
 struct WhiteboardDetailView: View {
     
     @Binding var whiteboard: Whiteboard
-    @State var isCurrentlyPinned: Bool = true
     @State var isEdit = true
     @State var whiteboardDescription: String = ""
     @FocusState private var isFocused: Bool
@@ -33,14 +32,6 @@ struct WhiteboardDetailView: View {
                     .textFieldStyle(.roundedBorder)
                     .disabled(isEdit)
             }
-            
-            Toggle("Pin?", isOn: $isCurrentlyPinned)
-                .onChange(of: isCurrentlyPinned) { isCurrentlyPinned in
-                    
-                    whiteboard.isPinned = isCurrentlyPinned
-                    
-                }
-            
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -54,9 +45,6 @@ struct WhiteboardDetailView: View {
         .navigationBarTitleDisplayMode(isEdit ? .large: .inline)
         .navigationTitle($whiteboard.title)
         .onAppear() {
-            
-            isCurrentlyPinned = whiteboard.isPinned
-            
             whiteboard.dateCreatedString = Date.now.formatted(date: .long, time: .shortened)
             whiteboard.dateCreated = Date.now
             whiteboardDescription = whiteboard.description
