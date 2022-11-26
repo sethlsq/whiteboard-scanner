@@ -12,7 +12,7 @@ struct Whiteboard: Identifiable, Codable {
     var title: String = ""
     var description: String = ""
     var dateCreatedString: String = ""
-    var dateCreated = Date() 
+    var dateCreated = Date()
     var catagory: String = ""
     var isPinned: Bool = false
     var imageData: [Data] = []

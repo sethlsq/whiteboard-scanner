@@ -72,6 +72,6 @@ class WhiteboardManager: ObservableObject {
         }
         
         whiteboards = finalWhiteboards
-            //.sorted(by: { $0.dateCreated > $1.dateCreated })
     }
 }
+

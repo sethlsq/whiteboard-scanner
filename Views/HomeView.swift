@@ -22,6 +22,11 @@ struct HomeView: View {
     @State var isDocumentScannerPresented = false
     @State private var isPhotosPickerPresented = false
     //
+    private var whiteboardsSorted:[Whiteboard] {
+        whiteboardManager.whiteboards.sorted {
+            $0.dateCreated.compare($1.dateCreated) == .orderedDescending
+        }
+    }
     
     var body: some View {
         
