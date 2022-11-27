@@ -5,14 +5,20 @@
 //  Created by Seth Loh on 19/11/22.
 //
 
-import SwiftUI
 
+
+import SwiftUI
+import VisionKit
+    
 struct WhiteboardDetailView: View {
     
     @Binding var whiteboard: Whiteboard
     @State var isEdit = true
     @State var whiteboardDescription: String = ""
     @FocusState private var isFocused: Bool
+    @State private var deviceSupportLiveText = false
+    @State private var showDeviceNotCapacityAlert = false
+    @State private var showLiveTextView = false
     
     var body: some View {
         ScrollView {
@@ -22,6 +28,27 @@ struct WhiteboardDetailView: View {
                     .scaledToFit()
                     .cornerRadius(12)
                     .padding()
+                Button {
+                    if deviceSupportLiveText {
+                        self.showLiveTextView = true
+                    } else {
+                        self.showDeviceNotCapacityAlert = true
+                    }
+                } label: {
+                    Text("Live text")
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(width: 300, height: 50)
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }
+                .alert("Live Text Unavailable", isPresented: $showDeviceNotCapacityAlert, actions: {})
+                .sheet(isPresented: $showLiveTextView, content: {
+                    LiveTextInteractionView()
+                })
+                .onAppear {
+                    self.deviceSupportLiveText = ImageAnalyzer.isSupported
+                }
                 TextField("Description", text: $whiteboardDescription, axis:.vertical)
                     .focused($isFocused)
                     .onChange(of: isFocused) { isFocused in

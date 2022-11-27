@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C721FAA6293380E900C62BF4 /* LiveTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C721FAA5293380E900C62BF4 /* LiveTextView.swift */; };
+		C721FAAC29338B4100C62BF4 /* LiveTextInteractionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C721FAAB29338B4100C62BF4 /* LiveTextInteractionView.swift */; };
 		CD1531112903885E005D37DD /* whiteboard_scannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1531102903885E005D37DD /* whiteboard_scannerApp.swift */; };
 		CD1531132903885E005D37DD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1531122903885E005D37DD /* ContentView.swift */; };
 		CD15311529038860005D37DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD15311429038860005D37DD /* Assets.xcassets */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C721FAA5293380E900C62BF4 /* LiveTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveTextView.swift; sourceTree = "<group>"; };
+		C721FAAB29338B4100C62BF4 /* LiveTextInteractionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveTextInteractionView.swift; sourceTree = "<group>"; };
 		CD15310D2903885E005D37DD /* whiteboard-scanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "whiteboard-scanner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD1531102903885E005D37DD /* whiteboard_scannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = whiteboard_scannerApp.swift; sourceTree = "<group>"; };
 		CD1531122903885E005D37DD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 			children = (
 				CD1531122903885E005D37DD /* ContentView.swift */,
 				CD5069E02928AF0E005897C5 /* LibraryView.swift */,
+				C721FAA5293380E900C62BF4 /* LiveTextView.swift */,
+				C721FAAB29338B4100C62BF4 /* LiveTextInteractionView.swift */,
 				CD5069E22928BF18005897C5 /* WhiteboardDetailView.swift */,
 				CD15311E290393A1005D37DD /* HomeView.swift */,
 				CD5069D62922104E005897C5 /* DocumentCameraView.swift */,
@@ -189,9 +195,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9AD1E55291F30BF00E91519 /* Custom Colours.swift in Sources */,
+				C721FAA6293380E900C62BF4 /* LiveTextView.swift in Sources */,
 				CD5069D72922104E005897C5 /* DocumentCameraView.swift in Sources */,
 				CD5069E32928BF18005897C5 /* WhiteboardDetailView.swift in Sources */,
 				CD5069DD292869F0005897C5 /* WhiteboardManager.swift in Sources */,
+				C721FAAC29338B4100C62BF4 /* LiveTextInteractionView.swift in Sources */,
 				CD5069E12928AF0E005897C5 /* LibraryView.swift in Sources */,
 				D9B695B82927519200D10EEB /* Whiteboard.swift in Sources */,
 				CD15311F290393A1005D37DD /* HomeView.swift in Sources */,
