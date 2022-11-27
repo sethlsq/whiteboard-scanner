@@ -8,8 +8,22 @@
 import SwiftUI
 
 struct LiveTextInteractionView: View {
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            LiveTextView(imageName: "Image")
+
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button {
+                            self.presentationMode.wrappedValue.dismiss()
+                        } label: {
+                            Text("Cancel")
+                        }
+                    }
+                }
+                .interactiveDismissDisabled(true)
+        }
     }
 }
 
