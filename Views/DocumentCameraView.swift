@@ -38,7 +38,7 @@ struct DocumentCameraView: UIViewControllerRepresentable {
         }
         
         func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
-            var numberOfPages = scan.pageCount
+            let numberOfPages = scan.pageCount
             let images = (0..<numberOfPages).map {
                 scan.imageOfPage(at: $0)
             }

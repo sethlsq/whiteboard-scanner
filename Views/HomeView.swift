@@ -104,7 +104,8 @@ struct HomeView: View {
                         for newItem in newItems {
                             if let data = try? await newItem.loadTransferable(type: Data.self) {
                                 selectedImageData = [data]
-                                var numberOfPages = data.count
+                                // var numberOfPages = data.count
+                                var _ = data.count
                                 outputImage.imgData = selectedImageData
                                 isNewWhiteboardViewPresented = true
                             }
