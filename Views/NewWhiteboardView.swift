@@ -50,7 +50,7 @@ struct NewWhiteboardView: View {
                 Button(role: .none) {
                     showAlertNoTitle = false
                 } label: {
-                    Text("Continue")
+                    Text("Dismiss")
                 }
 
             }
