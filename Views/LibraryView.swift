@@ -132,15 +132,17 @@ struct LibraryView: View {
                         Button {
                             whiteboardManager.hasSorted = 1
                         } label: {
+                            Image(systemName: "calendar")
                             Text("Sort by Date")
                         }
                         Button {
                             whiteboardManager.hasSorted = 2
                         } label: {
+                            Image(systemName: "textformat")
                             Text("Sort by Name")
                         }
                     } label: {
-                        Image(systemName: "ellipsis.circle")
+                        Image(systemName: "arrow.up.arrow.down")
                     }
                 }
             }

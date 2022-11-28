@@ -20,14 +20,13 @@ struct NewWhiteboardView: View {
         NavigationView {
             List {
                 Section {
-                    ScrollView(.horizontal) {
-                        Image(uiImage: UIImage(data: outputImage.imgData[outputImage.imgData.count - 1])!)
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 128, height: 128)
-                            .cornerRadius(12)
-                            .padding()
-                    }
+//                    ScrollView(.horizontal) {
+                    Image(uiImage: UIImage(data: outputImage.imgData[outputImage.imgData.count - 1])!)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 256, height: 128)
+                        .cornerRadius(12)
+//                    }
                 }
                 Section(header: Text("options")) {
                     TextField("Title", text: $whiteboardTitle)

@@ -47,6 +47,11 @@ struct WhiteboardDetailView: View {
                     .padding(.leading)
                     .textFieldStyle(.roundedBorder)
                     .disabled(isEdit)
+                
+                Text("\(whiteboard.dateCreatedString)")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                    .padding()
             }
         }
         .toolbar {

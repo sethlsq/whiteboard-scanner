@@ -88,9 +88,6 @@ struct HomeView: View {
                                         .scaledToFill()
                                         .frame(width: 256,height: 128)
                                         .cornerRadius(12)
-                                    
-                                    Text(whiteboardManager.whiteboardsSortedDate[index].title)
-                                        .bold()
                                 }
                             }
                         }
@@ -116,9 +113,9 @@ struct HomeView: View {
                 }
                 .sheet(isPresented: $isDocumentScannerPresented) {
                     DocumentCameraView() { images in
-                        outputImage.imgData = images.compactMap { $0.pngData() }
-                        isNewWhiteboardViewPresented = true
                         isDocumentScannerPresented = false
+                        isNewWhiteboardViewPresented = true
+                        outputImage.imgData = images.compactMap { $0.pngData() }
                     }
                     .background(.black)
                 }
