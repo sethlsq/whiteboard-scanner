@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import QuickLook
 
 struct WhiteboardDetailView: View {
     
@@ -13,15 +14,30 @@ struct WhiteboardDetailView: View {
     @State var isEdit = true
     @State var whiteboardDescription: String = ""
     @FocusState private var isFocused: Bool
+    @State var url: URL?
     
     var body: some View {
         ScrollView {
             LazyVStack(alignment: .leading) {
-                Image(uiImage: UIImage(data: whiteboard.imageData[whiteboard.imageData.count - 1])!)
-                    .resizable()
-                    .scaledToFit()
-                    .cornerRadius(12)
-                    .padding()
+                Button {
+                    url = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("\(whiteboard.title).png", conformingTo: .image)
+                    if let url {
+                        let pngData = UIImage(data: whiteboard.imageData[whiteboard.imageData.count - 1])?.pngData()
+                        do {
+                            try pngData?.write(to: url)
+                        } catch {
+                            print("Failed to write PNG data")
+                        }
+                    }
+                } label: {
+                    Image(uiImage: UIImage(data: whiteboard.imageData[whiteboard.imageData.count - 1])!)
+                        .resizable()
+                        .scaledToFit()
+                        .cornerRadius(12)
+                        .padding()
+                }
+                .quickLookPreview($url)
+                
                 TextField("Description", text: $whiteboardDescription, axis:.vertical)
                     .focused($isFocused)
                     .onChange(of: isFocused) { isFocused in
