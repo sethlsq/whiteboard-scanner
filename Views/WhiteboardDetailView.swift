@@ -13,7 +13,9 @@ struct WhiteboardDetailView: View {
     @Binding var whiteboard: Whiteboard
     @State var isEdit = false
     @State var whiteboardDescription: String = ""
-    @FocusState private var isFocused: Bool
+    @State var whiteboardTitle: String = ""
+    @FocusState private var isFocusedDescription: Bool
+    @FocusState private var isFocusedTitle: Bool
     @State var url: URL?
     
     
@@ -46,12 +48,12 @@ struct WhiteboardDetailView: View {
                         
                         ForEach (whiteboard.whiteboardTags, id: \.self) { tag in
                             Button {
-//                                whiteboard.whiteboardTags.remove(at: tag)
+                                //                                whiteboard.whiteboardTags.remove(at: tag)
                                 
                             } label: {
                                 Text("#\(tag)")
                             }
-                            .disabled(isEdit ? false : true)
+                            .disabled(!isEdit)
                             .foregroundColor(isEdit ? .white : .accentColor)
                             .padding(8)
                             .background(isEdit ? Color.red : Color.clear)
@@ -63,14 +65,14 @@ struct WhiteboardDetailView: View {
                 }
                 
                 TextField("Description", text: $whiteboardDescription, axis:.vertical)
-                    .focused($isFocused)
-                    .onChange(of: isFocused) { isFocused in
+                    .focused($isFocusedDescription)
+                    .onChange(of: isFocusedDescription) { isFocusedDecription in
                         whiteboard.description = whiteboardDescription
                     }
                     .padding(.trailing)
                     .padding(.leading)
                     .textFieldStyle(.roundedBorder)
-                    .disabled(isEdit)
+                    .disabled(!isEdit)
                 
                 Text("\(whiteboard.dateCreatedString)")
                     .font(.subheadline)
@@ -88,10 +90,21 @@ struct WhiteboardDetailView: View {
             }
         }
         .navigationBarTitleDisplayMode(isEdit ? .inline: .large)
-        .navigationTitle($whiteboard.title)
+        .navigationTitle(whiteboardTitle)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                TextField("Title", text: $whiteboardTitle)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .onChange(of: whiteboardTitle) { isFocusedTitle in
+                        whiteboard.title = whiteboardTitle
+                    }
+                    .opacity(isEdit ? 100 : 0)
+            }
+        }
         .onAppear() {
             whiteboard.dateCreatedString = Date.now.formatted(date: .long, time: .shortened)
             whiteboard.dateCreated = Date.now
+            whiteboardTitle = whiteboard.title
             whiteboardDescription = whiteboard.description
         }
     }
