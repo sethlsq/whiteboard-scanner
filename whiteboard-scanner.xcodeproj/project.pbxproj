@@ -330,8 +330,9 @@
 				DEVELOPMENT_TEAM = 6C43UBPU7J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "To scan whiteboards";
-				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We want to import your whiteboard picture";
+				INFOPLIST_KEY_CFBundleDisplayName = SnapBoard;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Enable camera access so you can scan whiteboard with SnapBoard.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Import pictures of your whiteboard with SnapBoard.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -361,8 +362,9 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "To scan whiteboards";
-				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We want to import your whiteboard picture";
+				INFOPLIST_KEY_CFBundleDisplayName = SnapBoard;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Enable camera access so you can scan whiteboard with SnapBoard.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Import pictures of your whiteboard with SnapBoard.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
