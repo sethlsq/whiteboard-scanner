@@ -1,8 +1,8 @@
 //
-//  WhiteboardDetailView.swift
+//  NewWhiteboardView.swift
 //  whiteboard-scanner
 //
-//  Created by T Krobot on 18/11/22.
+//  Created by Seth Loh on 19/11/22.
 //
 
 import SwiftUI
@@ -10,105 +10,57 @@ import SwiftUI
 struct NewWhiteboardView: View {
     
     @State var whiteboardTitle = ""
-    @State var whiteboardDescription = ""
-    @Binding var whiteboards: [Whiteboard]
-    @Environment(\.dismiss) var dismiss
+    @State var whiteboardDesc = ""
+    @ObservedObject var whiteboardManager: WhiteboardManager
+    @Environment(\.presentationMode) var presentationMode
+    @Binding var outputImage: OutputImage
+    @State var showAlertNoTitle = false
     
-//    @AppStorage ("note") var note = ""
-//    var image: Image?
-//    @State private var inputImage: UIImage?
-//
     var body: some View {
-        
-   
-            
-        ZStack {
-            
-            Color.BackgroundColor.edgesIgnoringSafeArea(.all)
-            
-            VStack {
-                
-                //Potato
-                ZStack {
-                    
-                    
-                    Image("funny")
-                        .resizable()
-                        .padding()
-                        .scaledToFit()
-                    
-                    //                        Button {
-                    //
-                    //                            loadImage()
-                    //
-                    //                        } label: {
-                    //
-                    //                            Image(systemName: "pencil")
-                    //                                .foregroundColor(.white)
-                    //                                .padding()
-                    //                                .background(.blue)
-                    //                                .frame(maxWidth: 40, maxHeight: 40)
-                    //                                .cornerRadius(70)
-                    //                                .font(.system(size:30))
-                    //                                .offset(x:145, y:97)
-                    //
-                    //
-                    //
-                    //                        }
-                    
-                }
-                
-                Spacer()
-                
-                // Description TextField
-                VStack {
-                    TextField("Title", text: $whiteboardTitle, axis: .vertical)
-                        .lineLimit(1...5)
-                        .padding()
-                        .background(.white)
-                        .cornerRadius(10)
-                    
-                    TextField("Description", text: $whiteboardDescription, axis: .vertical)
-                        .lineLimit(2...5)
-                        .padding()
-                        .background(.white)
-                        .cornerRadius(10)
-                    
-                    
-                    Spacer()
-                    
-                }
-                .padding()
-                Button {
-                   whiteboards.append(Whiteboard(title: whiteboardTitle, description: whiteboardDescription))
-                    dismiss()
-                        } label: {
-                    HStack() {
-                        Image(systemName: "square.and.arrow.down")
-                        Text("Save")
+        NavigationView {
+            List {
+                Section {
+                    ScrollView(.horizontal) {
+                        Image(uiImage: UIImage(data: outputImage.imgData[outputImage.imgData.count - 1])!)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 128, height: 128)
+                            .cornerRadius(12)
+                            .padding()
                     }
-                    .bold()
-                    .padding(10)
-                    .frame(maxWidth: .infinity)
                 }
-                .buttonStyle(.borderedProminent)
-                .padding()
+                Section(header: Text("options")) {
+                    TextField("Title", text: $whiteboardTitle)
+                    TextField("Description", text: $whiteboardDesc, axis: .vertical)
+                }
+                Section() {
+                    Button("Save") {
+                        if (whiteboardTitle == "") {
+                            showAlertNoTitle = true
+                        } else {
+                            whiteboardManager.whiteboards.append(Whiteboard(title: whiteboardTitle, description: whiteboardDesc, dateCreatedString: Date.now.formatted(date: .long, time: .shortened), dateCreated: Date(), imageData: outputImage.imgData))
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                        
+                    }
+                }
+                
+            }
+            .navigationTitle("New Whiteboard")
+            .alert("Please enter a title", isPresented: $showAlertNoTitle) {
+                Button(role: .none) {
+                    showAlertNoTitle = false
+                } label: {
+                    Text("Continue")
+                }
+
             }
         }
     }
-    
-//    func loadImage() {
+}
 //
-//        guard let inputImage = inputImage else { return }
-//
-//        image = Image(uiImage: inputImage)
-//
+//struct NewWhiteboardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NewWhiteboardView(whiteboards: .constant([]))
 //    }
-    
-}
-
-struct NewWhiteboardView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewWhiteboardView(whiteboards: .constant([]))
-    }
-}
+//}
