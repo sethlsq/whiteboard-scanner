@@ -14,8 +14,6 @@ struct LibraryView: View {
     @State var isCurrentlyPinned: Bool = true
     @State var whiteboardsort: [Whiteboard] = []
     
-    @State private var userSelectedTag: String? = nil
-    
     var allTags: [String] {
         var tags: Set<String> = []
         for whiteboard in whiteboardManager.whiteboards {
@@ -23,41 +21,53 @@ struct LibraryView: View {
                 tags.insert(tag)
             }
         }
-        return Array(tags)
+        
+        return tags.sorted()
     }
     
-    var filteredWhiteboards: [Whiteboard] {
-        if let userSelectedTag = userSelectedTag {
-            return whiteboardManager.whiteboards.filter { (whiteboard) -> Bool in
-                whiteboard.whiteboardTags.contains(userSelectedTag)
-            }
-        }
-        return whiteboardManager.whiteboards
-    }
+//    var tagFilteredWhiteboards: [Whiteboard] {
+//        if let userSelectedTag = userSelectedTag {
+//            return whiteboardManager.whiteboards.filter { (whiteboard) -> Bool in
+//                whiteboard.whiteboardTags.contains(userSelectedTag)
+//            }
+//        }
+//        return whiteboardManager.whiteboards
+//    }
  
     var body: some View {
         NavigationView() {
             VStack {
-                ScrollView(.horizontal) {
+                ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 10) {
                         Button {
-                           userSelectedTag = nil
+                            whiteboardManager.filterString = ""
                         } label: {
                             Text("All")
                         }
+                        .foregroundColor(whiteboardManager.filterString.isEmpty ? .white : .accentColor)
+                        .padding(8)
+                        .background(whiteboardManager.filterString.isEmpty ? Color.accentColor : Color.clear)
+                        .cornerRadius(4)
+                        .padding(.leading)
+                        
                         ForEach (allTags, id: \.self) { tag in
                             Button {
-                                userSelectedTag = tag
+                                whiteboardManager.filterString = tag
+                                whiteboardManager.hasSorted = 3
                             } label: {
                                 Text("#\(tag)")
                             }
+                            .foregroundColor(whiteboardManager.filterString == tag ? .white : .accentColor)
+                            .padding(8)
+                            .background(whiteboardManager.filterString == tag ? Color.accentColor : Color.clear)
+                            .cornerRadius(4)
                         }
+                        .padding(.trailing)
                     }
                 }
                 
                 List {
                     Section (header: Text("PINNED")) {
-                        
                         ForEach($whiteboardManager.sortedWhiteboards.filter { $0.wrappedValue.isPinned }) { $whiteboard in
                             
                             NavigationLink(destination: WhiteboardDetailView(whiteboard: $whiteboard)) {
@@ -87,13 +97,13 @@ struct LibraryView: View {
                                 }
                             }
                         }
-                        
                         .onDelete { indexSet in
                             whiteboardManager.whiteboards.remove(atOffsets: indexSet)
                         }
                         .onMove { indices, newOffset in
                             whiteboardManager.whiteboards.move(fromOffsets: indices, toOffset: newOffset)
                         }
+
                         //                    .swipeActions(edge: .leading) {
                         //                        Button {
                         //
@@ -185,13 +195,14 @@ struct LibraryView: View {
             }
         }
     }
-    func whatarray() -> Binding<[Whiteboard]>  {
-        switch whiteboardManager.hasSorted {
-        case 1: return $whiteboardManager.whiteboardsSortedDate
-        case 2: return $whiteboardManager.whiteboardsSortedName
-        default : return $whiteboardManager.sortedWhiteboards
-        }
-    }
+//    func whatarray() -> Binding<[Whiteboard]>  {
+//        switch whiteboardManager.hasSorted {
+//        case 1: return $whiteboardManager.whiteboardsSortedDate
+//        case 2: return $whiteboardManager.whiteboardsSortedName
+//        case 3: return $whiteboardManager.tagFilteredWhiteboards(filterString: whiteboardManager.filterString)
+//        default : return $whiteboardManager.sortedWhiteboards
+//        }
+//    }
 }
 
 struct LibraryView_Previews: PreviewProvider {

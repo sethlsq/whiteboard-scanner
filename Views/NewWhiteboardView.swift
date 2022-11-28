@@ -72,6 +72,7 @@ struct NewWhiteboardView: View {
                 } label: {
                     Text("Add")
                 }
+                .disabled(tagClass.userInput.isEmpty)
             }
         }
     }

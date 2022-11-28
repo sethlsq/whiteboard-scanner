@@ -16,6 +16,8 @@ class WhiteboardManager: ObservableObject {
     }
     @Published var hasSorted = 0
     @Published var searchTerm = ""
+    @Published var filterString = ""
+    
     var isPinnedNow = false
     let sampleWhiteboards: [Whiteboard] = []
     
@@ -40,11 +42,11 @@ class WhiteboardManager: ObservableObject {
     
     var sortedWhiteboards: [Whiteboard] {
         get {
-            
             var sortedWhiteboards: [Whiteboard] = []
             switch hasSorted {
             case 1: sortedWhiteboards = whiteboardsSortedDate
             case 2: sortedWhiteboards = whiteboardsSortedName
+            case 3: sortedWhiteboards = tagFilteredWhiteboards(filterString: filterString)
             default : sortedWhiteboards = whiteboards
             }
             
@@ -87,6 +89,27 @@ class WhiteboardManager: ObservableObject {
             }
         }
     }
+    
+    func tagFilteredWhiteboards(filterString: String) -> [Whiteboard] {
+        if filterString.isEmpty {
+            return whiteboards
+        }
+        return whiteboards.filter { whiteboard in
+            whiteboard.whiteboardTags.contains(filterString)
+        }
+    }
+//    var tagFilteredWhiteboards: [Whiteboard] {
+//        get {
+//            whiteboards.filter {
+//                $0.whiteboardTags.contains(filterString)
+//            }
+//        } set {
+//            for whiteboard in newValue {
+//                let whiteboardIndex = whiteboards.firstIndex(where: { $0.id == whiteboard.id })!
+//                whiteboards[whiteboardIndex] = whiteboard
+//            }
+//        }
+//    }
     
     func load() {
         let archiveURL = getArchiveURL()

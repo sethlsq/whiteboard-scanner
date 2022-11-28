@@ -81,7 +81,6 @@
 				CD5069DC292869F0005897C5 /* WhiteboardManager.swift */,
 				D9B695B72927519200D10EEB /* Whiteboard.swift */,
 				CDDBCD7B292A1F0300AC8CF2 /* OutputImage.swift */,
-				CD25A7A329348B0D006203C0 /* TagClass.swift */,
 			);
 			path = "whiteboard-scanner";
 			sourceTree = "<group>";
@@ -110,6 +109,7 @@
 		CDAB1885291298540018829D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				CD25A7A329348B0D006203C0 /* TagClass.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
