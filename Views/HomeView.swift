@@ -93,8 +93,6 @@ struct HomeView: View {
                                             .frame(width: 256,height: 128)
                                             .cornerRadius(12)
                                         
-                                        Text(whiteboardManager.whiteboardsSortedDate[index].title)
-                                            .bold()
                                     }
                                 }
                             }
@@ -109,7 +107,7 @@ struct HomeView: View {
                         for newItem in newItems {
                             if let data = try? await newItem.loadTransferable(type: Data.self) {
                                 selectedImageData = [data]
-                                var numberOfPages = data.count
+//                                var numberOfPages = data.count
                                 outputImage.imgData = selectedImageData
                                 isNewWhiteboardViewPresented = true
                             }
