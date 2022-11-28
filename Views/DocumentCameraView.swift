@@ -12,9 +12,6 @@ import VisionKit
 import Vision
 
 struct DocumentCameraView: UIViewControllerRepresentable {
-    
-    var onComplete: (([UIImage]) -> Void)
-    
     func makeUIViewController(context: Context) -> VNDocumentCameraViewController {
         let documentCameraViewController = VNDocumentCameraViewController()
         documentCameraViewController.delegate = context.coordinator
@@ -27,22 +24,18 @@ struct DocumentCameraView: UIViewControllerRepresentable {
     }
     
     func makeCoordinator() -> Coordinator {
-        return Coordinator(parent: self)
+        return Coordinator()
     }
     
     class Coordinator: NSObject, VNDocumentCameraViewControllerDelegate {
-        
-        var parent: DocumentCameraView
-        init(parent: DocumentCameraView) {
-            self.parent = parent
-        }
-        
         func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
-            let numberOfPages = scan.pageCount
+            var numberOfPages = scan.pageCount
+            
             let images = (0..<numberOfPages).map {
                 scan.imageOfPage(at: $0)
             }
-            parent.onComplete(images)
+            
+            
         }
     }
 }
