@@ -13,23 +13,21 @@ struct Whiteboard: Identifiable, Codable {
     var description: String = ""
     var dateCreatedString: String = ""
     var dateCreated = Date()
-    var catagory: String = ""
+    var category: String = ""
     var isPinned: Bool = false
     var imageData: [Data] = []
-    
-    
 }
 
-enum catagory: Codable {
-    case one
-    case two
-    case three
-    case four
-    case five
-    case six
-    case seven
-    case eight
-    case nine
+enum category: Codable {
+    case none
+    case red
+    case orange
+    case yellow
+    case green
+    case blue
+    case purple
+    case grey
+    case brown
     
 }
 
