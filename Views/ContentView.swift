@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentView: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
-    @StateObject var whiteboardManager = WhiteboardManager()
+    @ObservedObject var whiteboardManager = WhiteboardManager()
     
     var body: some View {
         TabView {
@@ -20,16 +20,16 @@ struct ContentView: View {
                     Label("Home", systemImage: "house.fill")
                 }
 
-            LibraryView2()
+            LibraryView(whiteboardManager: whiteboardManager)
                 .tabItem {
-                    Label("Library", systemImage: "rectangle.fill.on.rectangle.fill")
+                    Label("Whiteboards", systemImage: "rectangle.fill.on.rectangle.fill")
                 }
         }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}

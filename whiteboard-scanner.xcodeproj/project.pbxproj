@@ -7,12 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-<<<<<<< HEAD
-		C72CEDC129236245000A2B2C /* LibraryView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72CEDC029236245000A2B2C /* LibraryView2.swift */; };
-		C72CEDCA29238C5E000A2B2C /* LibraryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72CEDC929238C5E000A2B2C /* LibraryDetail.swift */; };
-		C78FE49429272ACB003653AF /* NewFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FE49329272ACB003653AF /* NewFolder.swift */; };
-=======
->>>>>>> parent of d87c3d7 (I added live text)
 		CD1531112903885E005D37DD /* whiteboard_scannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1531102903885E005D37DD /* whiteboard_scannerApp.swift */; };
 		CD1531132903885E005D37DD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1531122903885E005D37DD /* ContentView.swift */; };
 		CD15311529038860005D37DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD15311429038860005D37DD /* Assets.xcassets */; };
@@ -20,26 +14,15 @@
 		CD15311F290393A1005D37DD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD15311E290393A1005D37DD /* HomeView.swift */; };
 		CD5069D72922104E005897C5 /* DocumentCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5069D62922104E005897C5 /* DocumentCameraView.swift */; };
 		CD5069DD292869F0005897C5 /* WhiteboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5069DC292869F0005897C5 /* WhiteboardManager.swift */; };
-		CDAB18872912986A0018829D /* TimeFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAB18862912986A0018829D /* TimeFormatting.swift */; };
-		CDC29E8229153A41008E2203 /* Import.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC29E8129153A41008E2203 /* Import.swift */; };
+		CD5069E12928AF0E005897C5 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5069E02928AF0E005897C5 /* LibraryView.swift */; };
+		CD5069E32928BF18005897C5 /* WhiteboardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5069E22928BF18005897C5 /* WhiteboardDetailView.swift */; };
+		CD5069E52928C9C4005897C5 /* NewWhiteboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5069E42928C9C4005897C5 /* NewWhiteboardView.swift */; };
+		CDDBCD7C292A1F0300AC8CF2 /* OutputImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDBCD7B292A1F0300AC8CF2 /* OutputImage.swift */; };
 		D9AD1E55291F30BF00E91519 /* Custom Colours.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AD1E54291F30BF00E91519 /* Custom Colours.swift */; };
-		D9B6959C29272EB600D10EEB /* NewWhiteboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B6959B29272EB600D10EEB /* NewWhiteboardView.swift */; };
 		D9B695B82927519200D10EEB /* Whiteboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B695B72927519200D10EEB /* Whiteboard.swift */; };
-		D9CB089A2921E46100E30DBD /* SamplePinnedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB08992921E46100E30DBD /* SamplePinnedView.swift */; };
-		D9CB089E2921FD4F00E30DBD /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB089D2921FD4F00E30DBD /* ImageSaver.swift */; };
-		D9CB08A02922022E00E30DBD /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB089F2922022E00E30DBD /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-<<<<<<< HEAD
-		C72CEDC029236245000A2B2C /* LibraryView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView2.swift; sourceTree = "<group>"; };
-		C72CEDC929238C5E000A2B2C /* LibraryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDetail.swift; sourceTree = "<group>"; };
-		C78FE49329272ACB003653AF /* NewFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFolder.swift; sourceTree = "<group>"; };
-		C78FE496292736FA003653AF /* WhiteboardFolders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteboardFolders.swift; sourceTree = "<group>"; };
-		C78FE49829273714003653AF /* NewWhiteboardFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWhiteboardFolder.swift; sourceTree = "<group>"; };
-		C78FE49A2927371E003653AF /* WhireboardFolderDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhireboardFolderDetail.swift; sourceTree = "<group>"; };
-=======
->>>>>>> parent of d87c3d7 (I added live text)
 		CD15310D2903885E005D37DD /* whiteboard-scanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "whiteboard-scanner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD1531102903885E005D37DD /* whiteboard_scannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = whiteboard_scannerApp.swift; sourceTree = "<group>"; };
 		CD1531122903885E005D37DD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,14 +31,12 @@
 		CD15311E290393A1005D37DD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CD5069D62922104E005897C5 /* DocumentCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCameraView.swift; sourceTree = "<group>"; };
 		CD5069DC292869F0005897C5 /* WhiteboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteboardManager.swift; sourceTree = "<group>"; };
-		CDAB18862912986A0018829D /* TimeFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatting.swift; sourceTree = "<group>"; };
-		CDC29E8129153A41008E2203 /* Import.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Import.swift; sourceTree = "<group>"; };
+		CD5069E02928AF0E005897C5 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		CD5069E22928BF18005897C5 /* WhiteboardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteboardDetailView.swift; sourceTree = "<group>"; };
+		CD5069E42928C9C4005897C5 /* NewWhiteboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWhiteboardView.swift; sourceTree = "<group>"; };
+		CDDBCD7B292A1F0300AC8CF2 /* OutputImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputImage.swift; sourceTree = "<group>"; };
 		D9AD1E54291F30BF00E91519 /* Custom Colours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom Colours.swift"; sourceTree = "<group>"; };
-		D9B6959B29272EB600D10EEB /* NewWhiteboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWhiteboardView.swift; sourceTree = "<group>"; };
 		D9B695B72927519200D10EEB /* Whiteboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Whiteboard.swift; sourceTree = "<group>"; };
-		D9CB08992921E46100E30DBD /* SamplePinnedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplePinnedView.swift; sourceTree = "<group>"; };
-		D9CB089D2921FD4F00E30DBD /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
-		D9CB089F2922022E00E30DBD /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,21 +50,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C72CEDC229238456000A2B2C /* LibraryView2&Afeature */ = {
-			isa = PBXGroup;
-			children = (
-				C78FE49329272ACB003653AF /* NewFolder.swift */,
-				C72CEDC929238C5E000A2B2C /* LibraryDetail.swift */,
-			);
-			path = "LibraryView2&Afeature";
-			sourceTree = "<group>";
-		};
 		CD1531042903885E005D37DD = {
 			isa = PBXGroup;
 			children = (
 				CD15310F2903885E005D37DD /* whiteboard-scanner */,
-				C72CEDC229238456000A2B2C /* LibraryView2&Afeature */,
-				CDC29E8029153A0F008E2203 /* Functions */,
 				CDAB1885291298540018829D /* Helpers */,
 				CDAB1883291297E00018829D /* Views */,
 				D9AD1E54291F30BF00E91519 /* Custom Colours.swift */,
@@ -107,6 +77,8 @@
 				CD15311629038860005D37DD /* Preview Content */,
 				CD1531102903885E005D37DD /* whiteboard_scannerApp.swift */,
 				CD5069DC292869F0005897C5 /* WhiteboardManager.swift */,
+				D9B695B72927519200D10EEB /* Whiteboard.swift */,
+				CDDBCD7B292A1F0300AC8CF2 /* OutputImage.swift */,
 			);
 			path = "whiteboard-scanner";
 			sourceTree = "<group>";
@@ -123,16 +95,11 @@
 			isa = PBXGroup;
 			children = (
 				CD1531122903885E005D37DD /* ContentView.swift */,
-<<<<<<< HEAD
-				C72CEDC029236245000A2B2C /* LibraryView2.swift */,
-=======
 				CD5069E02928AF0E005897C5 /* LibraryView.swift */,
 				CD5069E22928BF18005897C5 /* WhiteboardDetailView.swift */,
->>>>>>> parent of d87c3d7 (I added live text)
 				CD15311E290393A1005D37DD /* HomeView.swift */,
 				CD5069D62922104E005897C5 /* DocumentCameraView.swift */,
-				D9CB08992921E46100E30DBD /* SamplePinnedView.swift */,
-				D9B6959B29272EB600D10EEB /* NewWhiteboardView.swift */,
+				CD5069E42928C9C4005897C5 /* NewWhiteboardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -140,28 +107,13 @@
 		CDAB1885291298540018829D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				CDAB18862912986A0018829D /* TimeFormatting.swift */,
 			);
 			path = Helpers;
-			sourceTree = "<group>";
-		};
-		CDC29E8029153A0F008E2203 /* Functions */ = {
-			isa = PBXGroup;
-			children = (
-				CDC29E8129153A41008E2203 /* Import.swift */,
-				D9B695B72927519200D10EEB /* Whiteboard.swift */,
-				D9CB089F2922022E00E30DBD /* ImagePicker.swift */,
-				D9CB089D2921FD4F00E30DBD /* ImageSaver.swift */,
-			);
-			path = Functions;
 			sourceTree = "<group>";
 		};
 		D9B695AC29274FC900D10EEB /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				C78FE49829273714003653AF /* NewWhiteboardFolder.swift */,
-				C78FE49A2927371E003653AF /* WhireboardFolderDetail.swift */,
-				C78FE496292736FA003653AF /* WhiteboardFolders.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -236,29 +188,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C72CEDC129236245000A2B2C /* LibraryView2.swift in Sources */,
 				D9AD1E55291F30BF00E91519 /* Custom Colours.swift in Sources */,
-<<<<<<< HEAD
-				CDC29E8229153A41008E2203 /* Import.swift in Sources */,
-				D9B6959C29272EB600D10EEB /* NewWhiteboardView.swift in Sources */,
-=======
->>>>>>> parent of d87c3d7 (I added live text)
 				CD5069D72922104E005897C5 /* DocumentCameraView.swift in Sources */,
+				CD5069E32928BF18005897C5 /* WhiteboardDetailView.swift in Sources */,
 				CD5069DD292869F0005897C5 /* WhiteboardManager.swift in Sources */,
-<<<<<<< HEAD
-				CDAB18872912986A0018829D /* TimeFormatting.swift in Sources */,
-				D9CB089A2921E46100E30DBD /* SamplePinnedView.swift in Sources */,
-=======
 				CD5069E12928AF0E005897C5 /* LibraryView.swift in Sources */,
->>>>>>> parent of d87c3d7 (I added live text)
 				D9B695B82927519200D10EEB /* Whiteboard.swift in Sources */,
-				C72CEDCA29238C5E000A2B2C /* LibraryDetail.swift in Sources */,
-				D9CB089E2921FD4F00E30DBD /* ImageSaver.swift in Sources */,
 				CD15311F290393A1005D37DD /* HomeView.swift in Sources */,
-				D9CB08A02922022E00E30DBD /* ImagePicker.swift in Sources */,
 				CD1531132903885E005D37DD /* ContentView.swift in Sources */,
-				C78FE49429272ACB003653AF /* NewFolder.swift in Sources */,
+				CDDBCD7C292A1F0300AC8CF2 /* OutputImage.swift in Sources */,
 				CD1531112903885E005D37DD /* whiteboard_scannerApp.swift in Sources */,
+				CD5069E52928C9C4005897C5 /* NewWhiteboardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,7 +342,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "sg.tk.whiteboard-scanner";
+				PRODUCT_BUNDLE_IDENTIFIER = "test.whiteboard-scanner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -418,7 +358,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"whiteboard-scanner/Preview Content\"";
-				DEVELOPMENT_TEAM = 6C43UBPU7J;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "To scan whiteboards";
@@ -433,8 +373,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "sg.tk.whiteboard-scanner";
+				PRODUCT_BUNDLE_IDENTIFIER = "test.whiteboard-scanner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
