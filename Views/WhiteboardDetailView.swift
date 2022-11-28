@@ -89,21 +89,21 @@ struct WhiteboardDetailView: View {
             }
         }
         .navigationBarTitleDisplayMode(isEdit ? .inline: .large)
-        .navigationTitle(whiteboardTitle)
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                TextField("Title", text: $whiteboardTitle)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .onChange(of: whiteboardTitle) { isFocusedTitle in
-                        whiteboard.title = whiteboardTitle
-                    }
-                    .opacity(isEdit ? 100 : 0)
-            }
-        }
+        .navigationTitle($whiteboard.title)
+//        .toolbar {
+//            ToolbarItem(placement: .principal) {
+//                TextField("Title", text: $whiteboardTitle)
+//                    .textFieldStyle(RoundedBorderTextFieldStyle())
+//                    .onChange(of: whiteboardTitle) { isFocusedTitle in
+//                        whiteboard.title = whiteboardTitle
+//                    }
+//                    .opacity(isEdit ? 100 : 0)
+//            }
+//        }
         .onAppear() {
             whiteboard.dateCreatedString = Date.now.formatted(date: .long, time: .shortened)
             whiteboard.dateCreated = Date.now
-            whiteboardTitle = whiteboard.title
+//            whiteboardTitle = whiteboard.title
             whiteboardDescription = whiteboard.description
         }
     }
