@@ -46,7 +46,8 @@ struct WhiteboardDetailView: View {
                         
                         ForEach (whiteboard.whiteboardTags, id: \.self) { tag in
                             Button {
-//                                whiteboard.whiteboardTags.remove(at: <#T##Int#>)
+//                                whiteboard.whiteboardTags.remove(at: tag)
+                                
                             } label: {
                                 Text("#\(tag)")
                             }

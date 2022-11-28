@@ -34,33 +34,33 @@ struct NewWhiteboardView: View {
                 Section(header: Text("options")) {
                     TextField("Title", text: $whiteboardTitle)
                     TextField("Description", text: $whiteboardDesc, axis: .vertical)
+                }
+                
+                Section {
                     Button {
                         isNewTagAlertShown = true
                     } label: {
                         Text("Add tag")
                     }
-                }
-                
-                if selectedTags.isEmpty == false{
-                ScrollView(.horizontal, showsIndicators: false) {
-                    
-                    HStack (spacing: 10) {
-                        
-                        ForEach (selectedTags, id: \.self) { tag in
-                            Text("#\(tag)")
-                                .foregroundColor(.accentColor)
-                                .padding(8)
-                                .background(Color.clear)
-                                .cornerRadius(4)
+                    if selectedTags.isEmpty == false{
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack (spacing: 10) {
+                            ForEach (selectedTags, id: \.self) { tag in
+                                Text("#\(tag)")
+                                    .foregroundColor(.accentColor)
+                                    .padding(8)
+                                    .background(Color.clear)
+                                    .cornerRadius(4)
+                            }
+                            
                         }
                         
                     }
-                    
-                }
-                } else {
-                    
-                    
-                    
+                    } else {
+                        
+                        
+                        
+                    }
                 }
                 Section() {
                     Button("Save") {
