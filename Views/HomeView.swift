@@ -13,7 +13,6 @@ struct HomeView: View {
     @State private var selectedImages: [PhotosPickerItem] = []
     @State private var selectedImageData: [Data] = []
     @ObservedObject var whiteboardManager: WhiteboardManager
-    @State private var arraySize: Int = 0
     
     @State var outputImage = OutputImage()
     
@@ -80,14 +79,23 @@ struct HomeView: View {
                         }
                     }
                     Section(header: Text("Recents")) {
-                        ForEach(arraySize < 3 ? 0..<arraySize : 0..<3) { index in
-                            NavigationLink(destination: WhiteboardDetailView(whiteboard: $whiteboardManager.whiteboardsSortedDate[index])) {
-                                VStack(alignment: .leading) {
-                                    Image(uiImage: UIImage(data: whiteboardManager.whiteboardsSortedDate[index].imageData[0])!)
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 256,height: 128)
-                                        .cornerRadius(12)
+                        ForEach($whiteboardManager.whiteboardsSortedDate) { $whiteboard in
+                            let index = whiteboardManager.whiteboardsSortedDate.firstIndex {
+                                $0.id == whiteboard.id
+                            } ?? 100
+                            
+                            if index < 3 {
+                                NavigationLink(destination: WhiteboardDetailView(whiteboard: $whiteboard)) {
+                                    VStack(alignment: .leading) {
+                                        Image(uiImage: UIImage(data: whiteboardManager.whiteboardsSortedDate[index].imageData[0])!)
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: 256,height: 128)
+                                            .cornerRadius(12)
+                                        
+                                        Text(whiteboardManager.whiteboardsSortedDate[index].title)
+                                            .bold()
+                                    }
                                 }
                             }
                         }
@@ -119,13 +127,6 @@ struct HomeView: View {
                     }
                     .background(.black)
                 }
-            }
-            .onAppear() {
-                print(whiteboardManager.whiteboards)
-                arraySize = whiteboardManager.whiteboardsSortedDate.count
-            }
-            .onChange(of: whiteboardManager.whiteboardsSortedDate.count) { count in
-                arraySize = count
             }
         }
     }
