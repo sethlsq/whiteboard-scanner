@@ -14,7 +14,10 @@ struct NewWhiteboardView: View {
     @ObservedObject var whiteboardManager: WhiteboardManager
     @Environment(\.presentationMode) var presentationMode
     @Binding var outputImage: OutputImage
-    @State var showAlertNoTitle = false
+    @State var isNoTitleAlertShown = false
+    @State var isNewTagAlertShown = false
+    @ObservedObject var tagClass = TagClass()
+    @State var selectedTags: [String]
     
     var body: some View {
         NavigationView {
@@ -31,28 +34,44 @@ struct NewWhiteboardView: View {
                 Section(header: Text("options")) {
                     TextField("Title", text: $whiteboardTitle)
                     TextField("Description", text: $whiteboardDesc, axis: .vertical)
+                    Button {
+                        isNewTagAlertShown = true
+                    } label: {
+                        Text("Add tag")
+                    }
                 }
                 Section() {
                     Button("Save") {
                         if (whiteboardTitle == "") {
-                            showAlertNoTitle = true
+                            isNoTitleAlertShown = true
                         } else {
-                            whiteboardManager.whiteboards.append(Whiteboard(title: whiteboardTitle, description: whiteboardDesc, dateCreatedString: Date.now.formatted(date: .long, time: .shortened), dateCreated: Date(), imageData: outputImage.imgData))
+                            whiteboardManager.whiteboards.append(Whiteboard(title: whiteboardTitle, description: whiteboardDesc, dateCreatedString: Date.now.formatted(date: .long, time: .shortened), dateCreated: Date(), whiteboardTags: selectedTags, imageData: outputImage.imgData))
                             presentationMode.wrappedValue.dismiss()
                         }
                         
                     }
+                    Button("Cancel") {
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                    .foregroundColor(.red)
                 }
-                
             }
             .navigationTitle("New Whiteboard")
-            .alert("Title cannot be empty.", isPresented: $showAlertNoTitle) {
+            .alert("Title cannot be empty.", isPresented: $isNoTitleAlertShown) {
                 Button(role: .none) {
-                    showAlertNoTitle = false
+                    isNoTitleAlertShown = false
                 } label: {
                     Text("Dismiss")
                 }
-
+            }
+            .alert("Assign Tag", isPresented: $isNewTagAlertShown) {
+                TextField("Tag", text: $tagClass.userInput)
+                Button("Cancel", role: .cancel, action: {})
+                Button {
+                    selectedTags.append(tagClass.userInput)
+                } label: {
+                    Text("Add")
+                }
             }
         }
     }
