@@ -12,6 +12,8 @@ struct WhiteboardDetailView: View {
     
     @Binding var whiteboard: Whiteboard
     @State var isEdit = false
+    @State var isNewTagAlertShown = false
+    @ObservedObject var tagClass = TagClass()
     @State var whiteboardDescription: String = ""
     @FocusState private var isFocused: Bool
     @State var url: URL?
@@ -40,24 +42,86 @@ struct WhiteboardDetailView: View {
                 }
                 .quickLookPreview($url)
                 
+//                Button {
+//
+//                    isNewTagAlertShown = true
+//
+//                } label: {
+//
+//                    Text("Add Tag")
+//                        .padding(10)
+//                        .foregroundColor(isEdit ? .accentColor : .clear)
+//                        .frame(maxWidth: .infinity)
+//                        .cornerRadius(12)
+//
+//                }
+//                .disabled(isEdit ? false : true)
+//                .padding(.leading)
+//                .padding(.trailing)
+//                .alert("Assign Tag", isPresented: $isNewTagAlertShown) {
+//                    TextField("Tag",  text: $tagClass.userInput)
+//                    Button("Cancel", role: .cancel, action: {})
+//                    Button {
+//                        if tagClass.userInput.isEmpty {
+//
+//                        } else {
+//                            whiteboard.whiteboardTags.append(tagClass.userInput)
+//                            tagClass.userInput = ""
+//                        }
+//                    } label: {
+//                        Text("Add")
+//                    }
+//                }
+                
                 ScrollView(.horizontal, showsIndicators: false) {
                     
                     HStack (spacing: 10) {
                         
                         ForEach (whiteboard.whiteboardTags, id: \.self) { tag in
                             Button {
-//                                whiteboard.whiteboardTags.remove(at: <#T##Int#>)
+                                ////                                whiteboard.whiteboardTags.remove(at: <#T##Int#>)
+                                //                                whiteboard.whiteboardTags.remove(id: whiteboard.self)
                             } label: {
                                 Text("#\(tag)")
                             }
                             .disabled(isEdit ? false : true)
-                            .foregroundColor(isEdit ? .white : .accentColor)
+                            .foregroundColor(isEdit ? .red : .accentColor)
                             .padding(8)
-                            .background(isEdit ? Color.red : Color.clear)
                             .cornerRadius(4)
                         }
                         
+                        Button {
+                            
+                            isNewTagAlertShown = true
+                            
+                        } label: {
+                            
+                            Text("Add Tag")
+                                .padding(10)
+                                .foregroundColor(isEdit ? .accentColor : .clear)
+                                .frame(maxWidth: .infinity)
+                                .cornerRadius(12)
+                            
+                        }
+                        .disabled(isEdit ? false : true)
+                        .padding(.trailing)
+                        .alert("Assign Tag", isPresented: $isNewTagAlertShown) {
+                            TextField("Tag",  text: $tagClass.userInput)
+                            Button("Cancel", role: .cancel, action: {})
+                            Button {
+                                if tagClass.userInput.isEmpty {
+                                    
+                                } else {
+                                    whiteboard.whiteboardTags.append(tagClass.userInput)
+                                    tagClass.userInput = ""
+                                }
+                            } label: {
+                                Text("Add")
+                            }
+                        }
+                        
                     }.padding(.leading)
+                    
                     
                 }
                 
