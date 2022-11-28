@@ -34,6 +34,7 @@ struct WhiteboardDetailView: View {
                         .resizable()
                         .scaledToFit()
                         .cornerRadius(12)
+                        .frame(maxHeight: 384)
                         .padding()
                 }
                 .quickLookPreview($url)

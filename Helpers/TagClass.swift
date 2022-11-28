@@ -13,7 +13,7 @@ class TagClass: ObservableObject {
     
     @Published var userInput = "" {
         didSet {
-            if userInput.count > characterLimit {
+            if userInput.count > characterLimit && userInput.count > 0 {
                 userInput = String(userInput.prefix(characterLimit))
             }
         }

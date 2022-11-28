@@ -68,32 +68,33 @@ struct LibraryView: View {
                 
                 List {
                     Section (header: Text("PINNED")) {
-                        ForEach($whiteboardManager.sortedWhiteboards.filter { $0.wrappedValue.isPinned }) { $whiteboard in
-                            
-                            NavigationLink(destination: WhiteboardDetailView(whiteboard: $whiteboard)) {
-                                
-                                HStack {
-                                    Image(uiImage: UIImage(data: whiteboard.imageData[0])!)
-                                        .resizable()
-                                        .frame(width: 64.0, height: 48.0)
-                                        .cornerRadius(4)
+                        ForEach($whiteboardManager.sortedWhiteboards) { $whiteboard in
+                            if whiteboard.isPinned {
+                                NavigationLink(destination: WhiteboardDetailView(whiteboard: $whiteboard)) {
                                     
-                                    VStack(alignment: .leading) {
-                                        Text(whiteboard.title)
-                                        Text("\(whiteboard.dateCreatedString)")
-                                            .font(.subheadline)
-                                            .foregroundColor(.secondary)
+                                    HStack {
+                                        Image(uiImage: UIImage(data: whiteboard.imageData[0])!)
+                                            .resizable()
+                                            .frame(width: 64.0, height: 48.0)
+                                            .cornerRadius(4)
                                         
+                                        VStack(alignment: .leading) {
+                                            Text(whiteboard.title)
+                                            Text("\(whiteboard.dateCreatedString)")
+                                                .font(.subheadline)
+                                                .foregroundColor(.secondary)
+                                            
+                                        }
                                     }
                                 }
-                            }
-                            .swipeActions(edge: .leading) {
-                                Button {
-                                    
-                                    whiteboard.isPinned = !isCurrentlyPinned
-                                    
-                                } label: {
-                                    Image(systemName: "pin.slash.fill")
+                                .swipeActions(edge: .leading) {
+                                    Button {
+                                        
+                                        whiteboard.isPinned = !isCurrentlyPinned
+                                        
+                                    } label: {
+                                        Image(systemName: "pin.slash.fill")
+                                    }
                                 }
                             }
                         }
@@ -121,31 +122,32 @@ struct LibraryView: View {
                     
                     Section (header: Text("ALL")) {
                         
-                        ForEach($whiteboardManager.sortedWhiteboards.filter { $0.wrappedValue.isPinned == false}) { $whiteboard in
-                            
-                            NavigationLink(destination: WhiteboardDetailView(whiteboard: $whiteboard)) {
-                                
-                                HStack {
-                                    Image(uiImage: UIImage(data: whiteboard.imageData[0])!)
-                                        .resizable()
-                                        .frame(width: 64.0, height: 48.0)
-                                        .cornerRadius(4)
+                        ForEach($whiteboardManager.sortedWhiteboards) { $whiteboard in
+                            if !whiteboard.isPinned {
+                                NavigationLink(destination: WhiteboardDetailView(whiteboard: $whiteboard)) {
                                     
-                                    VStack(alignment: .leading) {
-                                        Text(whiteboard.title)
-                                        Text("\(whiteboard.dateCreatedString)")
-                                            .font(.subheadline)
-                                            .foregroundColor(.secondary)
+                                    HStack {
+                                        Image(uiImage: UIImage(data: whiteboard.imageData[0])!)
+                                            .resizable()
+                                            .frame(width: 64.0, height: 48.0)
+                                            .cornerRadius(4)
                                         
+                                        VStack(alignment: .leading) {
+                                            Text(whiteboard.title)
+                                            Text("\(whiteboard.dateCreatedString)")
+                                                .font(.subheadline)
+                                                .foregroundColor(.secondary)
+                                            
+                                        }
                                     }
-                                }
-                            }.swipeActions(edge: .leading) {
-                                Button {
-                                    
-                                    whiteboard.isPinned = isCurrentlyPinned
-                                    
-                                } label: {
-                                    Image(systemName: "pin.fill")
+                                }.swipeActions(edge: .leading) {
+                                    Button {
+                                        
+                                        whiteboard.isPinned = isCurrentlyPinned
+                                        
+                                    } label: {
+                                        Image(systemName: "pin.fill")
+                                    }
                                 }
                             }
                         }
@@ -164,6 +166,7 @@ struct LibraryView: View {
                         //                    }
                     }
                 }
+                
                 .navigationTitle("Whiteboards")
                 .searchable(text: $whiteboardManager.searchTerm)
                 .onSubmit(of: .search, {

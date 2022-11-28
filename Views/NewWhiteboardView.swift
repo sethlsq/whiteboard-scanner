@@ -68,11 +68,14 @@ struct NewWhiteboardView: View {
                 TextField("Tag", text: $tagClass.userInput)
                 Button("Cancel", role: .cancel, action: {})
                 Button {
-                    selectedTags.append(tagClass.userInput)
+                    if tagClass.userInput.isEmpty {
+                        
+                    } else {
+                        selectedTags.append(tagClass.userInput)
+                    }
                 } label: {
                     Text("Add")
                 }
-                .disabled(tagClass.userInput.isEmpty)
             }
         }
     }

@@ -115,7 +115,7 @@ struct HomeView: View {
                     }
                 }
                 .sheet(isPresented: $isNewWhiteboardViewPresented) {
-                    NewWhiteboardView(whiteboardManager: whiteboardManager, outputImage: $outputImage, selectedTags: [""])
+                    NewWhiteboardView(whiteboardManager: whiteboardManager, outputImage: $outputImage, selectedTags: [])
                 }
                 .sheet(isPresented: $isDocumentScannerPresented) {
                     DocumentCameraView() { images in
