@@ -66,7 +66,7 @@ struct LibraryView: View {
                     }
                 }
                 
-                List {
+                List() {
                     Section (header: Text("PINNED")) {
                         ForEach($whiteboardManager.sortedWhiteboards) { $whiteboard in
                             if whiteboard.isPinned {
@@ -166,7 +166,6 @@ struct LibraryView: View {
                         //                    }
                     }
                 }
-                
                 .navigationTitle("Whiteboards")
                 .searchable(text: $whiteboardManager.searchTerm)
                 .onSubmit(of: .search, {

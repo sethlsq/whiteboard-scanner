@@ -11,10 +11,11 @@ import QuickLook
 struct WhiteboardDetailView: View {
     
     @Binding var whiteboard: Whiteboard
-    @State var isEdit = true
+    @State var isEdit = false
     @State var whiteboardDescription: String = ""
     @FocusState private var isFocused: Bool
     @State var url: URL?
+    
     
     var body: some View {
         ScrollView {
@@ -39,6 +40,27 @@ struct WhiteboardDetailView: View {
                 }
                 .quickLookPreview($url)
                 
+                ScrollView(.horizontal, showsIndicators: false) {
+                    
+                    HStack (spacing: 10) {
+                        
+                        ForEach (whiteboard.whiteboardTags, id: \.self) { tag in
+                            Button {
+//                                whiteboard.whiteboardTags.remove(at: <#T##Int#>)
+                            } label: {
+                                Text("#\(tag)")
+                            }
+                            .disabled(isEdit ? false : true)
+                            .foregroundColor(isEdit ? .white : .accentColor)
+                            .padding(8)
+                            .background(isEdit ? Color.red : Color.clear)
+                            .cornerRadius(4)
+                        }
+                        
+                    }.padding(.leading)
+                    
+                }
+                
                 TextField("Description", text: $whiteboardDescription, axis:.vertical)
                     .focused($isFocused)
                     .onChange(of: isFocused) { isFocused in
@@ -60,11 +82,11 @@ struct WhiteboardDetailView: View {
                 Button {
                     isEdit = !isEdit
                 } label: {
-                    Text(isEdit ? "Edit" : "Done")
+                    Text(isEdit ? "Done" : "Edit")
                 }
             }
         }
-        .navigationBarTitleDisplayMode(isEdit ? .large: .inline)
+        .navigationBarTitleDisplayMode(isEdit ? .inline: .large)
         .navigationTitle($whiteboard.title)
         .onAppear() {
             whiteboard.dateCreatedString = Date.now.formatted(date: .long, time: .shortened)
