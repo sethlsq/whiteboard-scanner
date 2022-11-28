@@ -31,7 +31,9 @@ struct NewWhiteboardView: View {
                 }
                 Section(header: Text("options")) {
                     TextField("Title", text: $whiteboardTitle)
+                        .frame(width: .infinity)
                     TextField("Description", text: $whiteboardDesc, axis: .vertical)
+                        .frame(width: .infinity)
                 }
                 Section() {
                     Button("Save") {
