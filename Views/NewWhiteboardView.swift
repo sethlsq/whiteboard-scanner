@@ -46,7 +46,7 @@ struct NewWhiteboardView: View {
                 
             }
             .navigationTitle("New Whiteboard")
-            .alert("Please enter a title", isPresented: $showAlertNoTitle) {
+            .alert("Title cannot be empty.", isPresented: $showAlertNoTitle) {
                 Button(role: .none) {
                     showAlertNoTitle = false
                 } label: {
