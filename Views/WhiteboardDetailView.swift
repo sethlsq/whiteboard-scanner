@@ -86,7 +86,7 @@ struct WhiteboardDetailView: View {
                                 Text("#\(tag)")
                             }
                             .disabled(!isEdit)
-                            .foregroundColor(isEdit ? .white : .accentColor)
+                            .foregroundColor(isEdit ? .red : .accentColor)
                             .padding(8)
                             .cornerRadius(4)
                         }
