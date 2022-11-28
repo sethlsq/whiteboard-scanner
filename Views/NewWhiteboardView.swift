@@ -23,13 +23,13 @@ struct NewWhiteboardView: View {
         NavigationView {
             List {
                 Section {
-//                    ScrollView(.horizontal) {
+                    //                    ScrollView(.horizontal) {
                     Image(uiImage: UIImage(data: outputImage.imgData[outputImage.imgData.count - 1])!)
                         .resizable()
                         .scaledToFill()
                         .frame(width: 256, height: 128)
                         .cornerRadius(12)
-//                    }
+                    //                    }
                 }
                 Section(header: Text("options")) {
                     TextField("Title", text: $whiteboardTitle)
@@ -39,6 +39,28 @@ struct NewWhiteboardView: View {
                     } label: {
                         Text("Add tag")
                     }
+                }
+                
+                if selectedTags.isEmpty == false{
+                ScrollView(.horizontal, showsIndicators: false) {
+                    
+                    HStack (spacing: 10) {
+                        
+                        ForEach (selectedTags, id: \.self) { tag in
+                            Text("#\(tag)")
+                                .foregroundColor(.accentColor)
+                                .padding(8)
+                                .background(Color.clear)
+                                .cornerRadius(4)
+                        }
+                        
+                    }
+                    
+                }
+                } else {
+                    
+                    
+                    
                 }
                 Section() {
                     Button("Save") {
@@ -65,13 +87,14 @@ struct NewWhiteboardView: View {
                 }
             }
             .alert("Assign Tag", isPresented: $isNewTagAlertShown) {
-                TextField("Tag", text: $tagClass.userInput)
+                TextField("Tag",  text: $tagClass.userInput)
                 Button("Cancel", role: .cancel, action: {})
                 Button {
                     if tagClass.userInput.isEmpty {
                         
                     } else {
                         selectedTags.append(tagClass.userInput)
+                        tagClass.userInput = ""
                     }
                 } label: {
                     Text("Add")
