@@ -11,10 +11,10 @@ struct NewWhiteboardView: View {
     
     @State var whiteboardTitle = ""
     @State var whiteboardDesc = ""
-    @State var hasTitle = false
     @ObservedObject var whiteboardManager: WhiteboardManager
     @Environment(\.presentationMode) var presentationMode
     @Binding var outputImage: OutputImage
+    @State var showAlertNoTitle = false
     
     var body: some View {
         NavigationView {
@@ -35,14 +35,26 @@ struct NewWhiteboardView: View {
                 }
                 Section() {
                     Button("Save") {
-                        whiteboardManager.whiteboards.append(Whiteboard(title: whiteboardTitle, description: whiteboardDesc, dateCreatedString: Date.now.formatted(date: .long, time: .shortened), dateCreated: Date(), imageData: outputImage.imgData))
-                        presentationMode.wrappedValue.dismiss()
+                        if (whiteboardTitle == "") {
+                            showAlertNoTitle = true
+                        } else {
+                            whiteboardManager.whiteboards.append(Whiteboard(title: whiteboardTitle, description: whiteboardDesc, dateCreatedString: Date.now.formatted(date: .long, time: .shortened), dateCreated: Date(), imageData: outputImage.imgData))
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                        
                     }
-                    .disabled(hasTitle)
                 }
                 
             }
             .navigationTitle("New Whiteboard")
+            .alert("Please enter a title", isPresented: $showAlertNoTitle) {
+                Button(role: .none) {
+                    showAlertNoTitle = false
+                } label: {
+                    Text("Continue")
+                }
+
+            }
         }
     }
 }
