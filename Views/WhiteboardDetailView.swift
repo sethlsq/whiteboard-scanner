@@ -15,7 +15,6 @@ struct WhiteboardDetailView: View {
     @State var whiteboardDescription: String = ""
     @State var whiteboardTitle: String = ""
     @FocusState private var isFocusedDescription: Bool
-    @FocusState private var isFocusedTitle: Bool
     @State var url: URL?
     
     
