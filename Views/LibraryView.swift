@@ -71,7 +71,7 @@ struct LibraryView: View {
                 }
                 
                 List() {
-                    Section (header: Text("PINNED")) {
+                    Section (header: Text("Pinned")) {
                         ForEach($whiteboardManager.sortedWhiteboards) { $whiteboard in
                             if whiteboard.isPinned {
                                 NavigationLink(destination: WhiteboardDetailView(whiteboard: $whiteboard)) {
@@ -124,7 +124,7 @@ struct LibraryView: View {
                     
                     
                     
-                    Section (header: Text("ALL")) {
+                    Section (header: Text("Whiteboards")) {
                         
                         ForEach($whiteboardManager.sortedWhiteboards) { $whiteboard in
                             if !whiteboard.isPinned {
