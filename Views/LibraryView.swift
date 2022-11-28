@@ -37,40 +37,42 @@ struct LibraryView: View {
     var body: some View {
         NavigationView() {
             VStack {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 10) {
-                        Button {
-                            withAnimation(.linear(duration: 0.25)) {
-                                whiteboardManager.filterString = ""
-                            }
-                        } label: {
-                            Text("All")
-                        }
-                        .foregroundColor(whiteboardManager.filterString.isEmpty ? .white : .accentColor)
-                        .padding(8)
-                        .background(whiteboardManager.filterString.isEmpty ? Color.accentColor : Color.clear)
-                        .cornerRadius(4)
-                        .padding(.leading)
-                        
-                        ForEach (allTags, id: \.self) { tag in
+                List() {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 10) {
                             Button {
-                                withAnimation(.linear) {
-                                    whiteboardManager.filterString = tag
-                                    whiteboardManager.hasSorted = 3
+                                withAnimation(.linear(duration: 0.25)) {
+                                    whiteboardManager.filterString = ""
                                 }
                             } label: {
-                                Text("#\(tag)")
+                                Text("All")
                             }
-                            .foregroundColor(whiteboardManager.filterString == tag ? .white : .accentColor)
+                            .foregroundColor(whiteboardManager.filterString.isEmpty ? .white : .accentColor)
                             .padding(8)
-                            .background(whiteboardManager.filterString == tag ? Color.accentColor : Color.clear)
+                            .background(whiteboardManager.filterString.isEmpty ? Color.accentColor : Color.clear)
                             .cornerRadius(4)
+                            .padding(.leading)
+                            
+                            ForEach (allTags, id: \.self) { tag in
+                                Button {
+                                    withAnimation(.linear) {
+                                        whiteboardManager.filterString = tag
+                                        whiteboardManager.hasSorted = 3
+                                    }
+                                } label: {
+                                    Text("#\(tag)")
+                                }
+                                .foregroundColor(whiteboardManager.filterString == tag ? .white : .accentColor)
+                                .padding(8)
+                                .background(whiteboardManager.filterString == tag ? Color.accentColor : Color.clear)
+                                .cornerRadius(4)
+                            }
+                            .padding(.trailing)
                         }
-                        .padding(.trailing)
                     }
-                }
-                
-                List() {
+                    .padding(.horizontal, -21)
+                    .listRowBackground(Color.clear)
+                    
                     Section (header: Text("Pinned")) {
                         ForEach($whiteboardManager.sortedWhiteboards) { $whiteboard in
                             if whiteboard.isPinned {

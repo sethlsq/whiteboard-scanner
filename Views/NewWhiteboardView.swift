@@ -40,22 +40,34 @@ struct NewWhiteboardView: View {
                     Button {
                         isNewTagAlertShown = true
                     } label: {
-                        Text("Add tag")
+                        Text("Add Tag")
                     }
                     if selectedTags.isEmpty == false{
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack (spacing: 10) {
-                            ForEach (selectedTags, id: \.self) { tag in
-                                Text("#\(tag)")
-                                    .foregroundColor(.accentColor)
-                                    .padding(8)
-                                    .background(Color.clear)
-                                    .cornerRadius(4)
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack (spacing: 10) {
+                                ForEach (selectedTags, id: \.self) { tag in
+                                    Menu {
+                                        Button(role: .destructive) {
+                                            if let index = selectedTags.firstIndex(of: tag) {
+                                                selectedTags.remove(at: index)
+                                            }
+                                        } label: {
+                                            Label("Delete Tag", systemImage: "trash")
+                                        }
+                                    } label : {
+                                        Text("#\(tag)")
+                                            .foregroundColor(.accentColor)
+                                            .padding(8)
+                                            .background(Color.clear)
+                                            .cornerRadius(4)
+                                            .contextMenu {
+                                            }
+                                        
+                                    }
+                                }
                             }
                             
                         }
-                        
-                    }
                     } else {
                         
                         
