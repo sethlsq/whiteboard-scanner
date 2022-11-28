@@ -40,7 +40,9 @@ struct LibraryView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 10) {
                         Button {
-                            whiteboardManager.filterString = ""
+                            withAnimation(.linear(duration: 0.25)) {
+                                whiteboardManager.filterString = ""
+                            }
                         } label: {
                             Text("All")
                         }
@@ -52,8 +54,10 @@ struct LibraryView: View {
                         
                         ForEach (allTags, id: \.self) { tag in
                             Button {
-                                whiteboardManager.filterString = tag
-                                whiteboardManager.hasSorted = 3
+                                withAnimation(.linear) {
+                                    whiteboardManager.filterString = tag
+                                    whiteboardManager.hasSorted = 3
+                                }
                             } label: {
                                 Text("#\(tag)")
                             }
