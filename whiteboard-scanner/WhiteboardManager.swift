@@ -106,7 +106,7 @@ class WhiteboardManager: ObservableObject {
             }
         }
     }
-
+    
     var whiteboardsSortedName: [Whiteboard] {
         get {
             whiteboards.sorted {
@@ -128,18 +128,18 @@ class WhiteboardManager: ObservableObject {
             whiteboard.whiteboardTags.contains(filterString)
         }
     }
-//    var tagFilteredWhiteboards: [Whiteboard] {
-//        get {
-//            whiteboards.filter {
-//                $0.whiteboardTags.contains(filterString)
-//            }
-//        } set {
-//            for whiteboard in newValue {
-//                let whiteboardIndex = whiteboards.firstIndex(where: { $0.id == whiteboard.id })!
-//                whiteboards[whiteboardIndex] = whiteboard
-//            }
-//        }
-//    }
+    //    var tagFilteredWhiteboards: [Whiteboard] {
+    //        get {
+    //            whiteboards.filter {
+    //                $0.whiteboardTags.contains(filterString)
+    //            }
+    //        } set {
+    //            for whiteboard in newValue {
+    //                let whiteboardIndex = whiteboards.firstIndex(where: { $0.id == whiteboard.id })!
+    //                whiteboards[whiteboardIndex] = whiteboard
+    //            }
+    //        }
+    //    }
     
     func load() {
         let archiveURL = getArchiveURL()

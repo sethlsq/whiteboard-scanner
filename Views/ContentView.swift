@@ -4,7 +4,7 @@
 //
 //  Created by Seth Loh on 22/10/22.
 //
- 
+
 import SwiftUI
 
 
@@ -19,7 +19,7 @@ struct ContentView: View {
                 .tabItem {
                     Label("Home", systemImage: "house.fill")
                 }
-
+            
             LibraryView(whiteboardManager: whiteboardManager)
                 .tabItem {
                     Label("Whiteboards", systemImage: "rectangle.fill.on.rectangle.fill")

@@ -25,15 +25,15 @@ struct LibraryView: View {
         return tags.sorted()
     }
     
-//    var tagFilteredWhiteboards: [Whiteboard] {
-//        if let userSelectedTag = userSelectedTag {
-//            return whiteboardManager.whiteboards.filter { (whiteboard) -> Bool in
-//                whiteboard.whiteboardTags.contains(userSelectedTag)
-//            }
-//        }
-//        return whiteboardManager.whiteboards
-//    }
- 
+    //    var tagFilteredWhiteboards: [Whiteboard] {
+    //        if let userSelectedTag = userSelectedTag {
+    //            return whiteboardManager.whiteboards.filter { (whiteboard) -> Bool in
+    //                whiteboard.whiteboardTags.contains(userSelectedTag)
+    //            }
+    //        }
+    //        return whiteboardManager.whiteboards
+    //    }
+    
     var body: some View {
         // NavigationStack {
         NavigationView() {
@@ -113,10 +113,10 @@ struct LibraryView: View {
                                 whiteboardManager.whiteboards.remove(at: whiteboardIndex)
                             }
                         }
-//                        .onMove { indices, newOffset in
-//                            whiteboardManager.whiteboards.move(fromOffsets: indices, toOffset: newOffset)
-//                        }
-
+                        //                        .onMove { indices, newOffset in
+                        //                            whiteboardManager.whiteboards.move(fromOffsets: indices, toOffset: newOffset)
+                        //                        }
+                        
                         //                    .swipeActions(edge: .leading) {
                         //                        Button {
                         //
@@ -171,9 +171,9 @@ struct LibraryView: View {
                                 whiteboardManager.whiteboards.remove(at: whiteboardIndex)
                             }
                         }
-//                        .onMove { indices, newOffset in
-//                            whiteboardManager.whiteboards.move(fromOffsets: indices, toOffset: newOffset)
-//                        }
+                        //                        .onMove { indices, newOffset in
+                        //                            whiteboardManager.whiteboards.move(fromOffsets: indices, toOffset: newOffset)
+                        //                        }
                     }
                 }
                 .navigationTitle("Whiteboards")
@@ -205,7 +205,7 @@ struct LibraryView: View {
                                 Image(systemName: "pencil.circle")
                                 Text("Sort by Date Edited")
                             }
-
+                            
                         } label: {
                             Image(systemName: "arrow.up.arrow.down")
                         }
@@ -214,14 +214,14 @@ struct LibraryView: View {
             }
         }
     }
-//    func whatarray() -> Binding<[Whiteboard]>  {
-//        switch whiteboardManager.hasSorted {
-//        case 1: return $whiteboardManager.whiteboardsSortedDate
-//        case 2: return $whiteboardManager.whiteboardsSortedName
-//        case 3: return $whiteboardManager.tagFilteredWhiteboards(filterString: whiteboardManager.filterString)
-//        default : return $whiteboardManager.sortedWhiteboards
-//        }
-//    }
+    //    func whatarray() -> Binding<[Whiteboard]>  {
+    //        switch whiteboardManager.hasSorted {
+    //        case 1: return $whiteboardManager.whiteboardsSortedDate
+    //        case 2: return $whiteboardManager.whiteboardsSortedName
+    //        case 3: return $whiteboardManager.tagFilteredWhiteboards(filterString: whiteboardManager.filterString)
+    //        default : return $whiteboardManager.sortedWhiteboards
+    //        }
+    //    }
 }
 
 struct LibraryView_Previews: PreviewProvider {

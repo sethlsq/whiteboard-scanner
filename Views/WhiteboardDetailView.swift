@@ -111,7 +111,7 @@ struct WhiteboardDetailView: View {
                     .padding(.top)
                     .padding(.trailing)
                     .padding(.leading)
-
+                
                 Text("Date Created - \(whiteboard.dateCreatedString)")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
@@ -146,10 +146,10 @@ struct WhiteboardDetailView: View {
         //                    .opacity(isEdit ? 100 : 0)
         //            }
         //        }
-                .onAppear {
-                    //            whiteboardTitle = whiteboard.title
-                    whiteboardDescription = whiteboard.description
-                }
+        .onAppear {
+            //            whiteboardTitle = whiteboard.title
+            whiteboardDescription = whiteboard.description
+        }
     }
 }
 
