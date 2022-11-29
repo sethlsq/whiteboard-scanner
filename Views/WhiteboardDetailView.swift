@@ -42,38 +42,6 @@ struct WhiteboardDetailView: View {
                         .padding()
                 }
                 .quickLookPreview($url)
-                
-                //                Button {
-                //
-                //                    isNewTagAlertShown = true
-                //
-                //                } label: {
-                //
-                //                    Text("Add Tag")
-                //                        .padding(10)
-                //                        .foregroundColor(isEdit ? .accentColor : .clear)
-                //                        .frame(maxWidth: .infinity)
-                //                        .cornerRadius(12)
-                //
-                //                }
-                //                .disabled(isEdit ? false : true)
-                //                .padding(.leading)
-                //                .padding(.trailing)
-                //                .alert("Assign Tag", isPresented: $isNewTagAlertShown) {
-                //                    TextField("Tag",  text: $tagClass.userInput)
-                //                    Button("Cancel", role: .cancel, action: {})
-                //                    Button {
-                //                        if tagClass.userInput.isEmpty {
-                //
-                //                        } else {
-                //                            whiteboard.whiteboardTags.append(tagClass.userInput)
-                //                            tagClass.userInput = ""
-                //                        }
-                //                    } label: {
-                //                        Text("Add")
-                //                    }
-                //                }
-                
                 ScrollView(.horizontal, showsIndicators: false) {
                     
                     HStack (spacing: 10) {
@@ -170,8 +138,8 @@ struct WhiteboardDetailView: View {
         //                    .opacity(isEdit ? 100 : 0)
         //            }
         //        }
-        .onAppear() {
-            whiteboard.dateCreatedString = Date.now.formatted(date: .long, time: .shortened)
+        .onAppear {
+//            whiteboard.dateCreatedString = Date.now.formatted(date: .long, time: .shortened)
             whiteboard.dateCreated = Date.now
             //            whiteboardTitle = whiteboard.title
             whiteboardDescription = whiteboard.description

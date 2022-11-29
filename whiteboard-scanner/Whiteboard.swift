@@ -11,7 +11,9 @@ struct Whiteboard: Identifiable, Codable {
     var id = UUID()
     var title: String = ""
     var description: String = ""
-    var dateCreatedString: String = ""
+    var dateCreatedString: String {
+        dateCreated.formatted(date: .long, time: .shortened)
+    }
     var dateCreated = Date()
     var whiteboardTags: [String]
     var isPinned: Bool = false

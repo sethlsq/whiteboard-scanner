@@ -105,11 +105,16 @@ struct LibraryView: View {
                             }
                         }
                         .onDelete { indexSet in
-                            whiteboardManager.whiteboards.remove(atOffsets: indexSet)
+                            let index = indexSet.first!
+                            let whiteboardToDelete = whiteboardManager.sortedWhiteboards[index]
+                            
+                            if let whiteboardIndex = whiteboardManager.whiteboards.firstIndex { $0.id == whiteboardToDelete.id } {
+                                whiteboardManager.whiteboards.remove(at: whiteboardIndex)
+                            }
                         }
-                        .onMove { indices, newOffset in
-                            whiteboardManager.whiteboards.move(fromOffsets: indices, toOffset: newOffset)
-                        }
+//                        .onMove { indices, newOffset in
+//                            whiteboardManager.whiteboards.move(fromOffsets: indices, toOffset: newOffset)
+//                        }
 
                         //                    .swipeActions(edge: .leading) {
                         //                        Button {
@@ -158,18 +163,16 @@ struct LibraryView: View {
                             }
                         }
                         .onDelete { indexSet in
-                            whiteboardManager.whiteboards.remove(atOffsets: indexSet)
+                            let index = indexSet.first!
+                            let whiteboardToDelete = whiteboardManager.sortedWhiteboards[index]
+                            
+                            if let whiteboardIndex = whiteboardManager.whiteboards.firstIndex { $0.id == whiteboardToDelete.id } {
+                                whiteboardManager.whiteboards.remove(at: whiteboardIndex)
+                            }
                         }
-                        .onMove { indices, newOffset in
-                            whiteboardManager.whiteboards.move(fromOffsets: indices, toOffset: newOffset)
-                        }
-                        //                    .swipeActions(edge: .leading) {
-                        //                        Button {
-                        //
-                        //                        } label: {
-                        //                            Image(systemName: "pin.fill")
-                        //                        }
-                        //                    }
+//                        .onMove { indices, newOffset in
+//                            whiteboardManager.whiteboards.move(fromOffsets: indices, toOffset: newOffset)
+//                        }
                     }
                 }
                 .navigationTitle("Whiteboards")
