@@ -24,7 +24,8 @@ struct HomeView: View {
     //
     
     var body: some View {
-        NavigationStack {
+        // NavigationStack {
+        NavigationView {
             VStack {
                 Menu {
                     // by camera
