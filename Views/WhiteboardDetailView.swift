@@ -16,7 +16,7 @@ struct WhiteboardDetailView: View {
     @ObservedObject var tagClass = TagClass()
     @State var whiteboardDescription: String = ""
     @State var whiteboardTitle: String = ""
-    @FocusState private var isFocusedDescription: Bool
+//    @FocusState private var isFocusedDescription: Bool
     @State var url: URL?
     
     
@@ -102,25 +102,39 @@ struct WhiteboardDetailView: View {
                 }
                 
                 TextField("Description", text: $whiteboardDescription, axis:.vertical)
-                    .focused($isFocusedDescription)
-                    .onChange(of: isFocusedDescription) { isFocusedDecription in
-                        whiteboard.description = whiteboardDescription
-                    }
+//                    .focused($isFocusedDescription)
+//                                    .onChange(of: isFocusedDescription) { isFocusedDecription in
+//                                        whiteboard.description = whiteboardDescription
+//                                    }
                     .padding(.trailing)
                     .padding(.leading)
                     .textFieldStyle(.roundedBorder)
                     .disabled(!isEdit)
                 
-                Text("\(whiteboard.dateCreatedString)")
+                Text("Last Edited - \(whiteboard.dateEditedString)")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
-                    .padding()
+                    .padding(.top)
+                    .padding(.trailing)
+                    .padding(.leading)
+
+                Text("Date Created - \(whiteboard.dateCreatedString)")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                    .padding(.trailing)
+                    .padding(.leading)
             }
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
                     isEdit = !isEdit
+                    // BELOW IS LAGGY CODE
+                    if !isEdit {
+                        whiteboard.description = whiteboardDescription
+                        whiteboard.dateEdited = Date.now
+                    }
+                    // LAGGY CODE END
                 } label: {
                     Text(isEdit ? "Done" : "Edit")
                 }
@@ -138,12 +152,10 @@ struct WhiteboardDetailView: View {
         //                    .opacity(isEdit ? 100 : 0)
         //            }
         //        }
-        .onAppear {
-//            whiteboard.dateCreatedString = Date.now.formatted(date: .long, time: .shortened)
-            whiteboard.dateCreated = Date.now
-            //            whiteboardTitle = whiteboard.title
-            whiteboardDescription = whiteboard.description
-        }
+                .onAppear {
+                    //            whiteboardTitle = whiteboard.title
+                    whiteboardDescription = whiteboard.description
+                }
     }
 }
 

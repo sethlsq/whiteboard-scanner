@@ -86,7 +86,7 @@ struct LibraryView: View {
                                         
                                         VStack(alignment: .leading) {
                                             Text(whiteboard.title)
-                                            Text("\(whiteboard.dateCreatedString)")
+                                            Text(whiteboardManager.hasSorted == 4 ? "\(whiteboard.dateEditedString)" : "\(whiteboard.dateCreatedString)")
                                                 .font(.subheadline)
                                                 .foregroundColor(.secondary)
                                             
@@ -145,7 +145,7 @@ struct LibraryView: View {
                                         
                                         VStack(alignment: .leading) {
                                             Text(whiteboard.title)
-                                            Text("\(whiteboard.dateCreatedString)")
+                                            Text(whiteboardManager.hasSorted == 1 ? "\(whiteboard.dateCreatedString)" : "\(whiteboard.dateEditedString)")
                                                 .font(.subheadline)
                                                 .foregroundColor(.secondary)
                                             
@@ -190,7 +190,7 @@ struct LibraryView: View {
                                 whiteboardManager.hasSorted = 1
                             } label: {
                                 Image(systemName: "calendar")
-                                Text("Sort by Date")
+                                Text("Sort by Date Created")
                             }
                             Button {
                                 whiteboardManager.hasSorted = 2
@@ -198,6 +198,13 @@ struct LibraryView: View {
                                 Image(systemName: "textformat")
                                 Text("Sort by Name")
                             }
+                            Button {
+                                whiteboardManager.hasSorted = 4
+                            } label: {
+                                Image(systemName: "pencil.circle")
+                                Text("Sort by Date Edited")
+                            }
+
                         } label: {
                             Image(systemName: "arrow.up.arrow.down")
                         }

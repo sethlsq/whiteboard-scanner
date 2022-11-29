@@ -14,7 +14,11 @@ struct Whiteboard: Identifiable, Codable {
     var dateCreatedString: String {
         dateCreated.formatted(date: .long, time: .shortened)
     }
+    var dateEditedString: String {
+        dateEdited.formatted(date: .long, time: .shortened)
+    }
     var dateCreated = Date()
+    var dateEdited = Date()
     var whiteboardTags: [String]
     var isPinned: Bool = false
     var imageData: [Data] = []

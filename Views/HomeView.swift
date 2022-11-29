@@ -79,15 +79,15 @@ struct HomeView: View {
                         }
                     }
                     Section(header: Text("Recents")) {
-                        ForEach($whiteboardManager.whiteboardsSortedDate) { $whiteboard in
-                            let index = whiteboardManager.whiteboardsSortedDate.firstIndex {
+                        ForEach($whiteboardManager.whiteboardsSortedEdited) { $whiteboard in
+                            let index = whiteboardManager.whiteboardsSortedEdited.firstIndex {
                                 $0.id == whiteboard.id
                             } ?? 100
                             
                             if index < 3 {
                                 NavigationLink(destination: WhiteboardDetailView(whiteboard: $whiteboard)) {
                                     VStack(alignment: .leading) {
-                                        Image(uiImage: UIImage(data: whiteboardManager.whiteboardsSortedDate[index].imageData[0])!)
+                                        Image(uiImage: UIImage(data: whiteboardManager.whiteboardsSortedEdited[index].imageData[0])!)
                                             .resizable()
                                             .scaledToFill()
                                             .frame(width: 256,height: 128)
@@ -114,14 +114,16 @@ struct HomeView: View {
                         }
                     }
                 }
-                .sheet(isPresented: $isNewWhiteboardViewPresented) {
+                .fullScreenCover(isPresented: $isNewWhiteboardViewPresented) {
                     NewWhiteboardView(whiteboardManager: whiteboardManager, outputImage: $outputImage, selectedTags: [])
                 }
-                .sheet(isPresented: $isDocumentScannerPresented) {
+                .fullScreenCover(isPresented: $isDocumentScannerPresented) {
                     DocumentCameraView() { images in
-                        isDocumentScannerPresented = false
-                        isNewWhiteboardViewPresented = true
-                        outputImage.imgData = images.compactMap { $0.pngData() }
+                        withAnimation(.easeInOut(duration: 0.5)) {
+                            isDocumentScannerPresented = false
+                            isNewWhiteboardViewPresented = true
+                            outputImage.imgData = images.compactMap { $0.pngData() }
+                        }
                     }
                     .background(.black)
                 }

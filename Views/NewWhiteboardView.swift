@@ -79,7 +79,7 @@ struct NewWhiteboardView: View {
                         if (whiteboardTitle == "") {
                             isNoTitleAlertShown = true
                         } else {
-                            whiteboardManager.whiteboards.append(Whiteboard(title: whiteboardTitle, description: whiteboardDesc, dateCreated: Date(), whiteboardTags: selectedTags, imageData: outputImage.imgData))
+                            whiteboardManager.whiteboards.append(Whiteboard(title: whiteboardTitle, description: whiteboardDesc, dateCreated: Date(), dateEdited: Date(), whiteboardTags: selectedTags, imageData: outputImage.imgData))
                             presentationMode.wrappedValue.dismiss()
                         }
                         

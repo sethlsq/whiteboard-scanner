@@ -47,6 +47,7 @@ class WhiteboardManager: ObservableObject {
             case 1: sortedWhiteboards = whiteboardsSortedDate
             case 2: sortedWhiteboards = whiteboardsSortedName
             case 3: sortedWhiteboards = tagFilteredWhiteboards(filterString: filterString)
+            case 4: sortedWhiteboards = whiteboardsSortedEdited
             default : sortedWhiteboards = whiteboards
             }
             
@@ -77,6 +78,19 @@ class WhiteboardManager: ObservableObject {
             }
         }
     }
+    var whiteboardsSortedEdited: [Whiteboard] {
+        get {
+            whiteboards.sorted {
+                $0.dateEdited.compare($1.dateEdited) == .orderedDescending
+            }
+        } set {
+            for whiteboard in newValue {
+                let whiteboardIndex = whiteboards.firstIndex(where: { $0.id == whiteboard.id })!
+                whiteboards[whiteboardIndex] = whiteboard
+            }
+        }
+    }
+
     var whiteboardsSortedName: [Whiteboard] {
         get {
             whiteboards.sorted {
