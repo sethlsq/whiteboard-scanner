@@ -25,15 +25,6 @@ struct LibraryView: View {
         return tags.sorted()
     }
     
-    //    var tagFilteredWhiteboards: [Whiteboard] {
-    //        if let userSelectedTag = userSelectedTag {
-    //            return whiteboardManager.whiteboards.filter { (whiteboard) -> Bool in
-    //                whiteboard.whiteboardTags.contains(userSelectedTag)
-    //            }
-    //        }
-    //        return whiteboardManager.whiteboards
-    //    }
-    
     var body: some View {
         // NavigationStack {
         NavigationView() {
@@ -90,7 +81,6 @@ struct LibraryView: View {
                                             Text(whiteboardManager.hasSorted == 4 ? "\(whiteboard.dateEditedString)" : "\(whiteboard.dateCreatedString)")
                                                 .font(.subheadline)
                                                 .foregroundColor(.secondary)
-                                            
                                         }
                                     }
                                 }
@@ -116,22 +106,7 @@ struct LibraryView: View {
                         //                        .onMove { indices, newOffset in
                         //                            whiteboardManager.whiteboards.move(fromOffsets: indices, toOffset: newOffset)
                         //                        }
-                        
-                        //                    .swipeActions(edge: .leading) {
-                        //                        Button {
-                        //
-                        //                            whiteboardManager.whiteboard.isPinned = isCurrentlyPinned
-                        //
-                        //
-                        //                        } label: {
-                        //                            Image(systemName: "pin.slash.fill")
-                        //                        }
-                        //                    }
-                        
                     }
-                    
-                    
-                    
                     Section (header: Text("Whiteboards")) {
                         
                         ForEach($whiteboardManager.sortedWhiteboards) { $whiteboard in
@@ -166,7 +141,6 @@ struct LibraryView: View {
                         .onDelete { indexSet in
                             let index = indexSet.first!
                             let whiteboardToDelete = whiteboardManager.sortedWhiteboards[index]
-                            
                             if let whiteboardIndex = whiteboardManager.whiteboards.firstIndex { $0.id == whiteboardToDelete.id } {
                                 whiteboardManager.whiteboards.remove(at: whiteboardIndex)
                             }
@@ -214,14 +188,6 @@ struct LibraryView: View {
             }
         }
     }
-    //    func whatarray() -> Binding<[Whiteboard]>  {
-    //        switch whiteboardManager.hasSorted {
-    //        case 1: return $whiteboardManager.whiteboardsSortedDate
-    //        case 2: return $whiteboardManager.whiteboardsSortedName
-    //        case 3: return $whiteboardManager.tagFilteredWhiteboards(filterString: whiteboardManager.filterString)
-    //        default : return $whiteboardManager.sortedWhiteboards
-    //        }
-    //    }
 }
 
 struct LibraryView_Previews: PreviewProvider {
