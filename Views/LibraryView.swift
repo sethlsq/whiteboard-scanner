@@ -35,7 +35,7 @@ struct LibraryView: View {
 //    }
  
     var body: some View {
-        NavigationView() {
+        NavigationStack() {
             VStack {
                 List() {
                     ScrollView(.horizontal, showsIndicators: false) {
