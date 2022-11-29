@@ -33,11 +33,26 @@ class WhiteboardManager: ObservableObject {
         return documentsDirectory.appendingPathComponent(plistName)
     }
     
+    var lastSave = Date.distantPast
+    var timerRunning = false
+    
     func save() {
-        let archiveURL = getArchiveURL()
-        let propertyListEncoder = PropertyListEncoder()
-        let encodedwhiteboards = try? propertyListEncoder.encode(whiteboards)
-        try? encodedwhiteboards?.write(to: archiveURL, options: .noFileProtection)
+        if abs(lastSave.timeIntervalSinceNow) > 1 {
+            let archiveURL = getArchiveURL()
+            let propertyListEncoder = PropertyListEncoder()
+            let encodedwhiteboards = try? propertyListEncoder.encode(whiteboards)
+            
+            DispatchQueue.global(qos: .utility).async {
+                try? encodedwhiteboards?.write(to: archiveURL, options: .noFileProtection)
+            }
+            lastSave = .now
+        } else if !timerRunning {
+            timerRunning = true
+            Timer.scheduledTimer(withTimeInterval: abs(lastSave.timeIntervalSinceNow) + 0.1, repeats: false) { _ in
+                self.save()
+                self.timerRunning = false
+            }
+        }
     }
     
     var sortedWhiteboards: [Whiteboard] {
@@ -56,6 +71,7 @@ class WhiteboardManager: ObservableObject {
         } set {
             for whiteboard in newValue {
                 let whiteboardIndex = whiteboards.firstIndex(where: { $0.id == whiteboard.id })!
+                
                 whiteboards[whiteboardIndex] = whiteboard
             }
         }
