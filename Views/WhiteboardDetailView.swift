@@ -16,9 +16,7 @@ struct WhiteboardDetailView: View {
     @ObservedObject var tagClass = TagClass()
     @State var whiteboardDescription: String = ""
     @State var whiteboardTitle: String = ""
-//    @FocusState private var isFocusedDescription: Bool
     @State var url: URL?
-    
     
     var body: some View {
         ScrollView {
@@ -102,10 +100,6 @@ struct WhiteboardDetailView: View {
                 }
                 
                 TextField("Description", text: $whiteboardDescription, axis:.vertical)
-//                    .focused($isFocusedDescription)
-//                                    .onChange(of: isFocusedDescription) { isFocusedDecription in
-//                                        whiteboard.description = whiteboardDescription
-//                                    }
                     .padding(.trailing)
                     .padding(.leading)
                     .textFieldStyle(.roundedBorder)
