@@ -100,7 +100,7 @@ struct HomeView: View {
                     }
                 }
                 .navigationTitle("Home")
-                .photosPicker(isPresented: $isPhotosPickerPresented, selection: $selectedImages, matching: .images)
+                .photosPicker(isPresented: $isPhotosPickerPresented, selection: $selectedImages, maxSelectionCount: 1, matching: .images)
                 .onChange(of: selectedImages) { newItems in
                     Task {
                         // Retrieve selected asset in the form of Data
@@ -112,6 +112,8 @@ struct HomeView: View {
                                 isNewWhiteboardViewPresented = true
                             }
                         }
+                        
+                        selectedImages = []
                     }
                 }
                 .fullScreenCover(isPresented: $isNewWhiteboardViewPresented) {
