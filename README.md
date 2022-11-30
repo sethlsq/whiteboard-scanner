@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./Other/appicon-round.png" alt="" width="250"/>
+</p>
+
 # SnapBoard
 
 Simple scanner app for whiteboards that also has folders for organising whiteboards scanned and notetaking features.
