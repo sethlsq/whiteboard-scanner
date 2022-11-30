@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./Other/appicon-round.png" alt="" width="250"/>
+  <img src="./other/appicon-round.png" alt="" width="250"/>
 </p>
 
 # SnapBoard
