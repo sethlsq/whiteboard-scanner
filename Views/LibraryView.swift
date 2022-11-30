@@ -168,16 +168,16 @@ struct LibraryView: View {
                                 Text("Sort by Date Created")
                             }
                             Button {
-                                whiteboardManager.hasSorted = 2
-                            } label: {
-                                Image(systemName: "textformat")
-                                Text("Sort by Name")
-                            }
-                            Button {
                                 whiteboardManager.hasSorted = 4
                             } label: {
                                 Image(systemName: "pencil.circle")
                                 Text("Sort by Date Edited")
+                            }
+                            Button {
+                                whiteboardManager.hasSorted = 2
+                            } label: {
+                                Image(systemName: "textformat")
+                                Text("Sort by Name")
                             }
                             
                         } label: {
