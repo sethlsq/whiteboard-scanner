@@ -32,8 +32,8 @@ struct HomeView: View {
                     Button {
                         isDocumentScannerPresented = true
                     } label: {
-                        Image(systemName: "camera")
-                        Text("Camera")
+                        Image(systemName: "camera.viewfinder")
+                        Text("Scan")
                     }
                     //by photos
                     Button {
@@ -46,8 +46,8 @@ struct HomeView: View {
                     }
                 } label: {
                     HStack() {
-                        Image(systemName: "doc.viewfinder")
-                        Text("New Scan")
+                        Image(systemName: "plus.rectangle.fill.on.rectangle.fill")
+                        Text("Add Whiteboard")
                     }
                     .bold()
                     .padding()

@@ -90,7 +90,7 @@ struct NewWhiteboardView: View {
                     .foregroundColor(.red)
                 }
             }
-            .navigationTitle("New Whiteboard")
+            .navigationTitle("Add New Whiteboard")
             .alert("Title cannot be empty.", isPresented: $isNoTitleAlertShown) {
                 Button(role: .none) {
                     isNoTitleAlertShown = false
