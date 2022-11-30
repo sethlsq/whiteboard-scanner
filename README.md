@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://swiftinsg.org/">
+    <a href="https://app.swiftinsg.org/snapboard/">
       <img src="./other/appicon-round.png" alt="" width="250"/>
     </a>
 </p>
