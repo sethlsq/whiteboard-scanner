@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "8A61AF82-8063-4CDD-9AEA-2ADEB4DE10B7"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "86BE1B49-512B-49DA-ACDC-1AD70EC8B1E9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "whiteboard-scanner/Whiteboard.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "dateCreatedString"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "86BE1B49-512B-49DA-ACDC-1AD70EC8B1E9 - dee5a646fe9e4edf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "whiteboard_scanner.Whiteboard.init() -&gt; whiteboard_scanner.Whiteboard"
+                  moduleName = "whiteboard-scanner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sethlsq/Files/Code/SwiftInSG/whiteboard-scanner/whiteboard-scanner/Whiteboard.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "236">
+               </Location>
+               <Location
+                  uuid = "86BE1B49-512B-49DA-ACDC-1AD70EC8B1E9 - 66a08875c439529f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "whiteboard_scanner.Whiteboard.init(from: Swift.Decoder) throws -&gt; whiteboard_scanner.Whiteboard"
+                  moduleName = "whiteboard-scanner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sethlsq/Files/Code/SwiftInSG/whiteboard-scanner/whiteboard-scanner/Whiteboard.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "468">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
