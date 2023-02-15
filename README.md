@@ -14,7 +14,7 @@ Features:
 - Addition of title and description / notes
 - Recently scanned whiteboards
 - Pinning whiteboards
-- Sorting of whitebaords by alphabetical order or date
+- Sorting of whiteboards by alphabetical order or date
 - Searching of whiteboards
 - Tagging of whiteboards for organisation
 - QuickLook: Live Text, Translate, Exporting, Mark Up, Copy Subject, etc.
